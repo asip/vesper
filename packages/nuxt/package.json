@@ -30,6 +30,7 @@
     "fmt": "oxfmt"
   },
   "devDependencies": {
+    "@formkit/tempo": "^1.0.0",
     "@nuxt/eslint": "latest",
     "@nuxtjs/i18n": "10.2.3",
     "@types/node": "^24.11.0",

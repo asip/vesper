@@ -1,4 +1,4 @@
-import { computed } from 'vue'
+import { computed } from '@vue/reactivity'
 
 import { format, tzDate } from '@formkit/tempo'
 
