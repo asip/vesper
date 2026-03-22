@@ -7,7 +7,7 @@ Vesper is a framework built on Vue.js and Nuxt for rapid development.
 Vesper Vue is built for Vue.js.
 
 ``` bash
-pnpm i @vesper/vue
+pnpm i @vesperjs/vue
 ```
 
 ## Vesper Nuxt Layer
@@ -19,7 +19,7 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   ...
-  extends: ['@vesper/nuxt'],
+  extends: ['@vesperjs/nuxt'],
   ...
 })
 ```
