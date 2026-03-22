@@ -1,6 +1,16 @@
 {
   "name": "@vesperjs/nuxt",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "keywords": [
+    "nuxt",
+    "vue.js"
+  ],
+  "license": "MIT",
+  "author": "Yasumada Ashida",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asip/vesper"
+  },
   "files": [
     "app",
     "interfaces",

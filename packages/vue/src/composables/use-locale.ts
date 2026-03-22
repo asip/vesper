@@ -3,7 +3,7 @@ import { i18n } from '../i18n'
 export const useLocale = () => {
   const { locale, availableLocales, fallbackLocale } = i18n.global
 
-  const autoDetect = (): void => {
+  const autodetect = (): void => {
     const viewLocale = globalThis.navigator.languages[0]
 
     type AvailableLocales = (typeof availableLocales)[number]
@@ -13,5 +13,5 @@ export const useLocale = () => {
     ) as AvailableLocales
   }
 
-  return { locale, autoDetect }
+  return { locale, autodetect }
 }

@@ -5,7 +5,7 @@ export const useLocale = () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { $i18n } = useNuxtApp() as any
   const { locale, availableLocales, fallbackLocale } = $i18n
-  const autoDetect = (): void => {
+  const autodetect = (): void => {
     const browserLocale: string | null = useBrowserLocale()
     // console.log(browserLocale)
     // console.log(locales.value)
@@ -19,5 +19,5 @@ export const useLocale = () => {
     ) as AvailableLocales
   }
 
-  return { locale, autoDetect }
+  return { locale, autodetect }
 }
