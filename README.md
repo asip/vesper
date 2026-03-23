@@ -23,3 +23,9 @@ export default defineNuxtConfig({
   ...
 })
 ```
+
+## App that use Vesper
+
+<https://github.com/asip/easel-front>
+
+<https://github.com/asip/easel-legacy>
