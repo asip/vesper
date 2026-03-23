@@ -27,9 +27,7 @@ export default defineNuxtConfig({
 ## App that use Vesper
 
 * Vesper Vue
-
 <https://github.com/asip/easel-legacy>
 
 * Vesper Nuxt Layer
-
 <https://github.com/asip/easel-front>
