@@ -1,6 +1,6 @@
 import { useBaseUrlStore } from '../../../stores/use-base-url-store'
 
-export function useApiConstants() {
+export const useApiConstants = function () {
   const { baseURL } = useBaseUrlStore()
 
   return { baseURL }

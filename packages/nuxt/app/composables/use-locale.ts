@@ -1,7 +1,7 @@
 import { useNuxtApp } from 'nuxt/app'
 import { useBrowserLocale } from '#i18n'
 
-export const useLocale = () => {
+export const useLocale = function () {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { $i18n } = useNuxtApp() as any
   const { locale, availableLocales, fallbackLocale } = $i18n

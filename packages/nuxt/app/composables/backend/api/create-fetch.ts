@@ -1,3 +1,3 @@
-export const createFetch = () => {
+export const createFetch = function () {
   return $fetch.create({})
 }

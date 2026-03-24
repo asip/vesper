@@ -2,7 +2,7 @@ import { computed } from '@vue/reactivity'
 
 import { $timeZone } from './nano'
 
-export function useTimeZoneStore() {
+export const useTimeZoneStore = function () {
   const serverTimeZone = computed<string>({
     get() {
       return $timeZone.get()

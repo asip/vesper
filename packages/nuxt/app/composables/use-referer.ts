@@ -1,6 +1,6 @@
 import { useState } from 'nuxt/app'
 
-export function useReferer() {
+export const useReferer = function () {
   const referers = useState<Record<string, string>>('referers', () => {
     return {}
   })

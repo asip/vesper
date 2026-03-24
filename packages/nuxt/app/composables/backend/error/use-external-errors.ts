@@ -1,7 +1,7 @@
 import type { Flash } from '../../../../interfaces'
 import type { ErrorMessages } from '../../../../types'
 
-export function useExternalErrors<P extends string>({ flash }: { flash: Ref<Flash> }) {
+export const useExternalErrors = function <P extends string>({ flash }: { flash: Ref<Flash> }) {
   const errors = ref<ErrorMessages<P>>({})
 
   const externalErrors = computed<ErrorMessages<P>>({

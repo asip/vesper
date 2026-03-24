@@ -3,7 +3,7 @@ import { computed, ref, type Ref } from '@vue/reactivity'
 import type { ErrorMessages } from '../../../types'
 import type { Flash } from '../../../interfaces'
 
-export function useExternalErrors<P extends string>({ flash }: { flash: Ref<Flash> }) {
+export const useExternalErrors = function <P extends string>({ flash }: { flash: Ref<Flash> }) {
   const errors = ref<ErrorMessages<P>>({})
 
   const externalErrors = computed<ErrorMessages<P>>({

@@ -17,7 +17,7 @@ interface TZOptions {
   value: string
 }
 
-export const useTimeZone = () => {
+export const useTimeZone = function () {
   const runtimeConfig = useRuntimeConfig()
   const { locale } = useLocale()
   const { toISO8601, formatHTML } = useDatetimeLocal()

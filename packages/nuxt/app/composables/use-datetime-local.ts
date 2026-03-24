@@ -2,7 +2,7 @@ import { parse, format } from '@formkit/tempo'
 
 import { useLocale } from './use-locale'
 
-export const useDatetimeLocal = () => {
+export const useDatetimeLocal = function () {
   const { locale } = useLocale()
 
   const parseDT = (datetime: string, format: string): Date => {

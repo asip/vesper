@@ -24,7 +24,7 @@ interface UseAlertCallerType {
   clearAccount?: () => void
 }
 
-export function useAlert<BER extends object = BackendErrorResource>({
+export const useAlert = function <BER extends object = BackendErrorResource>({
   flash,
   caller,
 }: UseAlertOptions): {

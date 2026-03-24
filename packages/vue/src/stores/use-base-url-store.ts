@@ -2,7 +2,7 @@ import { computed } from '@vue/reactivity'
 
 import { $baseUrl } from './nano'
 
-export function useBaseUrlStore() {
+export const useBaseUrlStore = function () {
   const baseURL = computed<string>({
     get() {
       return $baseUrl.get()

@@ -21,7 +21,7 @@ export interface QueryAPIOptions {
 }
 
 // eslint-disable-next-line
-export const useQueryApi = async <T = unknown, E = any>(
+export const useQueryApi = async function <T = unknown, E = any>(
   url: string,
   options?: QueryAPIOptions,
 ): Promise<{
@@ -29,7 +29,7 @@ export const useQueryApi = async <T = unknown, E = any>(
   data: T | undefined
   error: FetchError<E> | undefined
   pending: boolean
-}> => {
+}> {
   const { commonHeaders } = useHttpHeaders()
   const { baseURL } = useApiConstants()
 

@@ -1,6 +1,6 @@
 import { Router, RouterConfig } from '@nanostores/router'
 
-export function useNanoRoute<T extends RouterConfig>(router: Router<T>) {
+export const useNanoRoute = function <T extends RouterConfig>(router: Router<T>) {
   const page = router.get()
 
   const params = page?.params

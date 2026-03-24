@@ -17,7 +17,7 @@ interface MutationAPIOptions {
 }
 
 // eslint-disable-next-line
-export const useMutationApi = async <T = unknown, E = any>(
+export const useMutationApi = async function <T = unknown, E = any>(
   url: string,
   { method, body = {}, token = null, onRequestError, onResponseError }: MutationAPIOptions,
 ): Promise<{
@@ -25,7 +25,7 @@ export const useMutationApi = async <T = unknown, E = any>(
   data: T | undefined
   error: FetchError<E> | undefined
   pending: boolean
-}> => {
+}> {
   const { commonHeaders } = useHttpHeaders()
   const { baseURL } = useApiConstants()
 

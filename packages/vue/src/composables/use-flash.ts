@@ -2,7 +2,7 @@ import { ref } from '@vue/reactivity'
 
 import type { Flash } from '../interfaces'
 
-export function useFlash() {
+export const useFlash = function () {
   const flash = ref<Flash>({})
 
   const clearFlash = (): void => {

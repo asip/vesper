@@ -2,7 +2,7 @@ import type { Flash } from '../../interfaces'
 
 import { ref } from 'vue'
 
-export function useFlash() {
+export const useFlash = function () {
   const flash = ref<Flash>({})
 
   const clearFlash = (): void => {

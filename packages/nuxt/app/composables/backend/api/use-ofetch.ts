@@ -1,10 +1,10 @@
 import type { $Fetch, FetchOptions, FetchError } from 'ofetch'
 
 // eslint-disable-next-line
-export const useOFetch = async <T = unknown, E = any>(
+export const useOFetch = async function <T = unknown, E = any>(
   url: string,
   options?: FetchOptions<'json'>,
-) => {
+) {
   const { $api } = useNuxtApp()
 
   const pending = ref<boolean>(true)

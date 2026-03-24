@@ -26,7 +26,10 @@ export type QueryAPIOptions = {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useQueryApi = async <T = unknown, E = any>(url: string, options?: QueryAPIOptions) => {
+export const useQueryApi = async function <T = unknown, E = any>(
+  url: string,
+  options?: QueryAPIOptions,
+) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { $api } = useNuxtApp() as any
   const { commonHeaders } = useHttpHeaders()

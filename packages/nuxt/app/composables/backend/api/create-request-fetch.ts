@@ -1,5 +1,5 @@
 import { useRequestFetch } from 'nuxt/app'
 
-export const createRequestFetch = () => {
+export const createRequestFetch = function () {
   return useRequestFetch()
 }

@@ -3,7 +3,7 @@ import { computed, type Ref } from '@vue/reactivity'
 import { useLocale } from '../../use-locale'
 import { useTimeZone } from '../../use-time-zone'
 
-export const useHttpHeaders = () => {
+export const useHttpHeaders = function () {
   const { locale } = useLocale()
   const { timeZone } = useTimeZone()
 

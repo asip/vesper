@@ -1,6 +1,6 @@
 import { i18n } from '../i18n'
 
-export const useLocale = () => {
+export const useLocale = function () {
   const { locale, availableLocales, fallbackLocale } = i18n.global
 
   const autodetect = (): void => {

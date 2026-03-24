@@ -1,7 +1,7 @@
 import { computed } from '@vue/reactivity'
 import { useLocale } from '../../use-locale'
 
-export const useHttpHeaders = () => {
+export const useHttpHeaders = function () {
   const { locale } = useLocale()
 
   const commonHeaders = computed<Record<string, string>>(() => ({
