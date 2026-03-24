@@ -1,5 +1,5 @@
-export const useEntity = function <M extends object, R extends object>() {
-  const create = ({ from }: { from: R }): M => {
+export const useEntity = function <M extends object, R extends object = M>() {
+  const create = ({ from }: { from: R | M }): M => {
     const model: Partial<M> = {}
     Object.assign(model, from)
     return model as M
