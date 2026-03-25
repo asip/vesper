@@ -6,7 +6,7 @@ export const useLocale = function () {
   const { $i18n } = useNuxtApp() as any
   const { locale, availableLocales, fallbackLocale } = $i18n
   const autodetect = (): void => {
-    const browserLocale: string | null = useBrowserLocale()
+    const browserLocale: string | null = useBrowserLocale()?.split('-')[0] ?? null
     // console.log(browserLocale)
     // console.log(locales.value)
 

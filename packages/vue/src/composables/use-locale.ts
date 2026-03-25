@@ -4,7 +4,8 @@ export const useLocale = function () {
   const { locale, availableLocales, fallbackLocale } = i18n.global
 
   const autodetect = (): void => {
-    const viewLocale = globalThis.navigator.languages[0]
+    const viewLocale =
+      (globalThis.navigator.language || globalThis.navigator.languages[0]).split('-')[0]
 
     type AvailableLocales = (typeof availableLocales)[number]
 

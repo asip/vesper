@@ -8,7 +8,7 @@ export const useOFetch = async function <T = unknown, E = any>(
   url: string,
   options?: FetchOptions<'json'>,
 ) {
-  const pending = ref<boolean>(true)
+  const pending = ref(true)
 
   const data = ref<T>()
   const error = ref<FetchError<E>>()

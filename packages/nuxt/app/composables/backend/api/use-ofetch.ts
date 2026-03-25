@@ -7,7 +7,7 @@ export const useOFetch = async function <T = unknown, E = any>(
 ) {
   const { $api } = useNuxtApp()
 
-  const pending = ref<boolean>(true)
+  const pending = ref(true)
 
   const data = ref<T>()
   const error = ref<FetchError<E>>()
