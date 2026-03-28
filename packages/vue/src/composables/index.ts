@@ -1,6 +1,8 @@
 export { useApiConstants, useOFetch, useMutationApi, useQueryApi } from './backend'
 export { useExternalErrors, useAlert } from './backend'
 
+export { useElement } from './ui'
+
 export { useDate } from './util'
 
 export { useEntity } from './use-entity'

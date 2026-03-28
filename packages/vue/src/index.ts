@@ -1,5 +1,6 @@
 export { useApiConstants, useOFetch, useMutationApi, useQueryApi } from './composables'
 export { useExternalErrors, useAlert } from './composables'
+export { useElement } from './composables'
 export { useDate } from './composables'
 export { useEntity, useFlash, useLocale, useNanoRoute } from './composables'
 export type { UseAlertType, UseFlashType, UseNanoRouteType } from './composables'
