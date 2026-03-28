@@ -43,7 +43,7 @@
     "eslint": "^9.39.4",
     "eslint-plugin-vue": "^10.8.0",
     "oxfmt": "^0.42.0",
-    "tsdown": "^0.21.5",
+    "tsdown": "^0.21.6",
     "typescript": "^5.9.3"
   }
 }
