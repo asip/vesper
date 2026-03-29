@@ -1,6 +1,6 @@
 # Vesper
 
-Vesper is a model-driven framework built on Vue.js and Nuxt for rapid development.
+Vesper is a framework built on Vue.js and Nuxt for rapid model-driven development.
 
 ## Vesper Vue
 
