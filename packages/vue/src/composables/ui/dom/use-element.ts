@@ -5,6 +5,8 @@ export const useElement = function <EL extends Element, P extends string>(
   el: EL | undefined | null,
   { property }: { property: P },
 ) {
+  const obj: Partial<Record<P, Ref<string, string | null | undefined>>> = {}
+
   const propertyRef = computed<string, string | null | undefined>({
     get() {
       return el && property in el
@@ -20,7 +22,6 @@ export const useElement = function <EL extends Element, P extends string>(
     },
   })
 
-  const obj: Partial<Record<P, Ref<string, string | null | undefined>>> = {}
   obj[property] = propertyRef
 
   return obj as Record<P, Ref<string, string | null | undefined>>
