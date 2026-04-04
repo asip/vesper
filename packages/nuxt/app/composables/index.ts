@@ -1,3 +1,5 @@
+export { useEntity, useFlash } from '@vesperjs/shared'
+
 export type { QueryAPIOptions } from './backend'
 
 export { createFetch, createRequestFetch, useOFetch, useMutationApi, useQueryApi } from './backend'

@@ -7,8 +7,8 @@ export type { UseAlertType, UseFlashType, UseNanoRouteType } from './composables
 
 export { i18n } from './i18n'
 
-export type { BackendErrorInfo } from './interfaces'
-export type { BackendErrorResource, ErrorsResource } from './interfaces'
-export type { Flash } from './interfaces'
+export type { BackendErrorInfo } from './types'
+export type { BackendErrorResource, ErrorsResource } from './types'
+export type { Flash } from './types'
 
 export type { ErrorMessages } from './types'

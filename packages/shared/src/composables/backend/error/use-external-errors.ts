@@ -1,5 +1,6 @@
-import type { Flash } from '../../../../interfaces'
-import type { ErrorMessages } from '../../../../types'
+import { computed, ref, type Ref } from '@vue/reactivity'
+
+import type { ErrorMessages, Flash } from '../../../types'
 
 export const useExternalErrors = function <P extends string>({ flash }: { flash: Ref<Flash> }) {
   const errors = ref<ErrorMessages<P>>({})

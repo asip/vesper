@@ -7,8 +7,8 @@ import type {
   BackendErrorResource,
   BackendErrorInfo,
   Flash,
-} from '../../interfaces'
-import type { ErrorMessages } from '../../types'
+  ErrorMessages,
+} from '../../types'
 
 import { useBackendErrorInfo } from './error'
 

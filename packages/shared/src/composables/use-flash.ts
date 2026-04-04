@@ -1,6 +1,6 @@
 import { ref } from '@vue/reactivity'
 
-import type { Flash } from '../interfaces'
+import type { Flash } from '../types'
 
 export const useFlash = function () {
   const flash = ref<Flash>({})

@@ -13,7 +13,6 @@
   },
   "files": [
     "app",
-    "interfaces",
     "types",
     "nuxt.config.ts",
     "app.config.ts"
@@ -33,11 +32,12 @@
     "@formkit/tempo": "^1.0.0",
     "@nuxt/eslint": "latest",
     "@nuxtjs/i18n": "^10.2.4",
-    "@types/node": "^24.12.0",
+    "@types/node": "^24.12.2",
+    "@vesperjs/shared": "0.1.9",
     "eslint": "^9.39.4",
     "nuxt": "^4.3.1",
     "ofetch": "^1.5.1",
-    "oxfmt": "^0.42.0",
+    "oxfmt": "^0.43.0",
     "typescript": "^5.9.3",
     "vue": "^3.6.0-beta.9"
   }

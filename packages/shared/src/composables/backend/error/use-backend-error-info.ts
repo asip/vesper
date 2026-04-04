@@ -1,4 +1,5 @@
-import type { BackendErrorInfo } from '../../../../interfaces'
+import { computed, ref } from '@vue/reactivity'
+import type { BackendErrorInfo } from '../../../types'
 
 export const useBackendErrorInfo = function <R extends object>() {
   const info = ref<BackendErrorInfo<R>>({})
