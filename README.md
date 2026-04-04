@@ -14,6 +14,10 @@ pnpm i @vesperjs/vue
 
 Vesper Nuxt Layer is built for Nuxt.
 
+``` bash
+pnpm i @vesperjs/nuxt
+```
+
 ``` nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt/config'
 
