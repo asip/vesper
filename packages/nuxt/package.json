@@ -1,6 +1,6 @@
 {
   "name": "@vesperjs/nuxt",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "keywords": [
     "nuxt",
     "vue.js"
@@ -33,7 +33,7 @@
     "@nuxt/eslint": "latest",
     "@nuxtjs/i18n": "^10.2.4",
     "@types/node": "^24.12.2",
-    "@vesperjs/shared": "0.1.9",
+    "@vesperjs/shared": "0.2.0",
     "eslint": "^9.39.4",
     "nuxt": "^4.3.1",
     "ofetch": "^1.5.1",

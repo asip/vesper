@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  '@vesperjs/shared': link:../../../../Library/pnpm/global/5/node_modules/@vesperjs/shared
-
 importers:
 
   .:
@@ -21,8 +18,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(nanostores@1.2.0)
       '@vesperjs/shared':
-        specifier: link:../../../../Library/pnpm/global/5/node_modules/@vesperjs/shared
-        version: link:../../../../Library/pnpm/global/5/node_modules/@vesperjs/shared
+        specifier: 0.2.0
+        version: 0.2.0
       '@vue/reactivity':
         specifier: ^3.6.0-beta.9
         version: 3.6.0-beta.9
@@ -587,6 +584,9 @@ packages:
   '@typescript-eslint/visitor-keys@8.58.0':
     resolution: {integrity: sha512-XJ9UD9+bbDo4a4epraTwG3TsNPeiB9aShrUneAVXy8q4LuwowN+qu89/6ByLMINqvIMeI9H9hOHQtg/ijrYXzQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@vesperjs/shared@0.2.0':
+    resolution: {integrity: sha512-36SGuETDSLSjUcfINofhWWzno+KP0+1SQhAU+RimrIIoB7QpYnzYAZ+343SkS7YiIuYivxzB+bnSdnbJG9SlyQ==}
 
   '@vue/compiler-core@3.5.30':
     resolution: {integrity: sha512-s3DfdZkcu/qExZ+td75015ljzHc6vE+30cFMGRPROYjqkroYI5NV2X1yAMX9UeyBNWB9MxCfPcsjpLS11nzkkw==}
@@ -1759,6 +1759,10 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.58.0
       eslint-visitor-keys: 5.0.1
+
+  '@vesperjs/shared@0.2.0':
+    dependencies:
+      '@vue/reactivity': 3.6.0-beta.9
 
   '@vue/compiler-core@3.5.30':
     dependencies:
