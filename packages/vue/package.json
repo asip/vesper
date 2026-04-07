@@ -33,18 +33,25 @@
     "@vue/reactivity": "^3.6.0-beta.9",
     "nanostores": "^1.2.0",
     "ofetch": "^1.5.1",
-    "undici": "^8.0.1",
-    "vue-i18n": "^11.3.0"
+    "undici": "^8.0.2",
+    "vue-i18n": "^11.3.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.4",
+    "@eslint/js": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^8.58.0",
     "@typescript-eslint/parser": "^8.58.0",
+    "@typescript-eslint/typescript-estree": "^8.58.0",
     "@vue/eslint-config-typescript": "^14.7.0",
-    "eslint": "^9.39.4",
+    "eslint": "^10.2.0",
     "eslint-plugin-vue": "^10.8.0",
-    "oxfmt": "^0.43.0",
+    "oxfmt": "^0.44.0",
     "tsdown": "^0.21.7",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.2"
+  },
+  "pnpm": {
+    "overrides": {
+      "@typescript-eslint/typescript-estree": "^8.58.0",
+      "typescript": "^6.0.2"
+    }
   }
 }

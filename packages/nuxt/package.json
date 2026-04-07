@@ -34,11 +34,16 @@
     "@nuxtjs/i18n": "^10.2.4",
     "@types/node": "^24.12.2",
     "@vesperjs/shared": "0.2.0",
-    "eslint": "^9.39.4",
+    "eslint": "^10.2.0",
     "nuxt": "^4.3.1",
     "ofetch": "^1.5.1",
-    "oxfmt": "^0.43.0",
-    "typescript": "^5.9.3",
+    "oxfmt": "^0.44.0",
+    "typescript": "^6.0.2",
     "vue": "^3.6.0-beta.9"
+  },
+  "pnpm": {
+    "overrides": {
+      "typescript": "^6.0.2"
+    }
   }
 }
