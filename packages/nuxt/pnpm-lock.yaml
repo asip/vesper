@@ -24,8 +24,8 @@ importers:
         specifier: ^24.12.2
         version: 24.12.2
       '@vesperjs/shared':
-        specifier: 0.2.0
-        version: 0.2.0
+        specifier: 0.2.1
+        version: 0.2.1
       eslint:
         specifier: ^10.2.0
         version: 10.2.0(jiti@2.6.1)
@@ -2172,8 +2172,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@vesperjs/shared@0.2.0':
-    resolution: {integrity: sha512-36SGuETDSLSjUcfINofhWWzno+KP0+1SQhAU+RimrIIoB7QpYnzYAZ+343SkS7YiIuYivxzB+bnSdnbJG9SlyQ==}
+  '@vesperjs/shared@0.2.1':
+    resolution: {integrity: sha512-/O/CP6AoZhUM3rBttc5MZ26Sm25lme0ufmPZz9mW+Te3TptRARck7MCZ5eaQqNpQN0WMTqtxz2dVRVobxd3RtA==}
 
   '@vitejs/plugin-vue-jsx@5.1.5':
     resolution: {integrity: sha512-jIAsvHOEtWpslLOI2MeElGFxH7M8pM83BU/Tor4RLyiwH0FM4nUW3xdvbw20EeU9wc5IspQwMq225K3CMnJEpA==}
@@ -6643,7 +6643,7 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vesperjs/shared@0.2.0':
+  '@vesperjs/shared@0.2.1':
     dependencies:
       '@vue/reactivity': 3.6.0-beta.9
 
