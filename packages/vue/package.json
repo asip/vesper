@@ -30,17 +30,18 @@
     "@nanostores/persistent": "^1.3.3",
     "@nanostores/router": "^1.0.0",
     "@vesperjs/shared": "0.2.1",
-    "@vue/reactivity": "^3.6.0-beta.9",
     "nanostores": "^1.2.0",
     "ofetch": "^1.5.1",
     "undici": "^8.0.2",
-    "vue-i18n": "^11.3.1"
+    "vue-i18n": "^11.3.2"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.58.0",
-    "@typescript-eslint/parser": "^8.58.0",
-    "@typescript-eslint/typescript-estree": "^8.58.0",
+    "@typescript-eslint/eslint-plugin": "^8.58.1",
+    "@typescript-eslint/parser": "^8.58.1",
+    "@typescript-eslint/project-service": "^8.58.1",
+    "@typescript-eslint/typescript-estree": "^8.58.1",
+    "@typescript-eslint/utils": "^8.58.1",
     "@vue/eslint-config-typescript": "^14.7.0",
     "eslint": "^10.2.0",
     "eslint-plugin-vue": "^10.8.0",
@@ -48,9 +49,23 @@
     "tsdown": "^0.21.7",
     "typescript": "^6.0.2"
   },
+  "peerDependencies": {
+    "@vue/reactivity": "^3.5.32 || ^3.6.0-beta.9",
+    "@vue/runtime-core": "^3.5.32 || ^3.6.0-beta.9",
+    "@vue/runtime-dom": "^3.5.32 || ^3.6.0-beta.9",
+    "vue": "^3.5.32 || ^3.6.0-beta.9"
+  },
   "pnpm": {
     "overrides": {
-      "@typescript-eslint/typescript-estree": "^8.58.0",
+      "vue": "^3.6.0-beta.9",
+      "@vue/reactivity": "^3.6.0-beta.9",
+      "@vue/runtime-core": "^3.6.0-beta.9",
+      "@vue/runtime-dom": "^3.6.0-beta.9",
+      "@typescript-eslint/eslint-plugin": "^8.58.1",
+      "@typescript-eslint/parser": "^8.58.1",
+      "@typescript-eslint/project-service": "^8.58.1",
+      "@typescript-eslint/typescript-estree": "^8.58.1",
+      "@typescript-eslint/utils": "^8.58.1",
       "typescript": "^6.0.2"
     }
   }
