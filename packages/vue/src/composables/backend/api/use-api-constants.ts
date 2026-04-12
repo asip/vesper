@@ -1,5 +1,5 @@
 import { WritableComputedRef } from '@vue/reactivity'
-import { useBaseUrlStore } from '../../../stores/use-base-url-store'
+import { useBaseUrlStore } from '~/stores/use-base-url-store'
 
 export const useApiConstants = function (): {
   baseURL: WritableComputedRef<string, string>

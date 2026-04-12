@@ -8,11 +8,11 @@ import type {
   BackendErrorInfo,
   Flash,
   ErrorMessages,
-} from '../../types'
+} from '~/types'
 
 import { useBackendErrorInfo } from './error'
 
-import { i18n } from '../../i18n'
+import { i18n } from '~/i18n'
 
 interface UseAlertOptions {
   flash: Ref<Flash>

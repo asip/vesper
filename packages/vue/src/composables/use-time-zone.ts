@@ -2,7 +2,7 @@ import { computed } from '@vue/reactivity'
 
 import { format, tzDate } from '@formkit/tempo'
 
-import { useTimeZoneStore } from '../stores/use-time-zone-store'
+import { useTimeZoneStore } from '~/stores/use-time-zone-store'
 
 import { useLocale } from './use-locale'
 import { useDatetimeLocal } from './use-datetime-local'
