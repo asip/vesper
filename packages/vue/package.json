@@ -32,7 +32,7 @@
     "@vesperjs/shared": "0.2.2",
     "nanostores": "^1.2.0",
     "ofetch": "^1.5.1",
-    "undici": "^8.0.2",
+    "undici": "^8.0.3",
     "vue-i18n": "^11.3.2"
   },
   "devDependencies": {
