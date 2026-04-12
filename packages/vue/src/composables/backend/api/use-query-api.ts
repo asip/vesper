@@ -11,7 +11,7 @@ type SearchParams = Record<string, any>
 
 export interface QueryAPIOptions {
   query?: SearchParams
-  token?: string | null
+  token?: string | null | undefined
   signal?: AbortSignal
   onRequestError?: ({ error }: { error: Error }) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -25,7 +25,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
   url: string,
   options?: QueryAPIOptions,
 ): Promise<{
-  token: string | undefined
+  token: string | null | undefined
   data: T | undefined
   error: FetchError<E> | undefined
   pending: boolean
@@ -33,13 +33,12 @@ export const useQueryApi = async function <T = unknown, E = any>(
   const { commonHeaders } = useHttpHeaders()
   const { baseURL } = useApiConstants()
 
-  const tokenRef = ref<string>()
+  const tokenRef = ref<string | null>()
 
   const headers: Record<string, string> = commonHeaders.value
 
   if (options?.token) {
     headers.Authorization = `Bearer ${options.token}`
-    tokenRef.value = options.token
   }
 
   const getOptions: FetchOptions<'json'> = {
@@ -48,7 +47,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
     query: options?.query ?? {},
     headers,
     onResponse({ response }: { response: FetchResponse<T> }) {
-      if (!tokenRef.value) tokenRef.value = response.headers.get('Authorization')?.split(' ')[1]
+      tokenRef.value = response.headers.get('Authorization')?.split(' ')[1] ?? options?.token
     },
   }
 

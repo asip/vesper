@@ -21,7 +21,7 @@ export const useMutationApi = async function <T = unknown, E = any>(
   url: string,
   { method, body = {}, token = null, onRequestError, onResponseError }: MutationAPIOptions,
 ): Promise<{
-  token: string | undefined
+  token: string | null | undefined
   data: T | undefined
   error: FetchError<E> | undefined
   pending: boolean
@@ -31,7 +31,7 @@ export const useMutationApi = async function <T = unknown, E = any>(
 
   const headers: Record<string, string> = commonHeaders.value
 
-  const tokenRef = ref<string>()
+  const tokenRef = ref<string | null>()
 
   if (token) {
     headers.Authorization = `Bearer ${token}`
@@ -54,10 +54,10 @@ export const useMutationApi = async function <T = unknown, E = any>(
 
   if (method == 'post' || method == 'put') {
     options.body = body
-    options.onResponse = ({ response }: { response: FetchResponse<T> }) => {
-      if ((method == 'post' && !tokenRef.value) || method == 'put')
-        tokenRef.value = response.headers.get('Authorization')?.split(' ')[1]
-    }
+  }
+
+  options.onResponse = ({ response }: { response: FetchResponse<T> }) => {
+    tokenRef.value = response.headers.get('Authorization')?.split(' ')[1] ?? token
   }
 
   const { data, error, pending } = await useOFetch<T, E>(url, options)

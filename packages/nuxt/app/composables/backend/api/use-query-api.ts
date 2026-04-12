@@ -37,7 +37,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
 
   const key = options?.key ?? url
 
-  const tokenRef = ref<string>()
+  const tokenRef = ref<string | null>()
 
   const headers: Record<string, string> = commonHeaders.value
 
@@ -46,7 +46,6 @@ export const useQueryApi = async function <T = unknown, E = any>(
 
   if (options?.token) {
     headers.Authorization = `Bearer ${options.token}`
-    tokenRef.value = options.token
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -56,7 +55,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
     query: options?.query ?? {},
     headers,
     onResponse({ response }: { response: FetchResponse<T> }) {
-      if (!tokenRef.value) tokenRef.value = response.headers.get('Authorization')?.split(' ')[1]
+      tokenRef.value = response.headers.get('Authorization')?.split(' ')[1] ?? options?.token
     },
   }
 
