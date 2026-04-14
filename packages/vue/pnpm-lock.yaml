@@ -32,8 +32,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(nanostores@1.2.0)
       '@vesperjs/shared':
-        specifier: 0.3.0
-        version: 0.3.0(@vue/reactivity@3.6.0-beta.10)
+        specifier: 0.3.1
+        version: 0.3.1(@vue/reactivity@3.6.0-beta.10)
       '@vue/reactivity':
         specifier: ^3.6.0-beta.10
         version: 3.6.0-beta.10
@@ -562,8 +562,8 @@ packages:
     resolution: {integrity: sha512-f1WO2Lx8a9t8DARmcWAUPJbu0G20bJlj8L4z72K00TMeJAoyLr/tHhI/pzYBLrR4dXWkcxO1cWYZEOX8DKHTqA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@vesperjs/shared@0.3.0':
-    resolution: {integrity: sha512-z/NIqlXMwxHO79/9WMlnPS4IfidEfDD75oWTw7urxlYWQpzgonnOXr8LjR9+RepQ4/LL3lIkMmcfuU9mD9iHZQ==}
+  '@vesperjs/shared@0.3.1':
+    resolution: {integrity: sha512-ZzSUQwqPBbJVJ1BFyyihR/u63Mu7U5McD9XMEcgFnmu3NILPmiIyuj5fpEZjlf03gpsls63wPkuu56dI79okOA==}
     peerDependencies:
       '@vue/reactivity': ^3.6.0-beta.10
 
@@ -1555,7 +1555,7 @@ snapshots:
       '@typescript-eslint/types': 8.58.2
       eslint-visitor-keys: 5.0.1
 
-  '@vesperjs/shared@0.3.0(@vue/reactivity@3.6.0-beta.10)':
+  '@vesperjs/shared@0.3.1(@vue/reactivity@3.6.0-beta.10)':
     dependencies:
       '@vue/reactivity': 3.6.0-beta.10
 
