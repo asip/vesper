@@ -34,19 +34,20 @@
     "@nuxtjs/i18n": "^10.2.4",
     "@types/node": "^24.12.2",
     "@vesperjs/shared": "0.3.1",
-    "eslint": "^10.2.0",
+    "eslint": "^10.2.1",
     "eslint-typegen": "2.3.1",
     "nuxt": "^4.3.1",
     "ofetch": "^1.5.1",
-    "oxfmt": "^0.45.0",
-    "typescript": "^6.0.2"
+    "oxfmt": "^0.46.0",
+    "typescript": "^6.0.3"
   },
   "peerDependencies": {
-    "vue": "^3.5.32 || ^3.6.0-beta.10"
+    "vue": "^3.5.33 || ^3.6.0-beta.10"
   },
   "pnpm": {
     "overrides": {
       "vue": "^3.6.0-beta.10",
+      "@typescript-eslint/typescript-estree": "^8.59.0",
       "@vue/compiler-core": "^3.6.0-beta.10",
       "@vue/compiler-dom": "^3.6.0-beta.10",
       "@vue/compiler-sfc": "^3.6.0-beta.10",
@@ -54,8 +55,8 @@
       "@vue/runtime-core": "^3.6.0-beta.10",
       "@vue/runtime-dom": "^3.6.0-beta.10",
       "@vue/shared": "^3.6.0-beta.10",
-      "typescript": "^6.0.2",
-      "typescript-eslint": "^8.58.2"
+      "typescript": "^6.0.3",
+      "typescript-eslint": "^8.59.0"
     }
   }
 }
