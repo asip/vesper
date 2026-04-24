@@ -14,20 +14,20 @@ import { useBackendErrorInfo } from './error'
 
 import { i18n } from '~/i18n'
 
-interface UseAlertOptions {
+interface UseApiErrorOptions {
   flash: Ref<Flash>
-  caller?: UseAlertCallerType
+  caller?: UseApiErrorCallerType
 }
 
-interface UseAlertCallerType {
+interface UseApiErrorCallerType {
   externalErrors?: Ref<ErrorMessages<string>>
   clearAccount?: () => void
 }
 
-export const useAlert = function <BER extends object = BackendErrorResource>({
+export const useApiError = function <BER extends object = BackendErrorResource>({
   flash,
   caller,
-}: UseAlertOptions): {
+}: UseApiErrorOptions): {
   backendErrorInfo: Ref<BackendErrorInfo<BER>, BER>
   setError: (
     error: FetchError<ErrorsResource<ErrorMessages<string>> | BER>,
@@ -93,4 +93,7 @@ export const useAlert = function <BER extends object = BackendErrorResource>({
   return { backendErrorInfo, setError, reload }
 }
 
-export type UseAlertType = ReturnType<typeof useAlert>
+export const useAlert = useApiError
+
+export type UseApiErrorType = ReturnType<typeof useApiError>
+export type UseAlertType = UseApiErrorType
