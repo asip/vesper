@@ -38,8 +38,8 @@ importers:
         specifier: ^24.12.2
         version: 24.12.2
       '@vesperjs/shared':
-        specifier: 0.3.2
-        version: 0.3.2(@vue/reactivity@3.6.0-beta.10)
+        specifier: 0.3.3
+        version: 0.3.3(@vue/reactivity@3.6.0-beta.10)
       eslint:
         specifier: ^10.2.1
         version: 10.2.1(jiti@2.6.1)
@@ -2197,8 +2197,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@vesperjs/shared@0.3.2':
-    resolution: {integrity: sha512-MsFUu0tiNL0JNtnDAXypAtDoVSYVuyF3VtEplQ32vcfiB30A2zU67L20DCbxgQx3P8O2QUM9nv513oO/V2UUOw==}
+  '@vesperjs/shared@0.3.3':
+    resolution: {integrity: sha512-s7J8kukAKA8Ym7RNtjvozEZ6hTl66tsVvT0MyMQ+Hkl4J9ra1qh0/Sc0kDM9KjPfje2wM/WnirRixLPyMG3aKA==}
     peerDependencies:
       '@vue/reactivity': ^3.6.0-beta.10
 
@@ -6641,7 +6641,7 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vesperjs/shared@0.3.2(@vue/reactivity@3.6.0-beta.10)':
+  '@vesperjs/shared@0.3.3(@vue/reactivity@3.6.0-beta.10)':
     dependencies:
       '@vue/reactivity': 3.6.0-beta.10
 
