@@ -17,6 +17,7 @@ export type QueryAPIOptions = {
   key?: MaybeRefOrGetter<string>
   query?: SearchParams
   token?: string | null
+  baseURL?: string | null
   signal?: AbortSignal
   onRequestError?: ({ error }: { error: Error }) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,7 +34,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { $api } = useNuxtApp() as any
   const { commonHeaders } = useHttpHeaders()
-  const { baseURL } = useApiConstants()
+  const { baseURL: baseUrl } = useApiConstants()
 
   const key = options?.key ?? url
 
@@ -50,7 +51,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getOptions: FetchOptions<'json', any> = {
-    baseURL: baseURL.value,
+    baseURL: options?.baseURL ?? baseUrl.value,
     method: 'get',
     query: options?.query ?? {},
     headers,

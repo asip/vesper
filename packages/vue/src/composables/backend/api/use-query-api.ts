@@ -12,6 +12,7 @@ type SearchParams = Record<string, any>
 export interface QueryAPIOptions {
   query?: SearchParams
   token?: string | null | undefined
+  baseURL?: string | null | undefined
   signal?: AbortSignal
   onRequestError?: ({ error }: { error: Error }) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -31,7 +32,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
   pending: boolean
 }> {
   const { commonHeaders } = useHttpHeaders()
-  const { baseURL } = useApiConstants()
+  const { baseURL: baseUrl } = useApiConstants()
 
   const tokenRef = ref<string | null>()
 
@@ -42,7 +43,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
   }
 
   const getOptions: FetchOptions<'json'> = {
-    baseURL: baseURL.value,
+    baseURL: options?.baseURL ?? baseUrl.value,
     method: 'get',
     query: options?.query ?? {},
     headers,

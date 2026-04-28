@@ -11,6 +11,7 @@ interface MutationAPIOptions {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body?: Record<string, any> | FormData
   token?: string | null
+  baseURL?: string | null
   onRequestError?: ({ error }: { error: Error }) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onResponseError?: ({ response }: { response: FetchResponse<any> }) => void
@@ -19,7 +20,14 @@ interface MutationAPIOptions {
 // eslint-disable-next-line
 export const useMutationApi = async function <T = unknown, E = any>(
   url: string,
-  { method, body = {}, token = null, onRequestError, onResponseError }: MutationAPIOptions,
+  {
+    method,
+    body = {},
+    token = null,
+    baseURL = null,
+    onRequestError,
+    onResponseError,
+  }: MutationAPIOptions,
 ): Promise<{
   token: string | null | undefined
   data: T | undefined
@@ -27,7 +35,7 @@ export const useMutationApi = async function <T = unknown, E = any>(
   pending: boolean
 }> {
   const { commonHeaders } = useHttpHeaders()
-  const { baseURL } = useApiConstants()
+  const { baseURL: baseUrl } = useApiConstants()
 
   const headers: Record<string, string> = commonHeaders.value
 
@@ -39,7 +47,7 @@ export const useMutationApi = async function <T = unknown, E = any>(
   }
 
   const options: FetchOptions<'json'> = {
-    baseURL: baseURL.value,
+    baseURL: baseURL ?? baseUrl.value,
     headers,
     method,
   }
