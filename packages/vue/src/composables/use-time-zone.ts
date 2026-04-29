@@ -17,9 +17,9 @@ interface TZOptions {
   value: string
 }
 
-export const useTimeZone = function () {
+export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm') {
   const { locale } = useLocale()
-  const { toISO8601, formatHTML } = useDatetimeLocal()
+  const { toISO8601, formatHTML } = useDatetimeLocal(fmtDT)
   const { serverTimeZone } = useTimeZoneStore()
 
   const timeZone = computed<TimeZone>(() => ({
@@ -45,7 +45,7 @@ export const useTimeZone = function () {
       : datetime
         ? format({
             date: tzServerDate(datetime),
-            format: 'YYYY/MM/DD HH:mm',
+            format: fmtDT,
             locale: locale.value,
             tz: timeZone.value.client,
           })
@@ -58,7 +58,7 @@ export const useTimeZone = function () {
       : datetime
         ? format({
             date: tzClientDate(datetime),
-            format: 'YYYY/MM/DD HH:mm',
+            format: fmtDT,
             locale: locale.value,
             tz: timeZone.value.server,
           })

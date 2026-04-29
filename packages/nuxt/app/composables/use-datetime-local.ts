@@ -2,19 +2,21 @@ import { parse, format } from '@formkit/tempo'
 
 import { useLocale } from './use-locale'
 
-export const useDatetimeLocal = function () {
+export const useDatetimeLocal = function (fmtDT = 'YYYY/MM/DD HH:mm') {
   const { locale } = useLocale()
+
+  const fmtISO8601 = 'YYYY-MM-DDTHH:mm'
 
   const parseDT = (datetime: string, format: string): Date => {
     return parse(datetime, format, locale.value)
   }
 
   const toISO8601 = (datetime: string): string => {
-    return format(parseDT(datetime, 'YYYY/MM/DD HH:mm'), 'YYYY-MM-DDTHH:mm', locale.value)
+    return format(parseDT(datetime, fmtDT), fmtISO8601, locale.value)
   }
 
   const fromISO8601 = (datetime: string): string => {
-    return format(parseDT(datetime, 'YYYY-MM-DDTHH:mm'), 'YYYY/MM/DD HH:mm', locale.value)
+    return format(parseDT(datetime, fmtISO8601), fmtDT, locale.value)
   }
 
   const upDTL = (datetime: string | null): string | null => {
@@ -27,7 +29,7 @@ export const useDatetimeLocal = function () {
 
   const formatHTML = (datetime: string | null, fmt: string): string => {
     return datetime
-      ? format(parse(datetime, 'YYYY/MM/DD HH:mm', locale.value), fmt, locale.value)
+      ? format(parse(datetime, fmtDT, locale.value), fmt, locale.value)
       : ''
   }
 
