@@ -1,4 +1,4 @@
-import type { FetchOptions, FetchError, FetchResponse } from 'ofetch'
+import type { FetchContext, FetchOptions, FetchError, FetchResponse } from 'ofetch'
 
 import { useHttpHeaders } from './use-http-headers'
 import { useApiConstants } from './use-api-constants'
@@ -10,6 +10,11 @@ interface MutationAPIOptions {
   body?: Record<string, any> | FormData
   token?: string | null
   baseURL?: string | null
+  retry?: number | false
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  retryDelay?: number | ((context: FetchContext<any, "json">) => number)
+  retryStatusCodes?: number[]
+  timeout?: number
   onRequestError?: ({ error }: { error: Error }) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onResponseError?: ({ response }: { response: FetchResponse<any> }) => void
@@ -23,6 +28,10 @@ export const useMutationApi = async function <T = unknown, E = any>(
     body = {},
     token = null,
     baseURL = null,
+    retry,
+    retryDelay,
+    retryStatusCodes,
+    timeout,
     onRequestError,
     onResponseError,
   }: MutationAPIOptions,
@@ -39,9 +48,7 @@ export const useMutationApi = async function <T = unknown, E = any>(
 
   const tokenRef = ref<string | null>()
 
-  if (token) {
-    headers.Authorization = `Bearer ${token}`
-  }
+  if (token) headers.Authorization = `Bearer ${token}`
 
   const options: FetchOptions<'json'> = {
     baseURL: baseURL ?? baseUrl.value,
@@ -49,17 +56,16 @@ export const useMutationApi = async function <T = unknown, E = any>(
     method,
   }
 
-  if (onRequestError) {
-    options.onRequestError = onRequestError
-  }
+  if (retry) options.retry = retry
+  if (retryDelay) options.retryDelay = retryDelay
+  if (retryStatusCodes) options.retryStatusCodes = retryStatusCodes
 
-  if (onResponseError) {
-    options.onResponseError = onResponseError
-  }
+  if (timeout) options.timeout = timeout
 
-  if (method == 'post' || method == 'put') {
-    options.body = body
-  }
+  if (onRequestError) options.onRequestError = onRequestError
+  if (onResponseError) options.onResponseError = onResponseError
+
+  if (method == 'post' || method == 'put') options.body = body
 
   options.onResponse = ({ response }: { response: FetchResponse<T> }) => {
     tokenRef.value = response.headers.get('Authorization')?.split(' ')[1] ?? token

@@ -1,6 +1,6 @@
 import { useAsyncData, useNuxtApp } from 'nuxt/app'
 
-import type { FetchOptions, FetchResponse } from 'ofetch'
+import type { FetchContext, FetchOptions, FetchResponse } from 'ofetch'
 
 import { ref } from '@vue/reactivity'
 
@@ -19,6 +19,11 @@ export type QueryAPIOptions = {
   token?: string | null
   baseURL?: string | null
   signal?: AbortSignal
+  retry?: number | false
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  retryDelay?: number | ((context: FetchContext<any, "json">) => number)
+  retryStatusCodes?: number[]
+  timeout?: number
   onRequestError?: ({ error }: { error: Error }) => void
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onResponseError?: ({ response }: { response: FetchResponse<any> }) => void
@@ -45,9 +50,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
   const fresh: boolean = options?.fresh ?? false
   const cache: boolean = options?.cache ?? true
 
-  if (options?.token) {
-    headers.Authorization = `Bearer ${options.token}`
-  }
+  if (options?.token) headers.Authorization = `Bearer ${options.token}`
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const getOptions: FetchOptions<'json', any> = {
@@ -60,26 +63,23 @@ export const useQueryApi = async function <T = unknown, E = any>(
     },
   }
 
-  if (options?.signal) {
-    getOptions.signal = options.signal
-  }
+  if (options?.retry) getOptions.retry = options.retry
+  if (options?.retryDelay) getOptions.retryDelay = options.retryDelay
+  if (options?.retryStatusCodes) getOptions.retryStatusCodes = options.retryStatusCodes
 
-  if (options?.onRequestError) {
-    getOptions.onRequestError = options.onRequestError
-  }
+  if (options?.timeout) getOptions.timeout = options.timeout
 
-  if (options?.onResponseError) {
-    getOptions.onResponseError = options.onResponseError
-  }
+  if (options?.signal) getOptions.signal = options.signal
+
+  if (options?.onRequestError) getOptions.onRequestError = options.onRequestError
+  if (options?.onResponseError) getOptions.onResponseError = options.onResponseError
 
   if (cache) {
     const { data, error, refresh, pending } = await useAsyncData<T, E>(key, () =>
       $api(url, getOptions),
     )
 
-    if (fresh) {
-      await refresh()
-    }
+    if (fresh) await refresh()
 
     return {
       token: tokenRef.value,
