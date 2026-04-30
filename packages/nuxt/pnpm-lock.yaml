@@ -38,8 +38,8 @@ importers:
         specifier: ^24.12.2
         version: 24.12.2
       '@vesperjs/shared':
-        specifier: 0.3.3
-        version: 0.3.3(@vue/reactivity@3.6.0-beta.10)
+        specifier: 0.4.0
+        version: 0.4.0(@vue/reactivity@3.6.0-beta.10)
       eslint:
         specifier: ^10.2.1
         version: 10.2.1(jiti@2.6.1)
@@ -2197,8 +2197,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@vesperjs/shared@0.3.3':
-    resolution: {integrity: sha512-s7J8kukAKA8Ym7RNtjvozEZ6hTl66tsVvT0MyMQ+Hkl4J9ra1qh0/Sc0kDM9KjPfje2wM/WnirRixLPyMG3aKA==}
+  '@vesperjs/shared@0.4.0':
+    resolution: {integrity: sha512-Hh9LaN/9WUIVAJl3oM5banhkFvUUKm6le258HQ/eNQgPlP/okPNEInUdxrWDOUH2O6241NCwrnrgNabT5Ij7rA==}
     peerDependencies:
       '@vue/reactivity': ^3.6.0-beta.10
 
@@ -6641,8 +6641,9 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vesperjs/shared@0.3.3(@vue/reactivity@3.6.0-beta.10)':
+  '@vesperjs/shared@0.4.0(@vue/reactivity@3.6.0-beta.10)':
     dependencies:
+      '@formkit/tempo': 1.0.0
       '@vue/reactivity': 3.6.0-beta.10
 
   '@vitejs/plugin-vue-jsx@5.1.5(vite@7.3.1(@types/node@24.12.2)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))(vue@3.6.0-beta.10(typescript@6.0.3))':
