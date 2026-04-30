@@ -33,9 +33,6 @@
     "@eslint/js": "^10.0.1",
     "@typescript-eslint/eslint-plugin": "^8.59.1",
     "@typescript-eslint/parser": "^8.59.1",
-    "@typescript-eslint/project-service": "^8.59.1",
-    "@typescript-eslint/typescript-estree": "^8.59.1",
-    "@typescript-eslint/utils": "^8.59.1",
     "@vue/eslint-config-typescript": "^14.7.0",
     "eslint": "^10.2.1",
     "eslint-plugin-vue": "^10.9.0",
@@ -54,7 +51,7 @@
       "@typescript-eslint/project-service": "^8.59.1",
       "@typescript-eslint/utils": "^8.59.1",
       "@typescript-eslint/typescript-estree": "^8.59.1",
-      "rolldown": "^1.0.0-rc.17",
+      "rolldown": "^1.0.0-rc.18",
       "tinyglobby": "^0.2.16",
       "typescript-eslint": "^8.59.1"
     }
