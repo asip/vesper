@@ -16,7 +16,7 @@ export interface QueryAPIOptions {
   signal?: AbortSignal
   retry?: number | false
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  retryDelay?: number | ((context: FetchContext<any, "json">) => number)
+  retryDelay?: number | ((context: FetchContext<any, 'json'>) => number)
   retryStatusCodes?: number[]
   timeout?: number
   onRequestError?: ({ error }: { error: Error }) => void
