@@ -9,7 +9,7 @@ export const useApiConstants = function () {
     if (import.meta.client) {
       return runtimeConfig.public.backendApiOrigin as string
     } else if (import.meta.server) {
-      return runtimeConfig.backendApiOrigin as string
+      return (runtimeConfig.backendApiOrigin ?? runtimeConfig.public.backendApiOrigin) as string
     }
   })
 
