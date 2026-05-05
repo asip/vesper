@@ -1,4 +1,4 @@
-import { Ref } from '@vue/reactivity'
+import type { Ref } from '@vue/reactivity'
 
 import type { FetchError } from 'ofetch'
 

@@ -1,8 +1,8 @@
 import { useRuntimeConfig } from 'nuxt/app'
 
-import { computed } from '@vue/reactivity'
-
-export const useApiConstants = function () {
+export const useApiConstants = function (): {
+  baseURL: ComputedRef<string>
+} {
   const runtimeConfig = useRuntimeConfig()
 
   const baseOrigin = computed<string | undefined>(() => {

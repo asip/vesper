@@ -1,6 +1,11 @@
 import { parse } from '@formkit/tempo'
 
-export const useDate = function (fmtDate = 'YYYY/MM/DD', locale?: string) {
+export const useDate = function (
+  fmtDate = 'YYYY/MM/DD',
+  locale?: string,
+): {
+  isValidDate: (value: string) => boolean
+} {
   const isValidDate = (value: string): boolean => {
     try {
       const date = value ? parse(value, fmtDate, locale) : null

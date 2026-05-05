@@ -7,7 +7,11 @@ import type { FetchOptions, FetchError } from 'ofetch'
 export const useOFetch = async function <T = unknown, E = any>(
   url: string,
   options?: FetchOptions<'json'>,
-) {
+): Promise<{
+  data: T | undefined
+  error: FetchError<E> | undefined
+  pending: boolean
+}> {
   const pending = ref(true)
 
   const data = ref<T>()

@@ -1,8 +1,10 @@
-import { computed } from '@vue/reactivity'
+import { computed, type WritableComputedRef } from '@vue/reactivity'
 
 import { $baseUrl } from './nano'
 
-export const useBaseUrlStore = function () {
+export const useBaseUrlStore = function (): {
+  baseURL: WritableComputedRef<string, string>
+} {
   const baseURL = computed<string>({
     get() {
       return $baseUrl.get()

@@ -25,18 +25,7 @@ interface MutationAPIOptions {
 // eslint-disable-next-line
 export const useMutationApi = async function <T = unknown, E = any>(
   url: string,
-  {
-    method,
-    body = {},
-    token = null,
-    baseURL = null,
-    retry,
-    retryDelay,
-    retryStatusCodes,
-    timeout,
-    onRequestError,
-    onResponseError,
-  }: MutationAPIOptions,
+  options: MutationAPIOptions,
 ): Promise<{
   token: string | null | undefined
   data: T | undefined
@@ -46,34 +35,45 @@ export const useMutationApi = async function <T = unknown, E = any>(
   const { commonHeaders } = useHttpHeaders()
   const { baseURL: baseUrl } = useApiConstants()
 
+  const method = options.method
+  const body = options.body ?? {}
+  const token = options.token ?? null
+  const baseURL = options.baseURL ?? null
+  const retry = options.retry
+  const retryDelay = options.retryDelay
+  const retryStatusCodes = options.retryStatusCodes
+  const timeout = options.timeout
+  const onRequestError = options.onRequestError
+  const onResponseError = options.onResponseError
+
   const headers: Record<string, string> = commonHeaders.value
 
   const tokenRef = ref<string | null>()
 
   if (token) headers.Authorization = `Bearer ${token}`
 
-  const options: FetchOptions<'json'> = {
+  const mutOptions: FetchOptions<'json'> = {
     baseURL: baseURL ?? baseUrl.value,
     headers,
     method,
   }
 
-  if (retry) options.retry = retry
-  if (retryDelay) options.retryDelay = retryDelay
-  if (retryStatusCodes) options.retryStatusCodes = retryStatusCodes
+  if (retry) mutOptions.retry = retry
+  if (retryDelay) mutOptions.retryDelay = retryDelay
+  if (retryStatusCodes) mutOptions.retryStatusCodes = retryStatusCodes
 
-  if (timeout) options.timeout = timeout
+  if (timeout) mutOptions.timeout = timeout
 
-  if (onRequestError) options.onRequestError = onRequestError
-  if (onResponseError) options.onResponseError = onResponseError
+  if (onRequestError) mutOptions.onRequestError = onRequestError
+  if (onResponseError) mutOptions.onResponseError = onResponseError
 
-  if (method == 'post' || method == 'put') options.body = body
+  if (method == 'post' || method == 'put') mutOptions.body = body
 
-  options.onResponse = ({ response }: { response: FetchResponse<T> }) => {
+  mutOptions.onResponse = ({ response }: { response: FetchResponse<T> }) => {
     tokenRef.value = response.headers.get('Authorization')?.split(' ')[1] ?? token
   }
 
-  const { data, error, pending } = await useOFetch<T, E>(url, options)
+  const { data, error, pending } = await useOFetch<T, E>(url, mutOptions)
 
   return { token: tokenRef.value, data, error, pending }
 }

@@ -1,12 +1,27 @@
-import { useAsyncData, useNuxtApp } from 'nuxt/app'
+import { useAsyncData, useNuxtApp, type NuxtError } from 'nuxt/app'
 
-import type { FetchContext, FetchOptions, FetchResponse } from 'ofetch'
+import type { FetchContext, FetchError, FetchOptions, FetchResponse } from 'ofetch'
 
 import { ref } from '@vue/reactivity'
 
 import { useHttpHeaders } from './use-http-headers'
 import { useApiConstants } from './use-api-constants'
 import { useOFetch } from './use-ofetch'
+
+type KeysOf<T> = Array<T extends T ? (keyof T extends string ? keyof T : never) : never>
+
+type PickFrom<T, K extends Array<string>> =
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  T extends Array<any>
+    ? T
+    : // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      T extends Record<string, any>
+      ? keyof T extends K[number]
+        ? T
+        : K[number] extends never
+          ? T
+          : Pick<T, K[number]>
+      : T
 
 interface SearchParams {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -35,7 +50,22 @@ export type QueryAPIOptions = {
 export const useQueryApi = async function <T = unknown, E = any>(
   url: string,
   options?: QueryAPIOptions,
-) {
+): Promise<
+  | {
+      token: string | null | undefined
+      data: PickFrom<T, KeysOf<T>> | undefined
+      error: (E extends Error | NuxtError<unknown> ? E : NuxtError<E>) | undefined
+      refresh: (opts?: never) => Promise<void>
+      pending: boolean
+    }
+  | {
+      token: string | null | undefined
+      data: T | undefined
+      error: FetchError<E> | undefined
+      pending: boolean
+      refresh?: undefined
+    }
+> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { $api } = useNuxtApp() as any
   const { commonHeaders } = useHttpHeaders()

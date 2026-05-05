@@ -45,7 +45,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
 
   if (options?.token) headers.Authorization = `Bearer ${options.token}`
 
-  const getOptions: FetchOptions<'json'> = {
+  const queryOptions: FetchOptions<'json'> = {
     baseURL: options?.baseURL ?? baseUrl.value,
     method: 'get',
     query: options?.query ?? {},
@@ -55,18 +55,18 @@ export const useQueryApi = async function <T = unknown, E = any>(
     },
   }
 
-  if (options?.retry) getOptions.retry = options.retry
-  if (options?.retryDelay) getOptions.retryDelay = options.retryDelay
-  if (options?.retryStatusCodes) getOptions.retryStatusCodes = options.retryStatusCodes
+  if (options?.retry) queryOptions.retry = options.retry
+  if (options?.retryDelay) queryOptions.retryDelay = options.retryDelay
+  if (options?.retryStatusCodes) queryOptions.retryStatusCodes = options.retryStatusCodes
 
-  if (options?.timeout) getOptions.timeout = options.timeout
+  if (options?.timeout) queryOptions.timeout = options.timeout
 
-  if (options?.signal) getOptions.signal = options.signal
+  if (options?.signal) queryOptions.signal = options.signal
 
-  if (options?.onRequestError) getOptions.onRequestError = options.onRequestError
-  if (options?.onResponseError) getOptions.onResponseError = options.onResponseError
+  if (options?.onRequestError) queryOptions.onRequestError = options.onRequestError
+  if (options?.onResponseError) queryOptions.onResponseError = options.onResponseError
 
-  const { data, error, pending } = await useOFetch<T, E>(url, getOptions)
+  const { data, error, pending } = await useOFetch<T, E>(url, queryOptions)
 
   return { token: tokenRef.value, data, error, pending: pending }
 }

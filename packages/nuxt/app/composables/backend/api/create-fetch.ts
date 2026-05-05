@@ -1,3 +1,5 @@
-export const createFetch = function () {
-  return $fetch.create({})
+import type { $Fetch } from 'ofetch'
+
+export const createFetch = function (): $Fetch {
+  return $fetch.create({}) as $Fetch
 }

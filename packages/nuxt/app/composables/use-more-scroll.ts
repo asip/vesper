@@ -8,7 +8,16 @@ export const useMoreScroll = function ({
   key?: string | null
   page: number
   pages: number
-}) {
+}): {
+  currentPage: Ref<number>
+  pagePrev: Ref<boolean>
+  pageNext: Ref<boolean>
+  minPage: Ref<number>
+  maxPage: Ref<number>
+  init: () => void
+  decrement: () => void
+  increment: () => void
+} {
   const toFirstUpper = (str: string): string => {
     return str.charAt(0).toUpperCase() + str.slice(1)
   }

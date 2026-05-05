@@ -17,7 +17,13 @@ interface TZOptions {
   value: string
 }
 
-export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm') {
+export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
+  timeZone: ComputedRef<TimeZone>
+  tzOptions: ComputedRef<TZOptions[]>
+  upTZ: (datetime: string | null) => string
+  downTZ: (datetime: string | null) => string
+  formatHtmlTZ: (datetime: string | null, fmt: string) => string
+} {
   const runtimeConfig = useRuntimeConfig()
   const { locale } = useLocale()
   const { toISO8601, formatHTML } = useDatetimeLocal(fmtDT)

@@ -4,7 +4,7 @@ import { computed, type Ref } from '@vue/reactivity'
 export const useElement = function <EL extends Element, P extends string>(
   el: EL | undefined | null,
   { property }: { property: P },
-) {
+): Record<P, Ref<string, string | null | undefined>> {
   const obj: Partial<Record<P, Ref<string, string | null | undefined>>> = {}
 
   const propertyRef = computed<string, string | null | undefined>({
