@@ -10,7 +10,10 @@ import { useOFetch } from './use-ofetch'
 type SearchParams = Record<string, any>
 
 export interface QueryAPIOptions {
+  method?: 'get' | 'query'
   query?: SearchParams
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  body?: Record<string, any> | FormData
   token?: string | null | undefined
   baseURL?: string | null | undefined
   signal?: AbortSignal
@@ -47,12 +50,25 @@ export const useQueryApi = async function <T = unknown, E = any>(
 
   const queryOptions: FetchOptions<'json'> = {
     baseURL: options?.baseURL ?? baseUrl.value,
-    method: 'get',
-    query: options?.query ?? {},
     headers,
     onResponse({ response }: { response: FetchResponse<T> }) {
       tokenRef.value = response.headers.get('Authorization')?.split(' ')[1] ?? options?.token
     },
+  }
+
+  if (options?.method) {
+    queryOptions.method = options.method
+
+    if (options.method === 'get') queryOptions.query = options.query ?? {}
+    if (options.method === 'query') queryOptions.body = options.body ?? {}
+  } else {
+    if (options?.query) {
+      queryOptions.method = 'get'
+      queryOptions.query = options.query
+    } else if (options?.body) {
+      queryOptions.method = 'query'
+      queryOptions.body = options.body
+    }
   }
 
   if (options?.retry) queryOptions.retry = options.retry

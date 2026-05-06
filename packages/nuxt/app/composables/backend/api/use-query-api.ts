@@ -29,8 +29,11 @@ interface SearchParams {
 }
 
 export type QueryAPIOptions = {
+  method?: 'get' | 'query'
   key?: MaybeRefOrGetter<string>
   query?: SearchParams
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  body?: Record<string, any> | FormData
   token?: string | null
   baseURL?: string | null
   signal?: AbortSignal
@@ -85,12 +88,25 @@ export const useQueryApi = async function <T = unknown, E = any>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const queryOptions: FetchOptions<'json', any> = {
     baseURL: options?.baseURL ?? baseUrl.value,
-    method: 'get',
-    query: options?.query ?? {},
     headers,
     onResponse({ response }: { response: FetchResponse<T> }) {
       tokenRef.value = response.headers.get('Authorization')?.split(' ')[1] ?? options?.token
     },
+  }
+
+  if (options?.method) {
+    queryOptions.method = options.method
+
+    if (options.method === 'get') queryOptions.query = options.query ?? {}
+    if (options.method === 'query') queryOptions.body = options.body ?? {}
+  } else {
+    if (options?.query) {
+      queryOptions.method = 'get'
+      queryOptions.query = options.query
+    } else if (options?.body) {
+      queryOptions.method = 'query'
+      queryOptions.body = options.body
+    }
   }
 
   if (options?.retry) queryOptions.retry = options.retry
