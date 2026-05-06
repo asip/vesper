@@ -35,14 +35,14 @@
     "@typescript-eslint/parser": "^8.59.2",
     "@vue/eslint-config-typescript": "^14.7.0",
     "eslint": "^10.3.0",
-    "eslint-plugin-vue": "^10.9.0",
-    "oxfmt": "^0.47.0",
+    "eslint-plugin-vue": "^10.9.1",
+    "oxfmt": "^0.48.0",
     "tsdown": "^0.21.10",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.59.2"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.33 || ^3.6.0-beta.10"
+    "@vue/reactivity": "^3.5.34 || ^3.6.0-beta.10"
   },
   "pnpm": {
     "overrides": {
