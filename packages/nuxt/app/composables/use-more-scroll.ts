@@ -2,7 +2,7 @@ import { useState } from 'nuxt/app'
 
 export const useMoreScroll = function ({
   key = null,
-  page,
+  page = 1,
   pages,
 }: {
   key?: string | null
@@ -49,8 +49,8 @@ export const useMoreScroll = function ({
   }
 
   const pagePrevNext = () => {
-    if (currentPage.value == 1) pagePrev.value = false
-    if (currentPage.value == pages) pageNext.value = false
+    if (currentPage.value === 1) pagePrev.value = false
+    if (currentPage.value === pages) pageNext.value = false
     // console.log(`page prev: ${pagePrev.value}`)
     // console.log(`page next: ${pageNext.value}`)
   }
