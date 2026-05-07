@@ -71,7 +71,7 @@ export const useMutationApi = async function <T = unknown, E = any>(
   if (onRequestError) mutOptions.onRequestError = onRequestError
   if (onResponseError) mutOptions.onResponseError = onResponseError
 
-  if (method == 'post' || method == 'put') mutOptions.body = body
+  if (method === 'post' || method === 'put') mutOptions.body = body
 
   mutOptions.onResponse = ({ response }: { response: FetchResponse<T> }) => {
     tokenRef.value = response.headers.get('Authorization')?.split(' ')[1] ?? token
