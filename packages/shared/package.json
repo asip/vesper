@@ -27,7 +27,7 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@formkit/tempo": "^1.0.0"
+    "@formkit/tempo": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
@@ -43,16 +43,5 @@
   },
   "peerDependencies": {
     "@vue/reactivity": "^3.5.34 || ^3.6.0-beta.11"
-  },
-  "pnpm": {
-    "overrides": {
-      "@typescript-eslint/eslint-plugin": "^8.59.2",
-      "@typescript-eslint/parser": "^8.59.2",
-      "@typescript-eslint/project-service": "^8.59.2",
-      "@typescript-eslint/utils": "^8.59.2",
-      "@typescript-eslint/typescript-estree": "^8.59.2",
-      "tinyglobby": "^0.2.16",
-      "typescript-eslint": "^8.59.2"
-    }
   }
 }

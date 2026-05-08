@@ -29,7 +29,7 @@
     "fmt": "oxfmt"
   },
   "devDependencies": {
-    "@formkit/tempo": "^1.0.0",
+    "@formkit/tempo": "^1.1.0",
     "@nuxt/eslint": "1.15.2",
     "@nuxtjs/i18n": "^10.3.0",
     "@types/node": "^24.12.2",
@@ -42,21 +42,7 @@
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
+    "typescript-eslint": "^8.59.2",
     "vue": "^3.5.34 || ^3.6.0-beta.11"
-  },
-  "pnpm": {
-    "overrides": {
-      "vue": "^3.6.0-beta.11",
-      "@typescript-eslint/typescript-estree": "^8.59.2",
-      "@vue/compiler-core": "^3.6.0-beta.11",
-      "@vue/compiler-dom": "^3.6.0-beta.11",
-      "@vue/compiler-sfc": "^3.6.0-beta.11",
-      "@vue/reactivity": "^3.6.0-beta.11",
-      "@vue/runtime-core": "^3.6.0-beta.11",
-      "@vue/runtime-dom": "^3.6.0-beta.11",
-      "@vue/shared": "^3.6.0-beta.11",
-      "typescript": "^6.0.3",
-      "typescript-eslint": "^8.59.2"
-    }
   }
 }
