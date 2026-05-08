@@ -28,8 +28,8 @@ importers:
         specifier: ^24.12.3
         version: 24.12.3
       '@vesperjs/shared':
-        specifier: 0.7.0
-        version: 0.7.0(@vue/reactivity@3.6.0-beta.11)
+        specifier: 0.7.1
+        version: 0.7.1(@vue/reactivity@3.6.0-beta.11)
       eslint:
         specifier: ^10.3.0
         version: 10.3.0(jiti@2.6.1)
@@ -587,9 +587,6 @@ packages:
   '@eslint/plugin-kit@0.7.1':
     resolution: {integrity: sha512-rZAP3aVgB9ds9KOeUSL+zZ21hPmo8dh6fnIFwRQj5EAZl9gzR7wxYbYXYysAM8CTqGmUGyp2S4kUdV17MnGuWQ==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
-
-  '@formkit/tempo@1.0.0':
-    resolution: {integrity: sha512-2jhR8jnWFt4ajtbpHL2ZvJJ+ofj/XpAumb1OLmsY7U5iwCjGKuk0wqLR7dGsZfyvJeivfWLD9vzj9cdkUUWzyg==}
 
   '@formkit/tempo@1.1.0':
     resolution: {integrity: sha512-LF36zxNFvNO+U2uS2RX5h0SJZuL4z/JpDHbMOgumhv+re6k/Jpt9S9mZuEMLaLUtpDZlRZZE3UkIiwSS+Forig==}
@@ -2174,8 +2171,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@vesperjs/shared@0.7.0':
-    resolution: {integrity: sha512-bdKqGarFAj8Uzjr2vwPyV9oA2mNiikdHlo+Cutd7e0BQnSW7pmR4t/XIsdPlxUjM2iQuySGG5IVV9lPOalg3kw==}
+  '@vesperjs/shared@0.7.1':
+    resolution: {integrity: sha512-bDJ2hKTCKwkk2PsdUon5V9VXZQjbA7KG9mzQyOnGzSe78zeaHUC0LmfcJxqwYgL4HxVjJl77AaaUKuVnEX8Pag==}
     peerDependencies:
       '@vue/reactivity': ^3.5.34 || ^3.6.0-beta.11
 
@@ -5224,8 +5221,6 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@formkit/tempo@1.0.0': {}
-
   '@formkit/tempo@1.1.0': {}
 
   '@humanfs/core@0.19.1': {}
@@ -6625,9 +6620,9 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vesperjs/shared@0.7.0(@vue/reactivity@3.6.0-beta.11)':
+  '@vesperjs/shared@0.7.1(@vue/reactivity@3.6.0-beta.11)':
     dependencies:
-      '@formkit/tempo': 1.0.0
+      '@formkit/tempo': 1.1.0
       '@vue/reactivity': 3.6.0-beta.11
 
   '@vitejs/plugin-vue-jsx@5.1.5(vite@7.3.1(@types/node@24.12.3)(jiti@2.6.1)(terser@5.46.1)(yaml@2.8.3))(vue@3.5.34(typescript@6.0.3))':
