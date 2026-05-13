@@ -18,8 +18,8 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0(nanostores@1.3.0)
       '@vesperjs/shared':
-        specifier: 0.7.1
-        version: 0.7.1(@vue/reactivity@3.6.0-beta.11)
+        specifier: 0.7.2
+        version: 0.7.2(@vue/reactivity@3.6.0-beta.11)
       '@vue/reactivity':
         specifier: ^3.5.34 || ^3.6.0-beta.11
         version: 3.6.0-beta.11
@@ -542,8 +542,8 @@ packages:
     resolution: {integrity: sha512-f1UQF7ggd42YiwI5wGrRaPsa+P0CINBlrkLPmGfpq/u/I/oVtecoEIfFR9ag/oa1sLOsRNZ6xehf6qMZhQGBDg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@vesperjs/shared@0.7.1':
-    resolution: {integrity: sha512-bDJ2hKTCKwkk2PsdUon5V9VXZQjbA7KG9mzQyOnGzSe78zeaHUC0LmfcJxqwYgL4HxVjJl77AaaUKuVnEX8Pag==}
+  '@vesperjs/shared@0.7.2':
+    resolution: {integrity: sha512-O5hwIeV8BCatrKY3pWwi7eaTXwsSgatjtNotMW/hCCO0L8XaYuOp7/3oBASCX5wi9mXXiRPlIcrOH/vz51spZw==}
     peerDependencies:
       '@vue/reactivity': ^3.5.34 || ^3.6.0-beta.11
 
@@ -1537,7 +1537,7 @@ snapshots:
       '@typescript-eslint/types': 8.59.3
       eslint-visitor-keys: 5.0.1
 
-  '@vesperjs/shared@0.7.1(@vue/reactivity@3.6.0-beta.11)':
+  '@vesperjs/shared@0.7.2(@vue/reactivity@3.6.0-beta.11)':
     dependencies:
       '@formkit/tempo': 1.1.0
       '@vue/reactivity': 3.6.0-beta.11

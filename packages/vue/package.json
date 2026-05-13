@@ -1,6 +1,6 @@
 {
   "name": "@vesperjs/vue",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "keywords": [
     "vue.js"
   ],
@@ -29,7 +29,7 @@
     "@formkit/tempo": "^1.1.0",
     "@nanostores/persistent": "^1.3.4",
     "@nanostores/router": "^1.0.0",
-    "@vesperjs/shared": "0.7.1",
+    "@vesperjs/shared": "0.7.2",
     "nanostores": "^1.3.0",
     "ofetch": "^1.5.1",
     "undici": "^8.2.0",
