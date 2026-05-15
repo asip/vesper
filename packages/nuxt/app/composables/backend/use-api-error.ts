@@ -3,7 +3,7 @@ import { useNuxtApp } from 'nuxt/app'
 import type { FetchError } from 'ofetch'
 import type { NuxtError } from 'nuxt/app'
 
-import type { Ref } from '@vue/reactivity'
+import type { Ref } from 'vue'
 
 import type {
   ErrorsResource,

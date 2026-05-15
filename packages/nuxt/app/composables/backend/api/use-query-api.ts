@@ -2,7 +2,7 @@ import { useAsyncData, useNuxtApp, type NuxtError } from 'nuxt/app'
 
 import type { FetchContext, FetchError, FetchOptions, FetchResponse } from 'ofetch'
 
-import { ref } from '@vue/reactivity'
+import { ref } from 'vue'
 
 import { useHttpHeaders } from './use-http-headers'
 import { useApiConstants } from './use-api-constants'
