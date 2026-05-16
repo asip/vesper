@@ -1,5 +1,13 @@
 import { useState } from 'nuxt/app'
 
+interface MorePage {
+  current: number
+  prev: boolean
+  next: boolean
+  min: number
+  max: number
+}
+
 export const useMorePage = function ({
   key = null,
   page = 1,
@@ -9,11 +17,11 @@ export const useMorePage = function ({
   page: number
   pages: number
 }): {
-  currentPage: Ref<number>
-  pagePrev: Ref<boolean>
-  pageNext: Ref<boolean>
-  minPage: Ref<number>
-  maxPage: Ref<number>
+  currentPage: WritableComputedRef<number>
+  pagePrev: WritableComputedRef<boolean>
+  pageNext: WritableComputedRef<boolean>
+  minPage: WritableComputedRef<number>
+  maxPage: WritableComputedRef<number>
   init: () => void
   decrement: () => void
   increment: () => void
@@ -22,60 +30,101 @@ export const useMorePage = function ({
     return str.charAt(0).toUpperCase() + str.slice(1)
   }
 
-  const currentPage = useState<number>(
-    key ? `currentPageFor${toFirstUpper(key)}` : 'currentPage',
-    () => {
-      return 1
+  const morePage = useState<MorePage>(key ? `morePageFor${toFirstUpper(key)}` : 'morePage', () => {
+    return {
+      current: 1,
+      prev: false,
+      next: false,
+      min: 1,
+      max: 1,
+    }
+  })
+
+  const currentPage = computed<number>({
+    get() {
+      return morePage.value.current
     },
-  )
-
-  const pagePrev = useState<boolean>(key ? `pagePrevFor${toFirstUpper(key)}` : 'pagePrev', () => {
-    return false
-  })
-  const pageNext = useState<boolean>(key ? `pageNextFor${toFirstUpper(key)}` : 'pageNext', () => {
-    return false
+    set(value: number) {
+      morePage.value.current = value
+    },
   })
 
-  const minPage = useState<number>(key ? `minPageFor${toFirstUpper(key)}` : 'minPage', () => {
-    return 1
+  const prev = computed<boolean>({
+    get() {
+      return morePage.value.prev
+    },
+    set(value: boolean) {
+      morePage.value.prev = value
+    },
   })
-  const maxPage = useState<number>(key ? `maxPageFor${toFirstUpper(key)}` : 'maxPage', () => {
-    return 1
+  const next = computed<boolean>({
+    get() {
+      return morePage.value.next
+    },
+    set(value: boolean) {
+      morePage.value.next = value
+    },
+  })
+
+  const minPage = computed<number>({
+    get() {
+      return morePage.value.min
+    },
+    set(value: number) {
+      morePage.value.min = value
+    },
+  })
+  const maxPage = computed<number>({
+    get() {
+      return morePage.value.max
+    },
+    set(value: number) {
+      morePage.value.max = value
+    },
   })
 
   const minMaxPage = () => {
-    minPage.value = currentPage.value < page ? currentPage.value : page
-    maxPage.value = currentPage.value > page ? currentPage.value : page
+    morePage.value.min = morePage.value.current < page ? morePage.value.current : page
+    morePage.value.max = morePage.value.current > page ? morePage.value.current : page
   }
 
-  const pagePrevNext = () => {
-    if (currentPage.value === 1) pagePrev.value = false
-    if (currentPage.value === pages) pageNext.value = false
-    // console.log(`page prev: ${pagePrev.value}`)
-    // console.log(`page next: ${pageNext.value}`)
+  const prevNext = () => {
+    if (morePage.value.current === 1) morePage.value.prev = false
+    if (morePage.value.current === pages) morePage.value.next = false
+    // console.log(`page prev: ${prev.value}`)
+    // console.log(`page next: ${next.value}`)
   }
 
   const init = () => {
-    currentPage.value = page
-    pagePrev.value = true
-    pageNext.value = true
+    morePage.value.current = page
+    morePage.value.prev = true
+    morePage.value.next = true
     minMaxPage()
-    pagePrevNext()
+    prevNext()
   }
 
   const decrement = () => {
-    currentPage.value = minPage.value - 1
+    morePage.value.current = morePage.value.min - 1
     minMaxPage()
-    pagePrevNext()
+    prevNext()
   }
 
   const increment = () => {
-    currentPage.value = maxPage.value + 1
+    morePage.value.current = morePage.value.max + 1
     minMaxPage()
-    pagePrevNext()
+    prevNext()
   }
 
-  return { currentPage, pagePrev, pageNext, minPage, maxPage, init, decrement, increment }
+  return {
+    currentPage,
+    pagePrev: prev,
+    pageNext: next,
+    minPage,
+    maxPage,
+    init,
+    decrement,
+    increment,
+  }
 }
 
 export const useMoreScroll = useMorePage
