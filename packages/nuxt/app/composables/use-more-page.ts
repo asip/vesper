@@ -18,6 +18,8 @@ export const useMorePage = function ({
   pages: number
 }): {
   currentPage: WritableComputedRef<number>
+  prev: WritableComputedRef<boolean>
+  next: WritableComputedRef<boolean>
   pagePrev: WritableComputedRef<boolean>
   pageNext: WritableComputedRef<boolean>
   minPage: WritableComputedRef<number>
@@ -117,6 +119,8 @@ export const useMorePage = function ({
 
   return {
     currentPage,
+    prev,
+    next,
     pagePrev: prev,
     pageNext: next,
     minPage,
