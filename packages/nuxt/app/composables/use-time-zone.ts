@@ -28,11 +28,13 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
   const { locale } = useLocale()
   const { toISO8601, formatHTML } = useDatetimeLocal(fmtDT)
 
-  const serverTimeZone = runtimeConfig.public.timeZone as string
+  const serverTZ = runtimeConfig.public.timeZone as string
+
+  const clientTZ = computed<string>(() => Intl.DateTimeFormat().resolvedOptions().timeZone)
 
   const timeZone = computed<TimeZone>(() => ({
-    client: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    server: serverTimeZone,
+    client: clientTZ.value,
+    server: serverTZ ? serverTZ : clientTZ.value,
   }))
 
   const tzOptions = computed<TZOptions[]>(() =>

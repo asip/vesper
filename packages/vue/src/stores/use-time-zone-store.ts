@@ -3,9 +3,9 @@ import { computed, type WritableComputedRef } from '@vue/reactivity'
 import { $timeZone } from './nano'
 
 export const useTimeZoneStore = function (): {
-  serverTimeZone: WritableComputedRef<string, string>
+  serverTZ: WritableComputedRef<string | undefined>
 } {
-  const serverTimeZone = computed<string>({
+  const serverTZ = computed<string | undefined>({
     get() {
       return $timeZone.get()
     },
@@ -14,5 +14,5 @@ export const useTimeZoneStore = function (): {
     },
   })
 
-  return { serverTimeZone }
+  return { serverTZ }
 }

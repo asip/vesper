@@ -19,7 +19,7 @@ interface TZOptions {
 
 export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
   timeZone: ComputedRef<TimeZone>
-  serverTimeZone: WritableComputedRef<string, string>
+  serverTZ: WritableComputedRef<string | undefined>
   tzOptions: ComputedRef<TZOptions[]>
   upTZ: (datetime: string | null) => string
   downTZ: (datetime: string | null) => string
@@ -27,11 +27,13 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
 } {
   const { locale } = useLocale()
   const { toISO8601, formatHTML } = useDatetimeLocal(fmtDT)
-  const { serverTimeZone } = useTimeZoneStore()
+  const { serverTZ } = useTimeZoneStore()
+
+  const clientTZ = computed<string>(() => Intl.DateTimeFormat().resolvedOptions().timeZone)
 
   const timeZone = computed<TimeZone>(() => ({
-    client: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    server: serverTimeZone.value,
+    client: clientTZ.value,
+    server: serverTZ.value ? serverTZ.value : clientTZ.value,
   }))
 
   const tzOptions = computed<TZOptions[]>(() =>
@@ -85,7 +87,7 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
         : ''
   }
 
-  return { timeZone, serverTimeZone, tzOptions, upTZ, downTZ, formatHtmlTZ }
+  return { timeZone, serverTZ, tzOptions, upTZ, downTZ, formatHtmlTZ }
 }
 
 // export type UseTimeZoneType = ReturnType<typeof useTimeZone>
