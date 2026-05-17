@@ -1,6 +1,8 @@
 import { useState } from 'nuxt/app'
 
 interface MorePage {
+  first: number
+  pages: number
   current: number
   prev: boolean
   next: boolean
@@ -8,32 +10,27 @@ interface MorePage {
   max: number
 }
 
-export const useMorePage = function ({
-  key = null,
-  page = 1,
-  pages,
-}: {
-  key?: string | null
-  page: number
-  pages: number
-}): {
-  currentPage: WritableComputedRef<number>
-  prev: WritableComputedRef<boolean>
-  next: WritableComputedRef<boolean>
-  pagePrev: WritableComputedRef<boolean>
-  pageNext: WritableComputedRef<boolean>
-  minPage: WritableComputedRef<number>
-  maxPage: WritableComputedRef<number>
-  init: () => void
+export const useMorePage = function (options?: { key?: string | null }): {
+  currentPage: ComputedRef<number>
+  prev: ComputedRef<boolean>
+  next: ComputedRef<boolean>
+  minPage: ComputedRef<number>
+  maxPage: ComputedRef<number>
+  initBefore: (page: number) => void
+  initAfter: (pages: number) => void
   decrement: () => void
   increment: () => void
 } {
+  const key = options?.key
+
   const toFirstUpper = (str: string): string => {
     return str.charAt(0).toUpperCase() + str.slice(1)
   }
 
   const morePage = useState<MorePage>(key ? `morePageFor${toFirstUpper(key)}` : 'morePage', () => {
     return {
+      first: 1,
+      pages: 1,
       current: 1,
       prev: false,
       next: false,
@@ -42,65 +39,38 @@ export const useMorePage = function ({
     }
   })
 
-  const currentPage = computed<number>({
-    get() {
-      return morePage.value.current
-    },
-    set(value: number) {
-      morePage.value.current = value
-    },
-  })
+  const currentPage = computed<number>(() => morePage.value.current)
 
-  const prev = computed<boolean>({
-    get() {
-      return morePage.value.prev
-    },
-    set(value: boolean) {
-      morePage.value.prev = value
-    },
-  })
-  const next = computed<boolean>({
-    get() {
-      return morePage.value.next
-    },
-    set(value: boolean) {
-      morePage.value.next = value
-    },
-  })
+  const prev = computed<boolean>(() => morePage.value.prev)
+  const next = computed<boolean>(() => morePage.value.next)
 
-  const minPage = computed<number>({
-    get() {
-      return morePage.value.min
-    },
-    set(value: number) {
-      morePage.value.min = value
-    },
-  })
-  const maxPage = computed<number>({
-    get() {
-      return morePage.value.max
-    },
-    set(value: number) {
-      morePage.value.max = value
-    },
-  })
+  const minPage = computed<number>(() => morePage.value.min)
+  const maxPage = computed<number>(() => morePage.value.max)
 
   const minMaxPage = () => {
-    morePage.value.min = morePage.value.current < page ? morePage.value.current : page
-    morePage.value.max = morePage.value.current > page ? morePage.value.current : page
+    morePage.value.min =
+      morePage.value.current < morePage.value.first ? morePage.value.current : morePage.value.first
+    morePage.value.max =
+      morePage.value.current > morePage.value.first ? morePage.value.current : morePage.value.first
   }
 
   const prevNext = () => {
-    if (morePage.value.current === 1) morePage.value.prev = false
-    if (morePage.value.current === pages) morePage.value.next = false
+    morePage.value.prev = morePage.value.min === 1 ? false : true
+    morePage.value.next = morePage.value.max === morePage.value.pages ? false : true
     // console.log(`page prev: ${prev.value}`)
     // console.log(`page next: ${next.value}`)
   }
 
-  const init = () => {
+  const initBefore = (page: number) => {
+    morePage.value.first = page
     morePage.value.current = page
-    morePage.value.prev = true
-    morePage.value.next = true
+
+    morePage.value.prev = false
+    morePage.value.next = false
+  }
+
+  const initAfter = (pages: number) => {
+    morePage.value.pages = pages
     minMaxPage()
     prevNext()
   }
@@ -121,11 +91,10 @@ export const useMorePage = function ({
     currentPage,
     prev,
     next,
-    pagePrev: prev,
-    pageNext: next,
     minPage,
     maxPage,
-    init,
+    initBefore,
+    initAfter,
     decrement,
     increment,
   }
