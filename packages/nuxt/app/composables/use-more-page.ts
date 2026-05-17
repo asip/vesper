@@ -11,13 +11,13 @@ interface MorePage {
 }
 
 export const useMorePage = function (options?: { key?: string | null }): {
+  firstPage: WritableComputedRef<number>
+  pages: WritableComputedRef<number>
   currentPage: ComputedRef<number>
   prev: ComputedRef<boolean>
   next: ComputedRef<boolean>
   minPage: ComputedRef<number>
   maxPage: ComputedRef<number>
-  initBefore: (page: number) => void
-  initAfter: (pages: number) => void
   decrement: () => void
   increment: () => void
 } {
@@ -37,6 +37,31 @@ export const useMorePage = function (options?: { key?: string | null }): {
       min: 1,
       max: 1,
     }
+  })
+
+  const firstPage = computed<number>({
+    get() {
+      return morePage.value.first
+    },
+    set(value: number) {
+      morePage.value.first = value
+      morePage.value.current = value
+
+      morePage.value.prev = false
+      morePage.value.next = false
+    },
+  })
+
+  const pages = computed<number>({
+    get() {
+      return morePage.value.pages
+    },
+    set(value: number) {
+      morePage.value.pages = value
+
+      minMaxPage()
+      prevNext()
+    },
   })
 
   const currentPage = computed<number>(() => morePage.value.current)
@@ -61,20 +86,6 @@ export const useMorePage = function (options?: { key?: string | null }): {
     // console.log(`page next: ${next.value}`)
   }
 
-  const initBefore = (page: number) => {
-    morePage.value.first = page
-    morePage.value.current = page
-
-    morePage.value.prev = false
-    morePage.value.next = false
-  }
-
-  const initAfter = (pages: number) => {
-    morePage.value.pages = pages
-    minMaxPage()
-    prevNext()
-  }
-
   const decrement = () => {
     morePage.value.current = morePage.value.min - 1
     minMaxPage()
@@ -88,13 +99,13 @@ export const useMorePage = function (options?: { key?: string | null }): {
   }
 
   return {
+    firstPage,
+    pages,
     currentPage,
     prev,
     next,
     minPage,
     maxPage,
-    initBefore,
-    initAfter,
     decrement,
     increment,
   }
