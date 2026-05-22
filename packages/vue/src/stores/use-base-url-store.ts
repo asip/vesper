@@ -1,16 +1,17 @@
 import { computed, type WritableComputedRef } from '@vue/reactivity'
+import { persistentAtom } from '@nanostores/persistent'
 
-import { $baseUrl } from './nano'
+const $baseURL = persistentAtom<string | undefined>('baseURL', undefined)
 
 export const useBaseUrlStore = function (): {
-  baseURL: WritableComputedRef<string, string>
+  baseURL: WritableComputedRef<string | undefined>
 } {
-  const baseURL = computed<string>({
+  const baseURL = computed<string | undefined>({
     get() {
-      return $baseUrl.get()
+      return $baseURL.get()
     },
     set(value: string) {
-      $baseUrl.set(value)
+      $baseURL.set(value)
     },
   })
 
