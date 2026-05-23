@@ -2,7 +2,7 @@ import { computed, type ComputedRef, type WritableComputedRef } from '@vue/react
 
 import { format, tzDate } from '@formkit/tempo'
 
-import { useTimeZoneStore } from '~/stores/use-time-zone-store'
+import { useConfigStore } from '~/stores/use-config-store'
 
 import { useLocale } from './use-locale'
 import { useDatetimeLocal } from './use-datetime-local'
@@ -27,7 +27,7 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
 } {
   const { locale } = useLocale()
   const { toISO8601, formatHTML } = useDatetimeLocal(fmtDT)
-  const { serverTZ } = useTimeZoneStore()
+  const { serverTZ } = useConfigStore()
 
   const clientTZ = computed<string>(() => Intl.DateTimeFormat().resolvedOptions().timeZone)
 
