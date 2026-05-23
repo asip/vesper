@@ -1,7 +1,5 @@
 import { useRuntimeConfig } from 'nuxt/app'
 
-import { computed } from 'vue'
-
 import { format, tzDate } from '@formkit/tempo'
 
 import { useLocale } from './use-locale'
