@@ -1,6 +1,6 @@
 import { useRuntimeConfig } from 'nuxt/app'
 
-export const useApiConstants = function (): {
+export const useApiConfig = function (): {
   baseURL: ComputedRef<string>
 } {
   const runtimeConfig = useRuntimeConfig()

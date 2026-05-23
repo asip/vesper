@@ -1,7 +1,7 @@
 export { useEntity, useFlash } from '@vesperjs/shared'
 export type { UseFlashType } from '@vesperjs/shared'
 
-export { useApiConstants, useOFetch, useMutationApi, useQueryApi } from './backend'
+export { useOFetch, useMutationApi, useQueryApi } from './backend'
 export { useExternalErrors, useApiError, useAlert } from './backend'
 
 export { useElement } from './ui'

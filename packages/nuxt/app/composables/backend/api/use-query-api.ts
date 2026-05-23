@@ -5,7 +5,7 @@ import type { FetchContext, FetchError, FetchOptions, FetchResponse } from 'ofet
 import { ref } from 'vue'
 
 import { useHttpHeaders } from './use-http-headers'
-import { useApiConstants } from './use-api-constants'
+import { useApiConfig } from './use-api-config'
 import { useOFetch } from './use-ofetch'
 
 type KeysOf<T> = Array<T extends T ? (keyof T extends string ? keyof T : never) : never>
@@ -72,7 +72,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { $api } = useNuxtApp() as any
   const { commonHeaders } = useHttpHeaders()
-  const { baseURL: baseUrl } = useApiConstants()
+  const { baseURL: baseUrl } = useApiConfig()
 
   const key = options?.key ?? url
 

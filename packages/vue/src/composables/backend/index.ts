@@ -1,4 +1,4 @@
-export { useApiConstants, useOFetch, useMutationApi, useQueryApi } from './api'
+export { useOFetch, useMutationApi, useQueryApi } from './api'
 
 export { useApiError, useAlert } from './use-api-error'
 export { useExternalErrors } from './error'

@@ -1,7 +1,7 @@
 import type { FetchContext, FetchOptions, FetchError, FetchResponse } from 'ofetch'
 
 import { useHttpHeaders } from './use-http-headers'
-import { useApiConstants } from './use-api-constants'
+import { useApiConfig } from './use-api-config'
 import { useOFetch } from './use-ofetch'
 
 interface MutationAPIOptions {
@@ -37,7 +37,7 @@ export const useMutationApi = async function <T = unknown, E = any>(
   pending: boolean
 }> {
   const { commonHeaders } = useHttpHeaders()
-  const { baseURL: baseUrl } = useApiConstants()
+  const { baseURL: baseUrl } = useApiConfig()
 
   const method = options.method
   const body = options.body ?? {}
