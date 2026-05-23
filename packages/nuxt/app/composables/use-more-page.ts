@@ -110,5 +110,3 @@ export const useMorePage = function (options?: { key?: string | null }): {
     increment,
   }
 }
-
-export const useMoreScroll = useMorePage

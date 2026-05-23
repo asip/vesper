@@ -1,6 +1,6 @@
 export { useOFetch, useMutationApi, useQueryApi } from './api'
 
-export { useApiError, useAlert } from './use-api-error'
+export { useApiError } from './use-api-error'
 export { useExternalErrors } from './error'
 
-export type { UseApiErrorType, UseAlertType } from './use-api-error'
+export type { UseApiErrorType } from './use-api-error'

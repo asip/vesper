@@ -3,8 +3,6 @@ import { useNuxtApp } from 'nuxt/app'
 import type { FetchError } from 'ofetch'
 import type { NuxtError } from 'nuxt/app'
 
-import type { Ref } from 'vue'
-
 import type {
   ErrorsResource,
   BackendErrorInfo,
@@ -29,7 +27,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   flash,
   caller,
 }: UseApiErrorOptions): {
-  backendErrorInfo: Ref<BackendErrorInfo<BER>, BER>
+  backendErrorInfo: ComputedRef<BackendErrorInfo<BER>>
   setError: (
     error:
       | NuxtError<ErrorsResource<ErrorMessages<string>> | BER>
@@ -91,7 +89,4 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   return { backendErrorInfo, setError }
 }
 
-export const useAlert = useApiError
-
 export type UseApiErrorType = ReturnType<typeof useApiError>
-export type UseAlertType = UseApiErrorType

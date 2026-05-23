@@ -28,7 +28,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   flash,
   caller,
 }: UseApiErrorOptions): {
-  backendErrorInfo: Ref<BackendErrorInfo<BER>, BER>
+  backendErrorInfo: Ref<BackendErrorInfo<BER>>
   setError: (
     error: FetchError<ErrorsResource<ErrorMessages<string>> | BER>,
     options?: {
@@ -93,7 +93,4 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   return { backendErrorInfo, setError, reload }
 }
 
-export const useAlert = useApiError
-
 export type UseApiErrorType = ReturnType<typeof useApiError>
-export type UseAlertType = UseApiErrorType
