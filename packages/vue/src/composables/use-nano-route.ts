@@ -9,12 +9,9 @@ export const useNanoRoute = function <T extends RouterConfig>(
 } {
   const page = router.get()
 
-  const params = page?.params as ParamsFromConfig<T>[string]
+  const params = page?.params ? (page.params as ParamsFromConfig<T>[string]) : undefined
   const query = page?.search
   const path = page?.path
-
-  // globalThis.console.log(path)
-  // globalThis.console.log(query)
 
   return { params, query, path }
 }
