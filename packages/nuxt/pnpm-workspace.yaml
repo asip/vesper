@@ -3,7 +3,7 @@ allowBuilds:
   esbuild: false
   unrs-resolver: false
 overrides:
-  '@typescript-eslint/typescript-estree': ^8.59.3
-  eslint: ^10.3.0
-  typescript-eslint: ^8.59.3
-  vite: ^8.0.12
+  '@typescript-eslint/typescript-estree': ^8.59.4
+  eslint: ^10.4.0
+  typescript-eslint: ^8.59.4
+  vite: ^8.0.14
