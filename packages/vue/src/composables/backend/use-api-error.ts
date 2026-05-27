@@ -1,4 +1,4 @@
-import type { Ref } from '@vue/reactivity'
+import type { Ref, WritableComputedRef } from '@vue/reactivity'
 
 import type { FetchError } from 'ofetch'
 
@@ -12,10 +12,7 @@ import type {
 
 import { useBackendErrorInfo } from './error'
 
-import { i18n } from '~/i18n'
-
-interface UseApiErrorOptions {
-  flash: Ref<Flash>
+export interface UseApiErrorOptions {
   caller?: UseApiErrorCallerType
 }
 
@@ -24,62 +21,34 @@ interface UseApiErrorCallerType {
   clearAccount?: () => void
 }
 
-export const useApiError = function <BER extends object = BackendErrorResource>({
-  flash,
-  caller,
-}: UseApiErrorOptions): {
-  backendErrorInfo: Ref<BackendErrorInfo<BER>>
+export const useApiError = function <BER extends object = BackendErrorResource>(
+  flash: Ref<Flash>,
+  options?: UseApiErrorOptions,
+): {
+  backendErrorInfo: WritableComputedRef<
+    BackendErrorInfo<BER>,
+    FetchError<BER | ErrorsResource<ErrorMessages<string>>>
+  >
   setError: (
     error: FetchError<ErrorsResource<ErrorMessages<string>> | BER>,
     options?: {
       off?: boolean
     },
   ) => void
+  off: Ref<boolean, boolean>
   reload: () => void
 } {
-  const { backendErrorInfo, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
+  const caller = options?.caller
+
+  const { backendErrorInfo, off } = useBackendErrorInfo<BER>(flash, { caller })
 
   const setError = function (
     error: FetchError<ErrorsResource<ErrorMessages<string>> | BER>,
     options?: { off?: boolean },
   ): void {
-    const off = options?.off ?? false
+    off.value = options?.off ?? false
 
-    clearBackendErrorInfo()
-    backendErrorInfo.value.status = error.status
-    if (off) {
-      switch (error.status) {
-        case 401:
-          // flash.value.alert = i18n.t('backend.error.login')
-          if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
-          break
-        // default:
-        //  flash.value.alert = $i18n.t('backend.error.api', { message: error.message })
-      }
-    } else {
-      switch (error.status) {
-        case 401:
-          flash.value.alert = i18n.global.t('backend.error.login')
-          if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
-          break
-        case 404:
-          {
-            const backendError = error.data as BER
-            backendErrorInfo.value.error = backendError
-          }
-          break
-        case 422: {
-          if (caller && 'externalErrors' in caller && caller.externalErrors && error.data) {
-            const { errors } = error.data as ErrorsResource<ErrorMessages<string>>
-            // globalThis.console.log(errors)
-            caller.externalErrors.value = errors
-          }
-          break
-        }
-        default:
-          flash.value.alert = i18n.global.t('backend.error.api', { message: error.message })
-      }
-    }
+    backendErrorInfo.value = error
   }
 
   const reload = (): void => {
@@ -90,7 +59,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     }
   }
 
-  return { backendErrorInfo, setError, reload }
+  return { backendErrorInfo, setError, off, reload }
 }
 
 export type UseApiErrorType = ReturnType<typeof useApiError>

@@ -1,5 +1,3 @@
-import { useNuxtApp } from 'nuxt/app'
-
 import type { FetchError } from 'ofetch'
 import type { NuxtError } from 'nuxt/app'
 
@@ -13,8 +11,7 @@ import type {
 
 import { useBackendErrorInfo } from './error'
 
-interface UseApiErrorOptions {
-  flash: Ref<Flash>
+export interface UseApiErrorOptions {
   caller?: UseApiErrorCallerType
 }
 
@@ -23,11 +20,15 @@ interface UseApiErrorCallerType {
   clearAccount?: () => void
 }
 
-export const useApiError = function <BER extends object = BackendErrorResource>({
-  flash,
-  caller,
-}: UseApiErrorOptions): {
-  backendErrorInfo: ComputedRef<BackendErrorInfo<BER>>
+export const useApiError = function <BER extends object = BackendErrorResource>(
+  flash: Ref<Flash>,
+  options?: UseApiErrorOptions,
+): {
+  backendErrorInfo: WritableComputedRef<
+    BackendErrorInfo<BER>,
+    | NuxtError<BER | ErrorsResource<ErrorMessages<string>>>
+    | FetchError<BER | ErrorsResource<ErrorMessages<string>>>
+  >
   setError: (
     error:
       | NuxtError<ErrorsResource<ErrorMessages<string>> | BER>
@@ -36,10 +37,11 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
       off?: boolean
     },
   ) => void
+  off: Ref<boolean>
 } {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { $i18n } = useNuxtApp() as any
-  const { backendErrorInfo, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
+  const caller = options?.caller
+
+  const { backendErrorInfo, off } = useBackendErrorInfo<BER>(flash, { caller })
 
   const setError = function (
     error:
@@ -47,46 +49,12 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
       | FetchError<ErrorsResource<ErrorMessages<string>> | BER>,
     options?: { off?: boolean },
   ): void {
-    const off = options?.off ?? false
+    off.value = options?.off ?? false
 
-    clearBackendErrorInfo()
-    backendErrorInfo.value.status = error.status
-    if (off) {
-      switch (error.status) {
-        case 401:
-          // flash.value.alert = $i18n.t('backend.error.login')
-          if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
-          break
-        // default:
-        //  flash.value.alert = $i18n.t('backend.error.api', { message: error.message })
-      }
-    } else {
-      switch (error.status) {
-        case 401:
-          flash.value.alert = $i18n.t('backend.error.login')
-          if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
-          break
-        case 404:
-          {
-            const backendError = error.data as BER
-            backendErrorInfo.value.error = backendError
-          }
-          break
-        case 422: {
-          if (caller && 'externalErrors' in caller && caller.externalErrors && error.data) {
-            const { errors } = error.data as ErrorsResource<ErrorMessages<string>>
-            // globalThis.console.log(errors)
-            caller.externalErrors.value = errors
-          }
-          break
-        }
-        default:
-          flash.value.alert = $i18n.t('backend.error.api', { message: error.message })
-      }
-    }
+    backendErrorInfo.value = error
   }
 
-  return { backendErrorInfo, setError }
+  return { backendErrorInfo, setError, off }
 }
 
 export type UseApiErrorType = ReturnType<typeof useApiError>

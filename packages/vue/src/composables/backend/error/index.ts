@@ -1,1 +1,2 @@
-export { useExternalErrors, useBackendErrorInfo } from '@vesperjs/shared'
+export { useExternalErrors } from '@vesperjs/shared'
+export { useBackendErrorInfo } from './use-backend-error-info'
