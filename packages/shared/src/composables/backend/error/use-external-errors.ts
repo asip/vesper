@@ -2,12 +2,10 @@ import { computed, ref, type WritableComputedRef, type Ref } from '@vue/reactivi
 
 import type { ErrorMessages, Flash } from '~/types'
 
-export const useExternalErrors = function <P extends string>({
-  flash,
-}: {
-  flash: Ref<Flash>
-}): {
-  externalErrors: WritableComputedRef<Partial<Record<P, string[]>>, Partial<Record<P, string[]>>>
+export const useExternalErrors = function <P extends string>(
+  flash: Ref<Flash>,
+): {
+  externalErrors: WritableComputedRef<ErrorMessages<P>>
   clearExternalErrors: () => void
   isSuccess: () => boolean
 } {
