@@ -3,17 +3,7 @@ import { ref, type Ref } from '@vue/reactivity'
 import type { Flash } from '~/types'
 
 export const useFlash = function (): {
-  flash: Ref<
-    {
-      notice?: string | undefined
-      alert?: string | undefined
-    },
-    | Flash
-    | {
-        notice?: string | undefined
-        alert?: string | undefined
-      }
-  >
+  flash: Ref<Flash>
   clearFlash: () => void
 } {
   const flash = ref<Flash>({})
