@@ -1,4 +1,4 @@
-export interface BackendErrorInfo<BER> {
+export interface BackendErrorInfo<BER extends object> {
   error?: BER
   status?: number
 }

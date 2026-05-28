@@ -1,1 +1,1 @@
-export { useExternalErrors } from './error'
+export { useBackendErrorInfo, useExternalErrors } from './error'

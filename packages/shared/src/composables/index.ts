@@ -1,4 +1,4 @@
-export { useExternalErrors } from './backend'
+export { useBackendErrorInfo, useExternalErrors } from './backend'
 
 export { useDate } from './util'
 
