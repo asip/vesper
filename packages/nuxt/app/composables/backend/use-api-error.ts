@@ -43,8 +43,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
 
   const { backendErrorInfo: info, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { $i18n } = useNuxtApp() as any
+  const { $i18n } = useNuxtApp()
 
   const off = ref<boolean>(false)
 
