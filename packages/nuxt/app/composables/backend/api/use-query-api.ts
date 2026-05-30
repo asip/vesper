@@ -1,6 +1,6 @@
 import { useAsyncData, useNuxtApp, type NuxtError } from 'nuxt/app'
 
-import type { FetchContext, FetchError, FetchOptions, FetchResponse } from 'ofetch'
+import type { $Fetch, FetchContext, FetchError, FetchOptions, FetchResponse } from 'ofetch'
 
 import { useHttpHeaders } from './use-http-headers'
 import { useApiConfig } from './use-api-config'
@@ -67,8 +67,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
       refresh?: undefined
     }
 > {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { $api } = useNuxtApp() as any
+  const { $api } = useNuxtApp()
   const { commonHeaders } = useHttpHeaders()
   const { baseURL: baseUrl } = useApiConfig()
 
@@ -120,7 +119,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
 
   if (cache) {
     const { data, error, refresh, pending } = await useAsyncData<T, E>(key, () =>
-      $api(url, queryOptions),
+      ($api as $Fetch)(url, queryOptions),
     )
 
     if (fresh) await refresh()
