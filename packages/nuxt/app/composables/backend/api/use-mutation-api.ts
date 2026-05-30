@@ -1,3 +1,5 @@
+import type { AsyncDataRequestStatus } from 'nuxt/app'
+
 import type { FetchContext, FetchOptions, FetchError, FetchResponse } from 'ofetch'
 
 import { useHttpHeaders } from './use-http-headers'
@@ -34,6 +36,7 @@ export const useMutationApi = async function <T = unknown, E = any>(
   token: string | null | undefined
   data: T | undefined
   error: FetchError<E> | undefined
+  status: AsyncDataRequestStatus
   pending: boolean
 }> {
   const { commonHeaders } = useHttpHeaders()
@@ -77,7 +80,7 @@ export const useMutationApi = async function <T = unknown, E = any>(
     tokenRef.value = response.headers.get('Authorization')?.split(' ')[1] ?? token
   }
 
-  const { data, error, pending } = await useOFetch<T, E>(url, mutOptions)
+  const { data, error, status, pending } = await useOFetch<T, E>(url, mutOptions)
 
-  return { token: tokenRef.value, data, error, pending }
+  return { token: tokenRef.value, data, error, status, pending }
 }

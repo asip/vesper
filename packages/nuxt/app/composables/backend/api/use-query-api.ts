@@ -1,4 +1,4 @@
-import { useAsyncData, useNuxtApp, type NuxtError } from 'nuxt/app'
+import { useAsyncData, useNuxtApp, type NuxtError, type AsyncDataRequestStatus } from 'nuxt/app'
 
 import type { $Fetch, FetchContext, FetchError, FetchOptions, FetchResponse } from 'ofetch'
 
@@ -57,12 +57,14 @@ export const useQueryApi = async function <T = unknown, E = any>(
       data: PickFrom<T, KeysOf<T>> | undefined
       error: (E extends Error | NuxtError<unknown> ? E : NuxtError<E>) | undefined
       refresh: (opts?: never) => Promise<void>
+      status: AsyncDataRequestStatus
       pending: boolean
     }
   | {
       token: string | null | undefined
       data: T | undefined
       error: FetchError<E> | undefined
+      status: AsyncDataRequestStatus
       pending: boolean
       refresh?: undefined
     }
@@ -118,7 +120,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
   if (options?.onResponseError) queryOptions.onResponseError = options.onResponseError
 
   if (cache) {
-    const { data, error, refresh, pending } = await useAsyncData<T, E>(key, () =>
+    const { data, error, refresh, status, pending } = await useAsyncData<T, E>(key, () =>
       ($api as $Fetch)(url, queryOptions),
     )
 
@@ -129,11 +131,12 @@ export const useQueryApi = async function <T = unknown, E = any>(
       data: data.value,
       error: error.value,
       refresh,
+      status: status.value,
       pending: pending.value,
     }
   } else {
-    const { data, error, pending } = await useOFetch<T, E>(url, queryOptions)
+    const { data, error, status, pending } = await useOFetch<T, E>(url, queryOptions)
 
-    return { token: tokenRef.value, data, error, pending }
+    return { token: tokenRef.value, data, error, status, pending }
   }
 }

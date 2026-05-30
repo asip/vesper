@@ -2,6 +2,8 @@ import { ref } from '@vue/reactivity'
 
 import type { FetchContext, FetchOptions, FetchError, FetchResponse } from 'ofetch'
 
+import type { AsyncDataRequestStatus } from '~/types'
+
 import { useHttpHeaders } from './use-http-headers'
 import { useApiConfig } from './use-api-config'
 import { useOFetch } from './use-ofetch'
@@ -37,6 +39,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
   token: string | null | undefined
   data: T | undefined
   error: FetchError<E> | undefined
+  status: AsyncDataRequestStatus
   pending: boolean
 }> {
   const { commonHeaders } = useHttpHeaders()
@@ -82,7 +85,7 @@ export const useQueryApi = async function <T = unknown, E = any>(
   if (options?.onRequestError) queryOptions.onRequestError = options.onRequestError
   if (options?.onResponseError) queryOptions.onResponseError = options.onResponseError
 
-  const { data, error, pending } = await useOFetch<T, E>(url, queryOptions)
+  const { data, error, status, pending } = await useOFetch<T, E>(url, queryOptions)
 
-  return { token: tokenRef.value, data, error, pending: pending }
+  return { token: tokenRef.value, data, error, status, pending }
 }
