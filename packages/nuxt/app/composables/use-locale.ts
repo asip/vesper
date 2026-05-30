@@ -2,12 +2,10 @@ import { useNuxtApp } from 'nuxt/app'
 import { useBrowserLocale } from '#i18n'
 
 export const useLocale = function (): {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  locale: any
+  locale: WritableComputedRef<string>
   autodetect: () => void
 } {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { $i18n } = useNuxtApp() as any
+  const { $i18n } = useNuxtApp()
   const { locale, availableLocales, fallbackLocale } = $i18n
 
   const autodetect = (): void => {
