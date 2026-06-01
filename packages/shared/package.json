@@ -34,14 +34,14 @@
     "@typescript-eslint/eslint-plugin": "^8.60.0",
     "@typescript-eslint/parser": "^8.60.0",
     "@vue/eslint-config-typescript": "^14.7.0",
-    "eslint": "^10.4.0",
+    "eslint": "^10.4.1",
     "eslint-plugin-vue": "^10.9.1",
     "oxfmt": "^0.52.0",
-    "tsdown": "^0.22.0",
+    "tsdown": "^0.22.1",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.60.0"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.34 || ^3.6.0-beta.12"
+    "@vue/reactivity": "^3.5.35 || ^3.6.0-beta.13"
   }
 }
