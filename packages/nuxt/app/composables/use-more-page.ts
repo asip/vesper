@@ -47,6 +47,9 @@ export const useMorePage = function (options?: { key?: string | null }): {
       morePage.value.first = value
       morePage.value.current = value
 
+      morePage.value.min = value
+      morePage.value.max = value
+
       morePage.value.prev = false
       morePage.value.next = false
     },
@@ -74,14 +77,14 @@ export const useMorePage = function (options?: { key?: string | null }): {
 
   const minMaxPage = () => {
     morePage.value.min =
-      morePage.value.current < morePage.value.first ? morePage.value.current : morePage.value.first
+      morePage.value.current < morePage.value.min ? morePage.value.current : morePage.value.min
     morePage.value.max =
-      morePage.value.current > morePage.value.first ? morePage.value.current : morePage.value.first
+      morePage.value.current > morePage.value.max ? morePage.value.current : morePage.value.max
   }
 
   const prevNext = () => {
-    morePage.value.prev = morePage.value.min === 1 ? false : true
-    morePage.value.next = morePage.value.max === morePage.value.pages ? false : true
+    morePage.value.prev = morePage.value.min <= 1 ? false : true
+    morePage.value.next = morePage.value.max >= morePage.value.pages ? false : true
     // console.log(`page prev: ${prev.value}`)
     // console.log(`page next: ${next.value}`)
   }
