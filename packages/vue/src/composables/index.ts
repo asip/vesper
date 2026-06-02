@@ -18,3 +18,5 @@ export { useDatetimeLocal } from './use-datetime-local'
 export { useLocale } from './use-locale'
 export { useNanoRoute, type UseNanoRouteType } from './use-nano-route'
 export { useTimeZone } from './use-time-zone'
+
+export { useMorePage } from './use-more-page'
