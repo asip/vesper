@@ -6,4 +6,4 @@ export type {
   ErrorMessages,
 } from '@vesperjs/shared'
 
-export type { QueryApiOptions } from '../app/composables'
+export type { MutationApiOptions, QueryApiOptions } from '../app/composables'

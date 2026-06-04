@@ -9,6 +9,7 @@ export {
   useExternalErrors,
   useApiError,
   useApiError as useAlert,
+  type MutationApiOptions,
   type QueryApiOptions,
 } from './backend'
 

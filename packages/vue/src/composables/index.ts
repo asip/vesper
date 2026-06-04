@@ -6,6 +6,7 @@ export {
   useQueryApi,
   useExternalErrors,
   useApiError,
+  type MutationApiOptions,
   type QueryApiOptions,
 } from './backend'
 

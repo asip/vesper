@@ -16,6 +16,7 @@ export {
   useTimeZone,
   useMorePage,
   useMorePage as useMoreScroll,
+  type MutationApiOptions,
   type QueryApiOptions,
 } from './composables'
 

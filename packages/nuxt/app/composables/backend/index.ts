@@ -4,6 +4,7 @@ export {
   useOFetch,
   useMutationApi,
   useQueryApi,
+  type MutationApiOptions,
   type QueryApiOptions,
 } from './api'
 

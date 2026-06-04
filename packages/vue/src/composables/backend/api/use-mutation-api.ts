@@ -8,7 +8,7 @@ import { useHttpHeaders } from './use-http-headers'
 import { useApiConfig } from './use-api-config'
 import { useOFetch } from './use-ofetch'
 
-interface MutationAPIOptions {
+export interface MutationApiOptions {
   method: 'post' | 'put' | 'delete'
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   body?: Record<string, any> | FormData
@@ -27,7 +27,7 @@ interface MutationAPIOptions {
 // eslint-disable-next-line
 export const useMutationApi = async function <T = unknown, E = any>(
   url: string,
-  options: MutationAPIOptions,
+  options: MutationApiOptions,
 ): Promise<{
   token: string | null | undefined
   data: T | undefined
