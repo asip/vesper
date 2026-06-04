@@ -89,5 +89,3 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
 
   return { timeZone, serverTZ, tzOptions, upTZ, downTZ, formatHtmlTZ }
 }
-
-// export type UseTimeZoneType = ReturnType<typeof useTimeZone>

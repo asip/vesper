@@ -1,3 +1,3 @@
 export { useOFetch } from './use-ofetch'
-export { useQueryApi } from './use-query-api'
+export { useQueryApi, type QueryApiOptions } from './use-query-api'
 export { useMutationApi } from './use-mutation-api'

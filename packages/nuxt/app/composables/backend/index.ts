@@ -4,9 +4,9 @@ export {
   useOFetch,
   useMutationApi,
   useQueryApi,
-  type QueryAPIOptions,
+  type QueryApiOptions,
 } from './api'
 
 export { useExternalErrors } from './error'
 
-export { useApiError, type UseApiErrorType } from './use-api-error'
+export { useApiError } from './use-api-error'

@@ -16,10 +16,7 @@ export {
   useTimeZone,
   useMorePage,
   useMorePage as useMoreScroll,
-  type UseApiErrorType,
-  type UseApiErrorType as UseAlertType,
-  type UseFlashType,
-  type UseNanoRouteType,
+  type QueryApiOptions,
 } from './composables'
 
 export { i18n } from './i18n'
@@ -31,5 +28,4 @@ export type {
   Flash,
   ErrorMessages,
   AsyncDataRequestStatus,
-  MorePage,
 } from './types'

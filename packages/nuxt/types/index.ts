@@ -5,3 +5,5 @@ export type {
   Flash,
   ErrorMessages,
 } from '@vesperjs/shared'
+
+export type { QueryApiOptions } from '../app/composables'

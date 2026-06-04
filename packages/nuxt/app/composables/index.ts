@@ -9,9 +9,7 @@ export {
   useExternalErrors,
   useApiError,
   useApiError as useAlert,
-  type QueryAPIOptions,
-  type UseApiErrorType,
-  type UseApiErrorType as UseAlertType,
+  type QueryApiOptions,
 } from './backend'
 
 export { useDate } from './util'

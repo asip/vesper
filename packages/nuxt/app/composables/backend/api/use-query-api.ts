@@ -26,7 +26,7 @@ interface SearchParams {
   [key: string]: any
 }
 
-export type QueryAPIOptions = {
+export type QueryApiOptions = {
   method?: 'get' | 'query'
   key?: MaybeRefOrGetter<string>
   query?: SearchParams
@@ -50,7 +50,7 @@ export type QueryAPIOptions = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const useQueryApi = async function <T = unknown, E = any>(
   url: string,
-  options?: QueryAPIOptions,
+  options?: QueryApiOptions,
 ): Promise<
   | {
       token: string | null | undefined

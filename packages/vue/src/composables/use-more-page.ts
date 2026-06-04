@@ -1,6 +1,4 @@
-import { computed /* type WritableComputedRef */ } from '@vue/reactivity'
-
-// import { MorePage } from '~/types'
+import { computed } from '@vue/reactivity'
 
 import { useMorePageStore } from '~/stores'
 

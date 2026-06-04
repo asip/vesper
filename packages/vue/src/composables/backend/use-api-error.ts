@@ -112,5 +112,3 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
 
   return { backendErrorInfo, setError, off, reload }
 }
-
-export type UseApiErrorType = ReturnType<typeof useApiError>

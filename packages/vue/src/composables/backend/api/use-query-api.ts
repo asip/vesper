@@ -11,7 +11,7 @@ import { useOFetch } from './use-ofetch'
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type SearchParams = Record<string, any>
 
-export interface QueryAPIOptions {
+export interface QueryApiOptions {
   method?: 'get' | 'query'
   query?: SearchParams
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -34,7 +34,7 @@ export interface QueryAPIOptions {
 // eslint-disable-next-line
 export const useQueryApi = async function <T = unknown, E = any>(
   url: string,
-  options?: QueryAPIOptions,
+  options?: QueryApiOptions,
 ): Promise<{
   token: string | null | undefined
   data: T | undefined
