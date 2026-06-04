@@ -9,7 +9,6 @@ export const useHttpHeaders = function (): {
   const { timeZone } = useTimeZone()
 
   const commonHeaders = computed<Record<string, string>>(() => ({
-    'X-Requested-With': 'XMLHttpRequest',
     Accept: 'application/json',
     'Accept-Language': locale.value,
     'Time-Zone': timeZone.value.client,
