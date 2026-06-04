@@ -1,2 +1,0 @@
-minimumReleaseAgeExclude:
-  - eslint-plugin-vue@10.9.2
