@@ -2,40 +2,6 @@ allowBuilds:
   '@parcel/watcher': false
   esbuild: false
   unrs-resolver: false
-minimumReleaseAgeExclude:
-  - '@oxfmt/binding-android-arm-eabi@0.53.0'
-  - '@oxfmt/binding-android-arm64@0.53.0'
-  - '@oxfmt/binding-darwin-arm64@0.53.0'
-  - '@oxfmt/binding-darwin-x64@0.53.0'
-  - '@oxfmt/binding-freebsd-x64@0.53.0'
-  - '@oxfmt/binding-linux-arm-gnueabihf@0.53.0'
-  - '@oxfmt/binding-linux-arm-musleabihf@0.53.0'
-  - '@oxfmt/binding-linux-arm64-gnu@0.53.0'
-  - '@oxfmt/binding-linux-arm64-musl@0.53.0'
-  - '@oxfmt/binding-linux-ppc64-gnu@0.53.0'
-  - '@oxfmt/binding-linux-riscv64-gnu@0.53.0'
-  - '@oxfmt/binding-linux-riscv64-musl@0.53.0'
-  - '@oxfmt/binding-linux-s390x-gnu@0.53.0'
-  - '@oxfmt/binding-linux-x64-gnu@0.53.0'
-  - '@oxfmt/binding-linux-x64-musl@0.53.0'
-  - '@oxfmt/binding-openharmony-arm64@0.53.0'
-  - '@oxfmt/binding-win32-arm64-msvc@0.53.0'
-  - '@oxfmt/binding-win32-ia32-msvc@0.53.0'
-  - '@oxfmt/binding-win32-x64-msvc@0.53.0'
-  - '@typescript-eslint/eslint-plugin@8.60.1'
-  - '@typescript-eslint/parser@8.60.1'
-  - '@typescript-eslint/project-service@8.60.1'
-  - '@typescript-eslint/scope-manager@8.60.1'
-  - '@typescript-eslint/tsconfig-utils@8.60.1'
-  - '@typescript-eslint/type-utils@8.60.1'
-  - '@typescript-eslint/types@8.60.1'
-  - '@typescript-eslint/typescript-estree@8.60.1'
-  - '@typescript-eslint/utils@8.60.1'
-  - '@typescript-eslint/visitor-keys@8.60.1'
-  - oxfmt@0.53.0
-  - typescript-eslint@8.60.1
-  - vite@8.0.16
-  - '@vesperjs/shared@0.9.3'
 overrides:
   '@typescript-eslint/typescript-estree': ^8.60.1
   eslint: ^10.4.1
