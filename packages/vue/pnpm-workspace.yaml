@@ -1,2 +1,3 @@
 minimumReleaseAgeExclude:
   - eslint-plugin-vue@10.9.2
+  - '@vesperjs/shared@0.9.4'
