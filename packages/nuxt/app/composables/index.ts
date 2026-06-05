@@ -4,6 +4,7 @@ export {
   createFetch,
   createRequestFetch,
   useOFetch,
+  useApi,
   useMutationApi,
   useQueryApi,
   useExternalErrors,

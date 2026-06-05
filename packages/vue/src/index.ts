@@ -1,5 +1,6 @@
 export {
   useOFetch,
+  useApi,
   useMutationApi,
   useQueryApi,
   useExternalErrors,

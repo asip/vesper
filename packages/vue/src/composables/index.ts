@@ -2,6 +2,7 @@ export { useEntity, useFlash } from '@vesperjs/shared'
 
 export {
   useOFetch,
+  useApi,
   useMutationApi,
   useQueryApi,
   useExternalErrors,

@@ -6,5 +6,7 @@ export {
   type QueryApiOptions,
 } from './api'
 
-export { useApiError } from './use-api-error'
 export { useExternalErrors } from './error'
+
+export { useApi } from './use-api'
+export { useApiError } from './use-api-error'
