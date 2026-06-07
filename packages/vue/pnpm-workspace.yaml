@@ -1,4 +1,0 @@
-minimumReleaseAgeExclude:
-  - '@vue/eslint-config-typescript@14.8.0'
-  - tsdown@0.22.2
-  - '@vesperjs/shared@0.9.6'
