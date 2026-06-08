@@ -1,4 +1,12 @@
-export { useBackendErrorInfo, useExternalErrors, useDate, useEntity, useFlash } from './composables'
+export {
+  useBackendErrorInfo,
+  useExternalErrors,
+  useDate,
+  useEntity,
+  useFlash,
+  useUserAgent,
+  useBrowserInfo,
+} from './composables'
 
 export type {
   BackendErrorInfo,

@@ -1,4 +1,4 @@
-export { useEntity, useFlash } from '@vesperjs/shared'
+export { useEntity, useFlash, useUserAgent, useBrowserInfo } from '@vesperjs/shared'
 
 export {
   createFetch,
