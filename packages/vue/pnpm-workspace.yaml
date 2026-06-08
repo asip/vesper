@@ -1,2 +1,2 @@
 minimumReleaseAgeExclude:
-  - '@vesperjs/shared@0.9.7'
+  - '@vesperjs/shared@0.9.8'
