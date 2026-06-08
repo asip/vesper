@@ -1,2 +1,3 @@
 minimumReleaseAgeExclude:
   - '@vesperjs/shared@0.9.9'
+  - undici@8.4.1
