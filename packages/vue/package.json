@@ -1,6 +1,6 @@
 {
   "name": "@vesperjs/vue",
-  "version": "0.9.8",
+  "version": "0.9.9",
   "keywords": [
     "vue.js"
   ],
@@ -20,7 +20,7 @@
   },
   "scripts": {
     "build": "tsdown --dts",
-    "build:check": "tsc--noEmit",
+    "build:check": "tsc --noEmit",
     "lint": "eslint --fix './src/**/*.{js,ts}'",
     "fmt": "oxfmt",
     "fmt:check": "oxfmt --check"
@@ -30,7 +30,7 @@
     "@nanostores/persistent": "^1.3.4",
     "@nanostores/router": "^1.0.0",
     "@nanostores/vue": "^1.1.0",
-    "@vesperjs/shared": "0.9.8",
+    "@vesperjs/shared": "0.9.9",
     "nanostores": "^1.3.0",
     "ofetch": "^1.5.1",
     "undici": "^8.4.0",

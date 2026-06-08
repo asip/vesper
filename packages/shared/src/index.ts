@@ -5,7 +5,6 @@ export {
   useEntity,
   useFlash,
   useUserAgent,
-  useBrowserInfo,
 } from './composables'
 
 export type {

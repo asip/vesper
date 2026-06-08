@@ -18,7 +18,6 @@ export {
   useMorePage,
   useMorePage as useMoreScroll,
   useUserAgent,
-  useBrowserInfo,
   type MutationApiOptions,
   type QueryApiOptions,
 } from './composables'
