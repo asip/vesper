@@ -1,3 +1,4 @@
+/*
 import Bowser from 'bowser'
 
 export const useUserAgent = function (): {
@@ -9,3 +10,4 @@ export const useUserAgent = function (): {
 
   return { userAgent, browserInfo }
 }
+*/

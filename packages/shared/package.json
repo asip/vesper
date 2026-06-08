@@ -27,8 +27,7 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@formkit/tempo": "^1.1.0",
-    "bowser": "^2.14.1"
+    "@formkit/tempo": "^1.1.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
