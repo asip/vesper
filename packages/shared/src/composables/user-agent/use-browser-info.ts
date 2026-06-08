@@ -1,9 +1,9 @@
-import { getParser, type Parser } from 'bowser'
+import Bowser from 'bowser'
 
 export const useBrowserInfo = function (): {
-  browserInfo: Parser.Parser
+  browserInfo: Bowser.Parser.Parser
 } {
-  const browserInfo = getParser(globalThis.navigator.userAgent)
+  const browserInfo = Bowser.getParser(globalThis.navigator.userAgent)
 
   return { browserInfo }
 }

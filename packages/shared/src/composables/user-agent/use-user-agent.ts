@@ -1,9 +1,9 @@
-import { parse, type Parser } from 'bowser'
+import Bowser from 'bowser'
 
 export const useUserAgent = function (): {
-  userAgent: Parser.ParsedResult
+  userAgent: Bowser.Parser.ParsedResult
 } {
-  const userAgent = parse(globalThis.navigator.userAgent)
+  const userAgent = Bowser.parse(globalThis.navigator.userAgent)
 
   return { userAgent }
 }
