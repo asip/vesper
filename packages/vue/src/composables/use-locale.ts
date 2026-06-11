@@ -1,24 +1,33 @@
-import type { WritableComputedRef } from '@vue/reactivity'
+import { computed, type ComputedRef, type WritableComputedRef } from '@vue/reactivity'
+
+import { useBrowserLocale } from './browser/use-browser-locale'
 
 import { i18n } from '~/i18n'
 
 export const useLocale = function (): {
   locale: WritableComputedRef<string>
+  shortLocale: ComputedRef<string>
   autodetect: () => void
 } {
   const { locale, availableLocales, fallbackLocale } = i18n.global
 
+  const toShortLacale = (locale: string) => locale.split('-')[0]
+
+  const shortLocale = computed(() => toShortLacale(locale.value))
+
   const autodetect = (): void => {
-    const viewLocale = (globalThis.navigator.language || globalThis.navigator.languages[0]).split(
-      '-',
-    )[0]
+    const browserLocale = useBrowserLocale()
+    const browserShortLocale = toShortLacale(browserLocale)
 
     type AvailableLocales = (typeof availableLocales)[number]
 
     locale.value = (
-      (availableLocales as string[]).includes(viewLocale) ? viewLocale : fallbackLocale.value
+      (availableLocales as string[]).includes(browserLocale) ||
+      (availableLocales as string[]).includes(browserShortLocale)
+        ? browserLocale
+        : fallbackLocale.value
     ) as AvailableLocales
   }
 
-  return { locale, autodetect }
+  return { locale, shortLocale, autodetect }
 }
