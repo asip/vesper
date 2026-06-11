@@ -48,10 +48,10 @@
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.35 || ^3.6.0-beta.14",
-    "@vue/runtime-core": "^3.5.35 || ^3.6.0-beta.14",
-    "@vue/runtime-dom": "^3.5.35 || ^3.6.0-beta.14",
+    "@vue/reactivity": "^3.5.38 || ^3.6.0-beta.15",
+    "@vue/runtime-core": "^3.5.38 || ^3.6.0-beta.15",
+    "@vue/runtime-dom": "^3.5.38 || ^3.6.0-beta.15",
     "typescript-eslint": "^8.61.0",
-    "vue": "^3.5.35 || ^3.6.0-beta.14"
+    "vue": "^3.5.38 || ^3.6.0-beta.15"
   }
 }

@@ -1,7 +1,3 @@
-allowBuilds:
-  '@parcel/watcher': false
-  esbuild: false
-  unrs-resolver: false
 minimumReleaseAgeExclude:
   - '@vue/compiler-core@3.5.38'
   - '@vue/compiler-dom@3.5.38'
@@ -13,8 +9,3 @@ minimumReleaseAgeExclude:
   - '@vue/server-renderer@3.5.38'
   - '@vue/shared@3.5.38'
   - vue@3.5.38
-overrides:
-  '@typescript-eslint/typescript-estree': ^8.61.0
-  eslint: ^10.4.1
-  typescript-eslint: ^8.61.0
-  vite: ^8.0.16
