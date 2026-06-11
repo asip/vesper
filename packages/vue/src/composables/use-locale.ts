@@ -1,5 +1,7 @@
 import type { WritableComputedRef } from '@vue/reactivity'
 
+import { useBrowserLocale } from './browser/use-browser-locale'
+
 import { i18n } from '~/i18n'
 
 export const useLocale = function (): {
@@ -9,9 +11,7 @@ export const useLocale = function (): {
   const { locale, availableLocales, fallbackLocale } = i18n.global
 
   const autodetect = (): void => {
-    const viewLocale = (globalThis.navigator.language || globalThis.navigator.languages[0]).split(
-      '-',
-    )[0]
+    const viewLocale = useBrowserLocale().split('-')[0]
 
     type AvailableLocales = (typeof availableLocales)[number]
 
