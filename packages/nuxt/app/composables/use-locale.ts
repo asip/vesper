@@ -14,8 +14,8 @@ export const useLocale = function (): {
   const shortLocale = computed(() => toShortLacale(locale.value))
 
   const autodetect = (): void => {
-    const browserLocale: string | null = useBrowserLocale()
-    const browserShortLocale: string | null = toShortLacale(browserLocale)
+    const browserLocale = useBrowserLocale()
+    const browserShortLocale = toShortLacale(browserLocale)
 
     // console.log(browserLocale)
     // console.log(locales.value)
