@@ -7,6 +7,7 @@ export const useExternalErrors = function <P extends string>(
 ): {
   externalErrors: WritableComputedRef<ErrorMessages<P>>
   clearExternalErrors: () => void
+  success: () => boolean
   isSuccess: () => boolean
 } {
   const errors = ref<ErrorMessages<P>>({})
@@ -28,7 +29,7 @@ export const useExternalErrors = function <P extends string>(
     externalErrors.value = {}
   }
 
-  const isSuccess = (): boolean => {
+  const success = (): boolean => {
     let result = true
 
     for (const key in errors.value) {
@@ -44,6 +45,7 @@ export const useExternalErrors = function <P extends string>(
   return {
     externalErrors,
     clearExternalErrors,
-    isSuccess,
+    success,
+    isSuccess: success,
   }
 }
