@@ -1,4 +1,4 @@
-import { computed, ref, type WritableComputedRef, type Ref } from '@vue/reactivity'
+import { computed, ref, type Ref, type WritableComputedRef } from '@vue/reactivity'
 
 import type { ErrorMessages, Flash } from '~/types'
 
@@ -7,8 +7,8 @@ export const useExternalErrors = function <P extends string>(
 ): {
   externalErrors: WritableComputedRef<ErrorMessages<P>>
   clearExternalErrors: () => void
-  success: boolean
-  isSuccess: boolean
+  success: () => boolean
+  isSuccess: () => boolean
 } {
   const errors = ref<ErrorMessages<P>>({})
 
@@ -29,23 +29,23 @@ export const useExternalErrors = function <P extends string>(
     externalErrors.value = {}
   }
 
-  const success = computed<boolean>(() => {
+  const success = (): boolean => {
     let result = true
 
-    for (const key in errors.value) {
-      const error = errors.value as ErrorMessages<string>
-      if ((error[key] as string[]).length > 0) result = false
+    const errorMap = errors.value as ErrorMessages<string>
+    for (const key in errorMap) {
+      if ((errorMap[key] as string[]).length > 0) result = false
     }
 
     if (flash.value.alert) result = false
 
     return result
-  })
+  }
 
   return {
     externalErrors,
     clearExternalErrors,
-    success: success.value,
-    isSuccess: success.value,
+    success,
+    isSuccess: success,
   }
 }
