@@ -40,8 +40,8 @@ importers:
         specifier: ^24.13.1
         version: 24.13.1
       '@vesperjs/shared':
-        specifier: 0.9.11
-        version: 0.9.11(@vue/reactivity@3.5.38)
+        specifier: 0.9.12
+        version: 0.9.12(@vue/reactivity@3.5.38)
       eslint:
         specifier: ^10.5.0
         version: 10.5.0(jiti@2.7.0)
@@ -2438,8 +2438,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@vesperjs/shared@0.9.11':
-    resolution: {integrity: sha512-Emv5WI/QA6yUVSAZZuiXJSqzdJDPHmWcFaSnxvbFyuG+1FwOsqDVj41wgLZC+s1MgsSM4VAZszR3hNokyVHzjA==}
+  '@vesperjs/shared@0.9.12':
+    resolution: {integrity: sha512-gmLR+rkI4T4IHXS+nXE4AjLofwQ51++7Nh87WiNZ9Wz0HnqLuHVpARvR64gFjQErFt9GtuRpXhonEE1hh8uLNw==}
     peerDependencies:
       '@vue/reactivity': ^3.5.38 || ^3.6.0-beta.15
 
@@ -7155,7 +7155,7 @@ snapshots:
       - rollup
       - supports-color
 
-  '@vesperjs/shared@0.9.11(@vue/reactivity@3.5.38)':
+  '@vesperjs/shared@0.9.12(@vue/reactivity@3.5.38)':
     dependencies:
       '@formkit/tempo': 1.1.0
       '@vue/reactivity': 3.5.38
