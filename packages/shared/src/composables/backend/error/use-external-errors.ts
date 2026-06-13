@@ -7,8 +7,8 @@ export const useExternalErrors = function <P extends string>(
 ): {
   externalErrors: WritableComputedRef<ErrorMessages<P>>
   clearExternalErrors: () => void
-  success: () => boolean
-  isSuccess: () => boolean
+  success: boolean
+  isSuccess: boolean
 } {
   const errors = ref<ErrorMessages<P>>({})
 
@@ -29,7 +29,7 @@ export const useExternalErrors = function <P extends string>(
     externalErrors.value = {}
   }
 
-  const success = (): boolean => {
+  const success = computed<boolean>(() => {
     let result = true
 
     for (const key in errors.value) {
@@ -40,12 +40,12 @@ export const useExternalErrors = function <P extends string>(
     if (flash.value.alert) result = false
 
     return result
-  }
+  })
 
   return {
     externalErrors,
     clearExternalErrors,
-    success,
-    isSuccess: success,
+    success: success.value,
+    isSuccess: success.value,
   }
 }
