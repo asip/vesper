@@ -30,16 +30,14 @@ export const useExternalErrors = function <P extends string>(
   }
 
   const success = (): boolean => {
-    let result = true
+    if (flash.value.alert) return false
 
     const errorMap = errors.value as ErrorMessages<string>
     for (const key in errorMap) {
-      if ((errorMap[key] as string[]).length > 0) result = false
+      if ((errorMap[key] as string[]).length > 0) return false
     }
 
-    if (flash.value.alert) result = false
-
-    return result
+    return true
   }
 
   return {
