@@ -5,7 +5,7 @@ import { format, tzDate } from '@formkit/tempo'
 import { useConfigStore } from '~/stores/use-config-store'
 
 import { useLocale } from './use-locale'
-import { useDatetimeLocal } from './use-datetime-local'
+import { useDatetime } from './use-datetime'
 
 interface TimeZone {
   client: string
@@ -27,7 +27,7 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
   formatHtmlTZ: (datetime: string | null, fmt: string) => string
 } {
   const { locale } = useLocale()
-  const { toISO8601, formatDT } = useDatetimeLocal(fmtDT)
+  const { toISO8601, formatDT } = useDatetime(fmtDT)
   const { serverTZ } = useConfigStore()
 
   const clientTZ = computed<string>(() => Intl.DateTimeFormat().resolvedOptions().timeZone)

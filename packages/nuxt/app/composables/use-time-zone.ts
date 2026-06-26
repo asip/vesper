@@ -3,7 +3,7 @@ import { useRuntimeConfig } from 'nuxt/app'
 import { format, tzDate } from '@formkit/tempo'
 
 import { useLocale } from './use-locale'
-import { useDatetimeLocal } from './use-datetime-local'
+import { useDatetime } from './use-datetime'
 
 interface TimeZone {
   client: string
@@ -25,7 +25,7 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
 } {
   const runtimeConfig = useRuntimeConfig()
   const { locale } = useLocale()
-  const { toISO8601, formatDT } = useDatetimeLocal(fmtDT)
+  const { toISO8601, formatDT } = useDatetime(fmtDT)
 
   const serverTZ = runtimeConfig.public.timeZone as string
 
