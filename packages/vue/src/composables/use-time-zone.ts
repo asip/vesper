@@ -23,10 +23,11 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
   tzOptions: ComputedRef<TZOptions[]>
   upTZ: (datetime: string | null) => string
   downTZ: (datetime: string | null) => string
+  formatTZ: (datetime: string | null, fmt: string) => string
   formatHtmlTZ: (datetime: string | null, fmt: string) => string
 } {
   const { locale } = useLocale()
-  const { toISO8601, formatHTML } = useDatetimeLocal(fmtDT)
+  const { toISO8601, formatDT } = useDatetimeLocal(fmtDT)
   const { serverTZ } = useConfigStore()
 
   const clientTZ = computed<string>(() => Intl.DateTimeFormat().resolvedOptions().timeZone)
@@ -74,9 +75,9 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
         : ''
   }
 
-  const formatHtmlTZ = (datetime: string | null, fmt: string): string => {
+  const formatTZ = (datetime: string | null, fmt: string): string => {
     return timeZone.value.client === timeZone.value.server
-      ? formatHTML(datetime, fmt)
+      ? formatDT(datetime, fmt)
       : datetime
         ? format({
             date: tzServerDate(datetime),
@@ -87,5 +88,5 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
         : ''
   }
 
-  return { timeZone, serverTZ, tzOptions, upTZ, downTZ, formatHtmlTZ }
+  return { timeZone, serverTZ, tzOptions, upTZ, downTZ, formatTZ, formatHtmlTZ: formatTZ }
 }
