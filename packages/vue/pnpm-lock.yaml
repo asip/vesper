@@ -13,13 +13,13 @@ importers:
         version: 1.1.0
       '@nanostores/persistent':
         specifier: ^1.3.4
-        version: 1.3.4(nanostores@1.3.0)
+        version: 1.3.4(nanostores@1.4.0)
       '@nanostores/router':
-        specifier: ^1.0.0
-        version: 1.0.0(nanostores@1.3.0)
+        specifier: ^1.1.0
+        version: 1.1.0(nanostores@1.4.0)
       '@nanostores/vue':
         specifier: ^1.1.0
-        version: 1.1.0(nanostores@1.3.0)(vue@3.5.38(typescript@6.0.3))
+        version: 1.1.0(nanostores@1.4.0)(vue@3.5.38(typescript@6.0.3))
       '@vesperjs/shared':
         specifier: 0.9.12
         version: 0.9.12(@vue/reactivity@3.5.38)
@@ -33,8 +33,8 @@ importers:
         specifier: ^3.5.38 || ^3.6.0-beta.17
         version: 3.5.38
       nanostores:
-        specifier: ^1.3.0
-        version: 1.3.0
+        specifier: ^1.4.0
+        version: 1.4.0
       ofetch:
         specifier: ^1.5.1
         version: 1.5.1
@@ -225,8 +225,8 @@ packages:
     peerDependencies:
       nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
 
-  '@nanostores/router@1.0.0':
-    resolution: {integrity: sha512-U1pT7u18Yk9yrir/im2sEo8bZcWWWMnOGFoqS2JOkN1vuAntUWNIeUC+8/Q6qPjgatIHGl9IEWB0U7+WdkjzMQ==}
+  '@nanostores/router@1.1.0':
+    resolution: {integrity: sha512-C0PyfI/4R+d6w53SBFiYzGWowsMZgVeC/7lox59g3KzhcpgvgCheYA0DlBH46z5BdgBZ3qLIlNIttGs9Kl9Wzg==}
     engines: {node: ^20.0.0 || >=22.0.0}
     peerDependencies:
       nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
@@ -906,8 +906,8 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
-  nanostores@1.3.0:
-    resolution: {integrity: sha512-XPUa/jz+P1oJvN9VBxw4L9MtdFfaH3DAryqPssqhb2kXjmb9npz0dly6rCsgFWOPr4Yg9mTfM3MDZgZZ+7A3lA==}
+  nanostores@1.4.0:
+    resolution: {integrity: sha512-i0tloweeudshAEuddpDxcg9Ik6pkPfVsHIgKyf143JrgG7/MOh0+q7BypdLXZPoOP7fOYt1eTcwGkyiVmhJFkA==}
     engines: {node: ^20.0.0 || >=22.0.0}
 
   natural-compare@1.4.0:
@@ -1315,17 +1315,17 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@nanostores/persistent@1.3.4(nanostores@1.3.0)':
+  '@nanostores/persistent@1.3.4(nanostores@1.4.0)':
     dependencies:
-      nanostores: 1.3.0
+      nanostores: 1.4.0
 
-  '@nanostores/router@1.0.0(nanostores@1.3.0)':
+  '@nanostores/router@1.1.0(nanostores@1.4.0)':
     dependencies:
-      nanostores: 1.3.0
+      nanostores: 1.4.0
 
-  '@nanostores/vue@1.1.0(nanostores@1.3.0)(vue@3.5.38(typescript@6.0.3))':
+  '@nanostores/vue@1.1.0(nanostores@1.4.0)(vue@3.5.38(typescript@6.0.3))':
     dependencies:
-      nanostores: 1.3.0
+      nanostores: 1.4.0
       vue: 3.5.38(typescript@6.0.3)
 
   '@napi-rs/wasm-runtime@1.1.5(@emnapi/core@1.11.0)(@emnapi/runtime@1.11.0)':
@@ -1901,7 +1901,7 @@ snapshots:
 
   nanoid@3.3.12: {}
 
-  nanostores@1.3.0: {}
+  nanostores@1.4.0: {}
 
   natural-compare@1.4.0: {}
 

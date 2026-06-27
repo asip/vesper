@@ -1,2 +1,3 @@
 minimumReleaseAgeExclude:
   - eslint@10.6.0
+  - nanostores@1.4.0
