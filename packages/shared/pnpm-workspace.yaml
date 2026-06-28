@@ -1,2 +1,0 @@
-minimumReleaseAgeExclude:
-  - eslint@10.6.0

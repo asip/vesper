@@ -2,8 +2,6 @@ allowBuilds:
   '@parcel/watcher': false
   esbuild: false
   unrs-resolver: false
-minimumReleaseAgeExclude:
-  - eslint@10.6.0
 overrides:
   '@typescript-eslint/typescript-estree': ^8.62.0
   eslint: ^10.6.0
