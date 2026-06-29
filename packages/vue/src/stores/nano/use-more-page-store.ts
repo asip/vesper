@@ -2,15 +2,7 @@ import { computed, type WritableComputedRef } from '@vue/reactivity'
 import { persistentAtom } from '@nanostores/persistent'
 import { useStore } from '@nanostores/vue'
 
-interface MorePage {
-  first: number
-  pages: number
-  current: number
-  prev: boolean
-  next: boolean
-  min: number
-  max: number
-}
+import type { MorePage } from '~/types'
 
 export const useMorePageStore = function (key?: string | null): {
   morePage: WritableComputedRef<MorePage>
