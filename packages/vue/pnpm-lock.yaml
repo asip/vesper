@@ -42,8 +42,8 @@ importers:
         specifier: ^8.62.1
         version: 8.62.1(eslint@10.6.0)(typescript@6.0.3)
       undici:
-        specifier: ^8.6.0
-        version: 8.6.0
+        specifier: ^8.7.0
+        version: 8.7.0
       vue:
         specifier: ^3.5.39 || ^3.6.0-beta.17
         version: 3.5.39(typescript@6.0.3)
@@ -1131,8 +1131,8 @@ packages:
   unconfig-core@7.5.0:
     resolution: {integrity: sha512-Su3FauozOGP44ZmKdHy2oE6LPjk51M/TRRjHv2HNCWiDvfvCoxC2lno6jevMA91MYAdCdwP05QnWdWpSbncX/w==}
 
-  undici@8.6.0:
-    resolution: {integrity: sha512-l2FlC6I510GawyEd1qgcE/okihKrzy+BRTEBlu6T0fdbM9m5yxtIH5Oa3ysRsH0zC4EhmWUEaSDsy2QngBeRlw==}
+  undici@8.7.0:
+    resolution: {integrity: sha512-N7iQtfyLhIMOFgQubvmLV26svHpO0bqKnAiWotTQCVKCmWrcGbBotPuW1x+xwYZ2VHdSTVUfPQQnlEt1/LouTQ==}
     engines: {node: '>=22.19.0'}
 
   uri-js@4.4.1:
@@ -2117,7 +2117,7 @@ snapshots:
       '@quansync/fs': 1.0.0
       quansync: 1.0.0
 
-  undici@8.6.0: {}
+  undici@8.7.0: {}
 
   uri-js@4.4.1:
     dependencies:
