@@ -1,6 +1,5 @@
-import type { ErrorsResource } from './errors-resource'
-
-export interface BackendErrorResource extends ErrorsResource<string[]> {
+export interface BackendErrorResource {
   source?: string
-  title: string
+  title?: string
+  errors?: string[]
 }
