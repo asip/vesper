@@ -3,7 +3,8 @@ export { useBackendErrorInfo, useExternalErrors, useDate, useEntity, useFlash } 
 export type {
   BackendErrorInfo,
   BackendErrorResource,
+  BackendErrorsResource,
   ErrorsResource,
-  Flash,
   ErrorMessages,
+  Flash,
 } from './types'

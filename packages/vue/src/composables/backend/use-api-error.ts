@@ -5,9 +5,10 @@ import type { FetchError } from 'ofetch'
 import type {
   ErrorsResource,
   BackendErrorResource,
+  BackendErrorsResource,
   BackendErrorInfo,
-  Flash,
   ErrorMessages,
+  Flash,
 } from '~/types'
 
 import { useBackendErrorInfo } from './error'
@@ -28,11 +29,11 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   options?: UseApiErrorOptions,
 ): {
   backendErrorInfo: WritableComputedRef<
-    BackendErrorInfo<BER>,
-    FetchError<BER | ErrorsResource<ErrorMessages<string>>>
+    BackendErrorInfo<BackendErrorsResource<BER>>,
+    FetchError<BackendErrorsResource<BER>>
   >
   setError: (
-    error: FetchError<ErrorsResource<ErrorMessages<string>> | BER>,
+    error: FetchError<BackendErrorsResource<BER>>,
     options?: {
       off?: boolean
     },
@@ -42,18 +43,19 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
 } {
   const caller = options?.caller
 
-  const { backendErrorInfo: info, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
+  const { backendErrorInfo: info, clearBackendErrorInfo } =
+    useBackendErrorInfo<BackendErrorsResource<BER>>()
 
   const off = ref<boolean>(false)
 
   const backendErrorInfo = computed<
-    BackendErrorInfo<BER>,
-    FetchError<BER | ErrorsResource<ErrorMessages<string>>>
+    BackendErrorInfo<BackendErrorsResource<BER>>,
+    FetchError<BackendErrorsResource<BER>>
   >({
     get() {
       return info.value
     },
-    set(error: FetchError<BER | ErrorsResource<ErrorMessages<string>>>) {
+    set(error: FetchError<BackendErrorsResource<BER>>) {
       clearBackendErrorInfo()
       info.value.status = error.status
       if (off.value) {
@@ -94,7 +96,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   })
 
   const setError = function (
-    error: FetchError<ErrorsResource<ErrorMessages<string>> | BER>,
+    error: FetchError<BackendErrorsResource<BER>>,
     options?: { off?: boolean },
   ): void {
     off.value = options?.off ?? false

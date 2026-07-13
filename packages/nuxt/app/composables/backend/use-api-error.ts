@@ -5,8 +5,9 @@ import type {
   ErrorsResource,
   BackendErrorInfo,
   BackendErrorResource,
-  Flash,
+  BackendErrorsResource,
   ErrorMessages,
+  Flash,
 } from '../../../types'
 
 import { useBackendErrorInfo } from './error'
@@ -25,14 +26,11 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   options?: UseApiErrorOptions,
 ): {
   backendErrorInfo: WritableComputedRef<
-    BackendErrorInfo<BER>,
-    | NuxtError<BER | ErrorsResource<ErrorMessages<string>>>
-    | FetchError<BER | ErrorsResource<ErrorMessages<string>>>
+    BackendErrorInfo<BackendErrorsResource<BER>>,
+    NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>
   >
   setError: (
-    error:
-      | NuxtError<ErrorsResource<ErrorMessages<string>> | BER>
-      | FetchError<ErrorsResource<ErrorMessages<string>> | BER>,
+    error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
     options?: {
       off?: boolean
     },
@@ -41,25 +39,21 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
 } {
   const caller = options?.caller
 
-  const { backendErrorInfo: info, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
+  const { backendErrorInfo: info, clearBackendErrorInfo } =
+    useBackendErrorInfo<BackendErrorsResource<BER>>()
 
   const { $i18n } = useNuxtApp()
 
   const off = ref<boolean>(false)
 
   const backendErrorInfo = computed<
-    BackendErrorInfo<BER>,
-    | NuxtError<BER | ErrorsResource<ErrorMessages<string>>>
-    | FetchError<BER | ErrorsResource<ErrorMessages<string>>>
+    BackendErrorInfo<BackendErrorsResource<BER>>,
+    NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>
   >({
     get() {
       return info.value
     },
-    set(
-      error:
-        | NuxtError<BER | ErrorsResource<ErrorMessages<string>>>
-        | FetchError<BER | ErrorsResource<ErrorMessages<string>>>,
-    ) {
+    set(error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>) {
       clearBackendErrorInfo()
       info.value.status = error.status
       if (off.value) {
@@ -99,9 +93,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   })
 
   const setError = function (
-    error:
-      | NuxtError<ErrorsResource<ErrorMessages<string>> | BER>
-      | FetchError<ErrorsResource<ErrorMessages<string>> | BER>,
+    error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
     options?: { off?: boolean },
   ): void {
     off.value = options?.off ?? false
