@@ -44,7 +44,7 @@
     "eslint": "^10.7.0",
     "eslint-plugin-vue": "^10.9.2",
     "oxfmt": "^0.59.0",
-    "tsdown": "^0.22.7",
+    "tsdown": "^0.22.8",
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
