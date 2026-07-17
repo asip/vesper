@@ -44,14 +44,14 @@
     "eslint": "^10.7.0",
     "eslint-plugin-vue": "^10.9.2",
     "oxfmt": "^0.59.0",
-    "tsdown": "^0.22.8",
+    "tsdown": "^0.22.9",
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.39 || ^3.6.0-beta.17",
-    "@vue/runtime-core": "^3.5.39 || ^3.6.0-beta.17",
-    "@vue/runtime-dom": "^3.5.39 || ^3.6.0-beta.17",
+    "@vue/reactivity": "^3.5.40 || ^3.6.0-beta.17",
+    "@vue/runtime-core": "^3.5.40 || ^3.6.0-beta.17",
+    "@vue/runtime-dom": "^3.5.40 || ^3.6.0-beta.17",
     "typescript-eslint": "^8.64.0",
-    "vue": "^3.5.39 || ^3.6.0-beta.17"
+    "vue": "^3.5.40 || ^3.6.0-beta.17"
   }
 }
