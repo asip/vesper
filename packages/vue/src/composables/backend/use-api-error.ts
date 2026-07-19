@@ -44,7 +44,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   const caller = options?.caller
 
   const { backendErrorInfo: info, clearBackendErrorInfo } =
-    useBackendErrorInfo<BackendErrorsResource<BER>>()
+    useBackendErrorInfo<BER>()
 
   const off = ref<boolean>(false)
 
