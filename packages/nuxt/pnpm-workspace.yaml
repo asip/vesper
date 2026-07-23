@@ -2,7 +2,10 @@ allowBuilds:
   '@parcel/watcher': false
   esbuild: false
   unrs-resolver: false
+minimumReleaseAgeExclude:
+  - '@vesperjs/shared@0.9.16'
 overrides:
   '@typescript-eslint/typescript-estree': ^8.65.0
   eslint: ^10.7.0
   typescript-eslint: ^8.65.0
+  vite: ^8.1.5
