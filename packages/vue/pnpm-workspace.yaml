@@ -1,4 +1,2 @@
-minimumReleaseAgeExclude:
-  - '@vesperjs/shared@0.9.16'
 overrides:
   typescript-eslint: ^8.65.0
