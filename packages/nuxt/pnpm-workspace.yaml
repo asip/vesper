@@ -4,6 +4,6 @@ allowBuilds:
   unrs-resolver: false
 overrides:
   '@typescript-eslint/typescript-estree': ^8.65.0
-  eslint: ^10.7.0
+  eslint: ^10.8.0
   typescript-eslint: ^8.65.0
   vite: ^8.1.5
