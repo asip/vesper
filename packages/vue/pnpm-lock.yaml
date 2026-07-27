@@ -41,9 +41,6 @@ importers:
       ofetch:
         specifier: ^1.5.1
         version: 1.5.1
-      undici:
-        specifier: ^8.7.0
-        version: 8.7.0
       vue:
         specifier: ^3.5.40 || ^3.6.0-rc.2
         version: 3.5.40(typescript@6.0.3)
@@ -1205,10 +1202,6 @@ packages:
   unconfig-core@7.5.0:
     resolution: {integrity: sha512-Su3FauozOGP44ZmKdHy2oE6LPjk51M/TRRjHv2HNCWiDvfvCoxC2lno6jevMA91MYAdCdwP05QnWdWpSbncX/w==}
 
-  undici@8.7.0:
-    resolution: {integrity: sha512-N7iQtfyLhIMOFgQubvmLV26svHpO0bqKnAiWotTQCVKCmWrcGbBotPuW1x+xwYZ2VHdSTVUfPQQnlEt1/LouTQ==}
-    engines: {node: '>=22.19.0'}
-
   uri-js@4.4.1:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
 
@@ -2217,8 +2210,6 @@ snapshots:
     dependencies:
       '@quansync/fs': 1.0.0
       quansync: 1.0.0
-
-  undici@8.7.0: {}
 
   uri-js@4.4.1:
     dependencies:
