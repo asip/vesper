@@ -31,9 +31,9 @@
     "@nanostores/router": "^1.1.0",
     "@nanostores/vue": "^1.1.0",
     "@vesperjs/shared": "0.9.16",
-    "nanostores": "^1.4.1",
+    "nanostores": "^1.4.2",
     "ofetch": "^1.5.1",
-    "vue-i18n": "^11.4.7"
+    "vue-i18n": "^11.4.8"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
