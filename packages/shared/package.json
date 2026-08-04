@@ -31,15 +31,15 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.65.0",
-    "@typescript-eslint/parser": "^8.65.0",
+    "@typescript-eslint/eslint-plugin": "^8.66.0",
+    "@typescript-eslint/parser": "^8.66.0",
     "@vue/eslint-config-typescript": "^14.9.0",
     "eslint": "^10.8.0",
     "eslint-plugin-vue": "^10.10.0",
-    "oxfmt": "^0.61.0",
+    "oxfmt": "^0.62.0",
     "tsdown": "^0.22.14",
     "typescript": "^6.0.3 || ^7.0.2",
-    "typescript-eslint": "^8.65.0"
+    "typescript-eslint": "^8.66.0"
   },
   "peerDependencies": {
     "@vue/reactivity": "^3.5.40 || ^3.6.0-rc.2"
