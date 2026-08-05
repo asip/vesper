@@ -60,39 +60,52 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
       if (off.value) {
         switch (error.status) {
           case 401:
-            // flash.value.alert = i18n.t('backend.error.login')
-            if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
+            onUnauthorized()
             break
           // default:
-          //  flash.value.alert = $i18n.t('backend.error.api', { message: error.message })
+          //  onOtherError(error)
         }
       } else {
         switch (error.status) {
           case 401:
-            flash.value.alert = i18n.global.t('backend.error.login')
-            if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
+            onUnauthorized()
             break
           case 404:
-            {
-              const backendError = error.data as BER
-              info.value.error = backendError
-            }
+            onNotFound(error)
             break
           case 422: {
-            if (caller && 'externalErrors' in caller && caller.externalErrors && error.data) {
-              const { errors } = error.data as ErrorsResource<ErrorMessages<string>>
-              // globalThis.console.log(errors)
-              caller.externalErrors.value = errors
-            }
+            onUnprocessableContent(error)
             break
           }
           default:
-            flash.value.alert = i18n.global.t('backend.error.api', { message: error.message })
+            onOtherError(error)
         }
       }
       off.value = false
     },
   })
+
+  const onUnauthorized = () => {
+    if (!off.value) flash.value.alert = i18n.global.t('backend.error.login')
+    if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
+  }
+
+  const onNotFound = (error: FetchError<BackendErrorsResource<BER>>) => {
+    const backendError = error.data as BER
+    info.value.error = backendError
+  }
+
+  const onUnprocessableContent = (error: FetchError<BackendErrorsResource<BER>>) => {
+    if (caller && 'externalErrors' in caller && caller.externalErrors && error.data) {
+      const { errors } = error.data as ErrorsResource<ErrorMessages<string>>
+      // globalThis.console.log(errors)
+      caller.externalErrors.value = errors
+    }
+  }
+
+  const onOtherError = (error: FetchError<BackendErrorsResource<BER>>) => {
+    flash.value.alert = i18n.global.t('backend.error.api', { message: error.message })
+  }
 
   const setError = function (
     error: FetchError<BackendErrorsResource<BER>>,
