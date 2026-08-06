@@ -42,6 +42,6 @@
     "typescript-eslint": "^8.66.0"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.40 || ^3.6.0-rc.2"
+    "@vue/reactivity": "^3.5.41 || ^3.6.0-rc.2"
   }
 }
