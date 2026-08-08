@@ -30,7 +30,7 @@
   },
   "devDependencies": {
     "@formkit/tempo": "^1.1.0",
-    "@nuxt/eslint": "^1.16.0",
+    "@nuxt/eslint": "^1.17.0",
     "@nuxtjs/i18n": "^10.6.0",
     "@types/node": "^24.13.3 || ^26.1.2",
     "@typescript-eslint/typescript-estree": "^8.66.0",
