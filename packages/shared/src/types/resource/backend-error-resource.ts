@@ -1,5 +1,8 @@
 export interface BackendErrorResource {
-  source?: string
+  type?: string
+  status?: number
   title?: string
-  errors?: string[]
+  detail?: string
+  instance?: string
+  source?: string
 }
