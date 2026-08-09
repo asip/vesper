@@ -58,7 +58,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
       if (off.value) {
         switch (error.status) {
           case 401:
-            onUnauthorized()
+            unauthorized()
             break
           // default:
           //  onOtherError(error)
@@ -66,36 +66,36 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
       } else {
         switch (error.status) {
           case 401:
-            onUnauthorized()
+            unauthorized()
             break
           case 404:
-            onNotFound(error)
+            notFound(error)
             break
           case 422: {
-            onUnprocessableContent(error)
+            unprocessableContent(error)
             break
           }
           default:
-            onOtherError(error)
+            otherError(error)
         }
       }
       off.value = false
     },
   })
 
-  const onUnauthorized = () => {
+  const unauthorized = () => {
     if (!off.value) flash.value.alert = $i18n.t('backend.error.login')
     if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
   }
 
-  const onNotFound = (
+  const notFound = (
     error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
   ) => {
     const backendError = error.data as BER
     info.value.error = backendError
   }
 
-  const onUnprocessableContent = (
+  const unprocessableContent = (
     error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
   ) => {
     if (caller && 'externalErrors' in caller && caller.externalErrors && error.data) {
@@ -105,7 +105,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     }
   }
 
-  const onOtherError = (
+  const otherError = (
     error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
   ) => {
     flash.value.alert = $i18n.t('backend.error.api', { message: error.message })
