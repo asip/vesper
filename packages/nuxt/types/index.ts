@@ -7,4 +7,4 @@ export type {
   Flash,
 } from '@vesperjs/shared'
 
-export type { MutationApiOptions, QueryApiOptions } from '../app/composables'
+export type { MutationApiOptions, QueryApiOptions, UseApiErrorCallerType } from '../app/composables'

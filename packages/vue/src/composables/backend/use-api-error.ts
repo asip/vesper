@@ -15,11 +15,11 @@ import { useBackendErrorInfo } from './error'
 
 import { i18n } from '~/i18n'
 
-export interface UseApiErrorOptions {
+interface UseApiErrorOptions {
   caller?: UseApiErrorCallerType
 }
 
-interface UseApiErrorCallerType {
+export interface UseApiErrorCallerType {
   externalErrors?: Ref<ErrorMessages<string>>
   clearAccount?: () => void
 }
@@ -32,6 +32,12 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     BackendErrorInfo<BackendErrorsResource<BER>>,
     FetchError<BackendErrorsResource<BER>>
   >
+  onUnauthorized: (func?: () => void) => void
+  onNotFound: (func?: (error: FetchError<BackendErrorsResource<BER>>) => void) => void
+  onUnprocessableContent: (func?: (error: FetchError<BackendErrorsResource<BER>>) => void) => void
+  onOtherError: (func?: (error: FetchError<BackendErrorsResource<BER>>) => void) => void
+  caller?: UseApiErrorCallerType
+  setup: (func: () => void) => void
   setError: (
     error: FetchError<BackendErrorsResource<BER>>,
     options?: {
@@ -56,6 +62,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     },
     set(error: FetchError<BackendErrorsResource<BER>>) {
       clearBackendErrorInfo()
+      setupFunc()
       info.value.status = error.status
       if (off.value) {
         switch (error.status) {
@@ -85,17 +92,17 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     },
   })
 
-  const unauthorized = () => {
+  let unauthorized = () => {
     if (!off.value) flash.value.alert = i18n.global.t('backend.error.login')
     if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
   }
 
-  const notFound = (error: FetchError<BackendErrorsResource<BER>>) => {
+  let notFound = (error: FetchError<BackendErrorsResource<BER>>) => {
     const backendError = error.data as BER
     info.value.error = backendError
   }
 
-  const unprocessableContent = (error: FetchError<BackendErrorsResource<BER>>) => {
+  let unprocessableContent = (error: FetchError<BackendErrorsResource<BER>>) => {
     if (caller && 'externalErrors' in caller && caller.externalErrors && error.data) {
       const { errors } = error.data as ErrorsResource<ErrorMessages<string>>
       // globalThis.console.log(errors)
@@ -103,8 +110,37 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     }
   }
 
-  const otherError = (error: FetchError<BackendErrorsResource<BER>>) => {
+  let otherError = (error: FetchError<BackendErrorsResource<BER>>) => {
     flash.value.alert = i18n.global.t('backend.error.api', { message: error.message })
+  }
+
+  const onUnauthorized = (func?: () => void) => {
+    if (func) unauthorized = func
+  }
+
+  const onNotFound = (func?: (error: FetchError<BackendErrorsResource<BER>>) => void) => {
+    if (func) notFound = func
+  }
+
+  const onUnprocessableContent = (
+    func?: (error: FetchError<BackendErrorsResource<BER>>) => void,
+  ) => {
+    if (func) unprocessableContent = func
+  }
+
+  const onOtherError = (func?: (error: FetchError<BackendErrorsResource<BER>>) => void) => {
+    if (func) otherError = func
+  }
+
+  let setupFunc = () => {
+    onUnauthorized()
+    onNotFound()
+    onUnprocessableContent()
+    onOtherError()
+  }
+
+  const setup = (func: () => void) => {
+    setupFunc = func
   }
 
   const setError = function (
@@ -124,5 +160,16 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     }
   }
 
-  return { backendErrorInfo, setError, off, reload }
+  return {
+    backendErrorInfo,
+    onUnauthorized,
+    onNotFound,
+    onUnprocessableContent,
+    onOtherError,
+    caller,
+    setup,
+    setError,
+    off,
+    reload,
+  }
 }

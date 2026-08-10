@@ -12,11 +12,11 @@ import type {
 
 import { useBackendErrorInfo } from './error'
 
-export interface UseApiErrorOptions {
+interface UseApiErrorOptions {
   caller?: UseApiErrorCallerType
 }
 
-interface UseApiErrorCallerType {
+export interface UseApiErrorCallerType {
   externalErrors?: Ref<ErrorMessages<string>>
   clearAccount?: () => void
 }
@@ -29,6 +29,24 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     BackendErrorInfo<BackendErrorsResource<BER>>,
     NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>
   >
+  onUnauthorized: (func?: () => void) => void
+  onNotFound: (
+    func?: (
+      error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
+    ) => void,
+  ) => void
+  onUnprocessableContent: (
+    func?: (
+      error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
+    ) => void,
+  ) => void
+  onOtherError: (
+    func?: (
+      error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
+    ) => void,
+  ) => void
+  caller?: UseApiErrorCallerType
+  setup: (func: () => void) => void
   setError: (
     error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
     options?: {
@@ -54,6 +72,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     },
     set(error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>) {
       clearBackendErrorInfo()
+      setupFunc()
       info.value.status = error.status
       if (off.value) {
         switch (error.status) {
@@ -83,19 +102,19 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     },
   })
 
-  const unauthorized = () => {
+  let unauthorized = () => {
     if (!off.value) flash.value.alert = $i18n.t('backend.error.login')
     if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
   }
 
-  const notFound = (
+  let notFound = (
     error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
   ) => {
     const backendError = error.data as BER
     info.value.error = backendError
   }
 
-  const unprocessableContent = (
+  let unprocessableContent = (
     error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
   ) => {
     if (caller && 'externalErrors' in caller && caller.externalErrors && error.data) {
@@ -105,10 +124,49 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     }
   }
 
-  const otherError = (
+  let otherError = (
     error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
   ) => {
     flash.value.alert = $i18n.t('backend.error.api', { message: error.message })
+  }
+
+  const onUnauthorized = (func?: () => void) => {
+    if (func) unauthorized = func
+  }
+
+  const onNotFound = (
+    func?: (
+      error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
+    ) => void,
+  ) => {
+    if (func) notFound = func
+  }
+
+  const onUnprocessableContent = (
+    func?: (
+      error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
+    ) => void,
+  ) => {
+    if (func) unprocessableContent = func
+  }
+
+  const onOtherError = (
+    func?: (
+      error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
+    ) => void,
+  ) => {
+    if (func) otherError = func
+  }
+
+  let setupFunc = () => {
+    onUnauthorized()
+    onNotFound()
+    onUnprocessableContent()
+    onOtherError()
+  }
+
+  const setup = (func: () => void) => {
+    setupFunc = func
   }
 
   const setError = function (
@@ -120,5 +178,15 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     backendErrorInfo.value = error
   }
 
-  return { backendErrorInfo, setError, off }
+  return {
+    backendErrorInfo,
+    onUnauthorized,
+    onNotFound,
+    onUnprocessableContent,
+    onOtherError,
+    caller,
+    setup,
+    setError,
+    off,
+  }
 }

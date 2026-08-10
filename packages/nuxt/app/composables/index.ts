@@ -12,6 +12,7 @@ export {
   useApiError as useAlert,
   type MutationApiOptions,
   type QueryApiOptions,
+  type UseApiErrorCallerType,
 } from './backend'
 
 export { useDate } from './util'

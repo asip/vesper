@@ -20,6 +20,7 @@ export {
   useMorePage as useMoreScroll,
   type MutationApiOptions,
   type QueryApiOptions,
+  type UseApiErrorCallerType,
 } from './composables'
 
 export { i18n } from './i18n'

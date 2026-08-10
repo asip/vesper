@@ -9,6 +9,7 @@ export {
   useApiError,
   type MutationApiOptions,
   type QueryApiOptions,
+  type UseApiErrorCallerType,
 } from './backend'
 
 export { useElement } from './ui'
