@@ -37,20 +37,20 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.66.0",
-    "@typescript-eslint/parser": "^8.66.0",
+    "@typescript-eslint/eslint-plugin": "^8.67.0",
+    "@typescript-eslint/parser": "^8.67.0",
     "@vue/eslint-config-typescript": "^14.9.0",
     "eslint": "^10.8.1",
     "eslint-plugin-vue": "^10.10.0",
-    "oxfmt": "^0.62.0",
+    "oxfmt": "^0.63.0",
     "tsdown": "^0.22.14",
     "typescript": "^6.0.3 || ^7.0.2",
-    "typescript-eslint": "^8.66.0"
+    "typescript-eslint": "^8.67.0"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.41 || ^3.6.0-rc.2",
-    "@vue/runtime-core": "^3.5.41 || ^3.6.0-rc.2",
-    "@vue/runtime-dom": "^3.5.41 || ^3.6.0-rc.2",
-    "vue": "^3.5.41 || ^3.6.0-rc.2"
+    "@vue/reactivity": "^3.5.41 || ^3.6.0-rc.3",
+    "@vue/runtime-core": "^3.5.41 || ^3.6.0-rc.3",
+    "@vue/runtime-dom": "^3.5.41 || ^3.6.0-rc.3",
+    "vue": "^3.5.41 || ^3.6.0-rc.3"
   }
 }
