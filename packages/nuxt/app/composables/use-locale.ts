@@ -1,5 +1,4 @@
 import { useNuxtApp } from 'nuxt/app'
-import { useBrowserLocale } from '#i18n'
 
 export const useLocale = function (): {
   locale: WritableComputedRef<string>
@@ -20,7 +19,7 @@ export const useLocale = function (): {
     // console.log(browserLocale)
     // console.log(locales.value)
 
-    type AvailableLocales = (typeof $i18n.availableLocales)[number]
+    type AvailableLocales = (typeof availableLocales)[number]
 
     locale.value = (
       (availableLocales as string[]).includes(browserLocale ?? '') ||
