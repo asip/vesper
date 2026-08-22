@@ -15,7 +15,7 @@ importers:
   .:
     dependencies:
       vue:
-        specifier: ^3.5.41 || ^3.6.0-rc.4
+        specifier: ^3.5.41 || ^3.6.0-rc.5
         version: 3.5.41(typescript@6.0.3)
     devDependencies:
       '@formkit/tempo':
