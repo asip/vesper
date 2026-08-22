@@ -1,7 +1,5 @@
 import { computed } from '@vue/reactivity'
 
-import { MorePage } from '~/types'
-
 import { useMorePageStore } from '~/stores'
 
 export const useMorePage = function (options?: { key?: string | null }) {
@@ -14,17 +12,14 @@ export const useMorePage = function (options?: { key?: string | null }) {
       return morePage.value.first
     },
     set(value: number) {
-      const morePage_ = { ...morePage.value }
-      morePage_.first = value
-      morePage_.current = value
+      morePage.value.first = value
+      morePage.value.current = value
 
-      morePage_.min = value
-      morePage_.max = value
+      morePage.value.min = value
+      morePage.value.max = value
 
-      morePage_.prev = false
-      morePage_.next = false
-
-      morePage.value = morePage_
+      morePage.value.prev = false
+      morePage.value.next = false
     },
   })
 
@@ -33,11 +28,9 @@ export const useMorePage = function (options?: { key?: string | null }) {
       return morePage.value.pages
     },
     set(value: number) {
-      const morePage_ = { ...morePage.value }
-      morePage_.pages = value
-      minMaxPage(morePage_)
-      prevNext(morePage_)
-      morePage.value = morePage_
+      morePage.value.pages = value
+      minMaxPage()
+      prevNext()
     },
   })
 
@@ -49,30 +42,28 @@ export const useMorePage = function (options?: { key?: string | null }) {
   const minPage = computed<number>(() => morePage.value.min)
   const maxPage = computed<number>(() => morePage.value.max)
 
-  const minMaxPage = (morePage_: MorePage) => {
-    morePage_.min = morePage_.current < morePage_.min ? morePage_.current : morePage_.min
-    morePage_.max = morePage_.current > morePage_.max ? morePage_.current : morePage_.max
+  const minMaxPage = () => {
+    morePage.value.min =
+      morePage.value.current < morePage.value.min ? morePage.value.current : morePage.value.min
+    morePage.value.max =
+      morePage.value.current > morePage.value.max ? morePage.value.current : morePage.value.max
   }
 
-  const prevNext = (morePage_: MorePage) => {
-    morePage_.prev = morePage_.min <= 1 ? false : true
-    morePage_.next = morePage_.max >= morePage_.pages ? false : true
+  const prevNext = () => {
+    morePage.value.prev = morePage.value.min <= 1 ? false : true
+    morePage.value.next = morePage.value.max >= morePage.value.pages ? false : true
   }
 
   const decrement = () => {
-    const morePage_ = { ...morePage.value }
-    morePage_.current = morePage_.min - 1
-    minMaxPage(morePage_)
-    prevNext(morePage_)
-    morePage.value = morePage_
+    morePage.value.current = morePage.value.min - 1
+    minMaxPage()
+    prevNext()
   }
 
   const increment = () => {
-    const morePage_ = { ...morePage.value }
-    morePage_.current = morePage_.max + 1
-    minMaxPage(morePage_)
-    prevNext(morePage_)
-    morePage.value = morePage_
+    morePage.value.current = morePage.value.max + 1
+    minMaxPage()
+    prevNext()
   }
 
   return {
