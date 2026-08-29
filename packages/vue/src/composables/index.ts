@@ -14,7 +14,7 @@ export {
 
 export { useElement } from './ui'
 
-export { useDate } from './util'
+export { useDateUtil } from './util'
 
 export { useConfig } from './use-config'
 export { useDatetime } from './use-datetime'

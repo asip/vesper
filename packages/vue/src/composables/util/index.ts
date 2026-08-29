@@ -1,1 +1,1 @@
-export { useDate } from '@vesperjs/shared'
+export { useDateUtil } from '@vesperjs/shared'

@@ -1,6 +1,6 @@
 import { parse } from '@formkit/tempo'
 
-export const useDate = function (
+export const useDateUtil = function (
   fmtDate = 'YYYY/MM/DD',
   locale?: string,
 ): {

@@ -1,1 +1,1 @@
-export { useDate } from './use-date'
+export { useDateUtil } from './use-date-util'
