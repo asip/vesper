@@ -7,7 +7,7 @@ export {
   useApiError,
   useApiError as useAlert,
   useElement,
-  useDate,
+  useDateUtil,
   useEntity,
   useFlash,
   useConfig,
