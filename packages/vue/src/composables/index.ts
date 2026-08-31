@@ -7,6 +7,7 @@ export {
   useQueryApi,
   useExternalErrors,
   useApiError,
+  useFormAction,
   type MutationApiOptions,
   type QueryApiOptions,
   type UseApiErrorCallerType,
