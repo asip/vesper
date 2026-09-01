@@ -33,24 +33,24 @@
     "@vesperjs/shared": "0.9.16",
     "nanostores": "^1.5.2",
     "ofetch": "^1.5.1",
-    "vue-i18n": "^11.4.8"
+    "vue-i18n": "^11.4.10"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.67.0",
-    "@typescript-eslint/parser": "^8.67.0",
+    "@typescript-eslint/eslint-plugin": "^8.69.0",
+    "@typescript-eslint/parser": "^8.69.0",
     "@vue/eslint-config-typescript": "^14.9.0",
-    "eslint": "^10.8.1",
+    "eslint": "^10.9.1",
     "eslint-plugin-vue": "^10.10.0",
-    "oxfmt": "^0.64.0",
+    "oxfmt": "^0.65.0",
     "tsdown": "^0.22.14",
     "typescript": "^6.0.3 || ^7.0.2",
-    "typescript-eslint": "^8.67.0"
+    "typescript-eslint": "^8.69.0"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.41 || ^3.6.0-rc.5",
-    "@vue/runtime-core": "^3.5.41 || ^3.6.0-rc.5",
-    "@vue/runtime-dom": "^3.5.41 || ^3.6.0-rc.5",
-    "vue": "^3.5.41 || ^3.6.0-rc.5"
+    "@vue/reactivity": "^3.5.42 || ^3.6.0-rc.6",
+    "@vue/runtime-core": "^3.5.42 || ^3.6.0-rc.6",
+    "@vue/runtime-dom": "^3.5.42 || ^3.6.0-rc.6",
+    "vue": "^3.5.42 || ^3.6.0-rc.6"
   }
 }

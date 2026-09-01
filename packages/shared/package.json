@@ -31,17 +31,17 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.67.0",
-    "@typescript-eslint/parser": "^8.67.0",
+    "@typescript-eslint/eslint-plugin": "^8.69.0",
+    "@typescript-eslint/parser": "^8.69.0",
     "@vue/eslint-config-typescript": "^14.9.0",
-    "eslint": "^10.8.1",
+    "eslint": "^10.9.1",
     "eslint-plugin-vue": "^10.10.0",
-    "oxfmt": "^0.64.0",
+    "oxfmt": "^0.65.0",
     "tsdown": "^0.22.14",
     "typescript": "^6.0.3 || ^7.0.2",
-    "typescript-eslint": "^8.67.0"
+    "typescript-eslint": "^8.69.0"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.41 || ^3.6.0-rc.5"
+    "@vue/reactivity": "^3.5.42 || ^3.6.0-rc.6"
   }
 }

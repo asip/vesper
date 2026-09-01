@@ -32,18 +32,18 @@
     "@formkit/tempo": "^1.1.0",
     "@nuxt/eslint": "^1.17.0",
     "@nuxtjs/i18n": "^10.6.0",
-    "@types/node": "^24.13.3 || ^26.2.0",
-    "@typescript-eslint/typescript-estree": "^8.67.0",
+    "@types/node": "^24.13.3 || ^26.4.0",
+    "@typescript-eslint/typescript-estree": "^8.69.0",
     "@vesperjs/shared": "0.9.16",
-    "eslint": "^10.8.1",
+    "eslint": "^10.9.1",
     "eslint-typegen": "^2.3.1",
-    "nuxt": "^4.5.1",
+    "nuxt": "^4.5.2",
     "ofetch": "^1.5.1",
-    "oxfmt": "^0.64.0",
+    "oxfmt": "^0.65.0",
     "typescript": "^6.0.3 || ^7.0.2",
-    "typescript-eslint": "^8.67.0"
+    "typescript-eslint": "^8.69.0"
   },
   "peerDependencies": {
-    "vue": "^3.5.41 || ^3.6.0-rc.5"
+    "vue": "^3.5.42 || ^3.6.0-rc.6"
   }
 }
