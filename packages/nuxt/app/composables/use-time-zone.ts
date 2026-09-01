@@ -21,7 +21,6 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
   upTZ: (datetime: string | null) => string
   downTZ: (datetime: string | null) => string
   formatTZ: (datetime: string | null, fmt: string) => string
-  formatHtmlTZ: (datetime: string | null, fmt: string) => string
 } {
   const runtimeConfig = useRuntimeConfig()
   const { locale } = useLocale()
@@ -87,5 +86,5 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
         : ''
   }
 
-  return { timeZone, tzOptions, upTZ, downTZ, formatTZ, formatHtmlTZ: formatTZ }
+  return { timeZone, tzOptions, upTZ, downTZ, formatTZ }
 }

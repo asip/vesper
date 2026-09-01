@@ -7,7 +7,6 @@ export const useDatetime = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
   downDTL: (datetime: string | null) => string
   toISO8601: (datetime: string) => string
   formatDT: (datetime: string | null, fmt: string) => string
-  formatHTML: (datetime: string | null, fmt: string) => string
 } {
   const { locale } = useLocale()
 
@@ -37,5 +36,5 @@ export const useDatetime = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
     return datetime ? format(parseDT(datetime, fmtDT), fmt, locale.value) : ''
   }
 
-  return { upDTL, downDTL, toISO8601, formatDT, formatHTML: formatDT }
+  return { upDTL, downDTL, toISO8601, formatDT }
 }

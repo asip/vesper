@@ -8,7 +8,6 @@ export const useExternalErrors = function <P extends string>(
   externalErrors: WritableComputedRef<ErrorMessages<P>>
   clearExternalErrors: () => void
   success: boolean
-  isSuccess: boolean
 } {
   const errors = ref<ErrorMessages<P>>({})
 
@@ -44,6 +43,5 @@ export const useExternalErrors = function <P extends string>(
     externalErrors,
     clearExternalErrors,
     success: success.value,
-    isSuccess: success.value,
   }
 }

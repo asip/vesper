@@ -40,12 +40,6 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   onOtherError: (func?: (error: FetchError<BackendErrorsResource<BER>>) => void) => void
   caller?: UseApiErrorCallerType
   setup: (func: () => void) => void
-  setError: (
-    error: FetchError<BackendErrorsResource<BER>>,
-    options?: {
-      off?: boolean
-    },
-  ) => void
   off: Ref<boolean, boolean>
   reload: () => void
 } {
@@ -63,36 +57,40 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
       return info.value
     },
     set(error: FetchError<BackendErrorsResource<BER>>) {
-      clearBackendErrorInfo()
-      setupFunc()
-      info.value.status = error.status
-      if (off.value) {
-        switch (error.status) {
-          case 401:
-            unauthorized()
-            break
-          // default:
-          //  onOtherError(error)
-        }
-      } else {
-        switch (error.status) {
-          case 401:
-            unauthorized()
-            break
-          case 404:
-            notFound(error)
-            break
-          case 422: {
-            unprocessableContent(error)
-            break
-          }
-          default:
-            otherError(error)
-        }
-      }
-      off.value = false
+      setError(error)
     },
   })
+
+  const setError = function (error: FetchError<BackendErrorsResource<BER>>): void {
+    clearBackendErrorInfo()
+    setupFunc()
+    info.value.status = error.status
+    if (off.value) {
+      switch (error.status) {
+        case 401:
+          unauthorized()
+          break
+        // default:
+        //  onOtherError(error)
+      }
+    } else {
+      switch (error.status) {
+        case 401:
+          unauthorized()
+          break
+        case 404:
+          notFound(error)
+          break
+        case 422: {
+          unprocessableContent(error)
+          break
+        }
+        default:
+          otherError(error)
+      }
+    }
+    off.value = false
+  }
 
   let unauthorized = () => {
     if (!off.value) flash.value.alert = t('backend.error.login')
@@ -145,15 +143,6 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     setupFunc = func
   }
 
-  const setError = function (
-    error: FetchError<BackendErrorsResource<BER>>,
-    options?: { off?: boolean },
-  ): void {
-    off.value = options?.off ?? false
-
-    backendErrorInfo.value = error
-  }
-
   const reload = (): void => {
     if (info.value.status === 404) {
       globalThis.setTimeout(() => {
@@ -170,7 +159,6 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
     onOtherError,
     caller,
     setup,
-    setError,
     off,
     reload,
   }
