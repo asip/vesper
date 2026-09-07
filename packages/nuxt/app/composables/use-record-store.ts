@@ -1,6 +1,6 @@
 import { useState } from 'nuxt/app'
 
-export const useRecord = function (key: string): {
+export const useRecordStore = function (key: string): {
   record: Ref<Record<string, string>>
 } {
   const record = useState<Record<string, string>>(key, () => {
