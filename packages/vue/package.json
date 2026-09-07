@@ -41,7 +41,7 @@
     "@typescript-eslint/parser": "^8.69.0",
     "@vue/eslint-config-typescript": "^14.9.0",
     "eslint": "^10.10.0",
-    "eslint-plugin-vue": "^10.10.0",
+    "eslint-plugin-vue": "^10.11.0",
     "oxfmt": "^0.66.0",
     "tsdown": "^0.23.0",
     "typescript": "^6.0.3 || ^7.0.2",
