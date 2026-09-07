@@ -16,11 +16,12 @@ export {
   useNanoRoute,
   useTimeZone,
   useMorePage,
-  useRecord,
   type MutationApiOptions,
   type QueryApiOptions,
   type UseApiErrorCallerType,
 } from './composables'
+
+export { useRecordStore } from './stores'
 
 export { i18n } from './i18n'
 

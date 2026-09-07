@@ -24,4 +24,3 @@ export { useNanoRoute } from './use-nano-route'
 export { useTimeZone } from './use-time-zone'
 
 export { useMorePage } from './use-more-page'
-export { useRecord } from './use-record'
