@@ -1,4 +1,4 @@
-import { ref, computed, watch, type WritableComputedRef } from 'vue'
+import { ref, computed, watch, type WritableComputedRef } from '@vue/reactivity'
 import { persistentAtom } from '@nanostores/persistent'
 
 type StringRecord = Partial<Record<string, string>>
