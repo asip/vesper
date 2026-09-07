@@ -1,2 +1,2 @@
 export { useConfigStore } from './use-config-store'
-export { useMorePageStore } from './nano'
+export { useMorePageStore, useRecordStore } from './nano'

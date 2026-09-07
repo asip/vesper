@@ -16,6 +16,7 @@ export {
   useNanoRoute,
   useTimeZone,
   useMorePage,
+  useRecord,
   type MutationApiOptions,
   type QueryApiOptions,
   type UseApiErrorCallerType,
