@@ -2,5 +2,3 @@ allowBuilds:
   '@parcel/watcher': false
   esbuild: false
   unrs-resolver: false
-minimumReleaseAgeExclude:
-  - '@vesperjs/shared@0.10.0'
