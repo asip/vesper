@@ -1,14 +1,16 @@
 import { ref, computed, watch, type WritableComputedRef } from '@vue/reactivity'
 import { persistentAtom } from '@nanostores/persistent'
 
-type StringRecord = Partial<Record<string, string>>
+type StringRecord<T = string> = Partial<Record<string, T>>
 
-export const useRecordStore = function (key: string): {
-  record: WritableComputedRef<StringRecord>
+export const useRecordStore = function <T = string>(
+  key: string,
+): {
+  record: WritableComputedRef<StringRecord<T>>
 } {
-  const recordRef = ref<StringRecord>({})
+  const recordRef = ref<StringRecord<T>>({})
 
-  const $record = persistentAtom<StringRecord>(
+  const $record = persistentAtom<StringRecord<T>>(
     key,
     {},
     {
@@ -22,7 +24,7 @@ export const useRecordStore = function (key: string): {
       recordRef.value = $record.get()
       return recordRef.value
     },
-    set(value: StringRecord) {
+    set(value: StringRecord<T>) {
       recordRef.value = value
       $record.set(value)
     },
