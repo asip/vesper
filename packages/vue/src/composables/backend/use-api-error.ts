@@ -24,8 +24,6 @@ export interface UseApiErrorCallerType {
   clearAccount?: () => void
 }
 
-const { t } = useI18nGlobal()
-
 export const useApiError = function <BER extends object = BackendErrorResource>(
   flash: Ref<Flash>,
   options?: UseApiErrorOptions,
@@ -45,6 +43,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
 } {
   const caller = options?.caller
 
+  const { t } = useI18nGlobal()
   const { backendErrorInfo: info, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
 
   const off = ref<boolean>(false)
