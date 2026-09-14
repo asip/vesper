@@ -143,7 +143,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   }
 
   const reload = (): void => {
-    if (info.value.status === 404) {
+    if (info.value.status === 401 || info.value.status === 404) {
       globalThis.setTimeout(() => {
         globalThis.location.reload()
       }, 1000)
