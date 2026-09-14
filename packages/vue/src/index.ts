@@ -12,7 +12,7 @@ export {
   useFlash,
   useConfig,
   useDatetime,
-  useI18n,
+  useI18nGlobal,
   useLocale,
   useNanoRoute,
   useTimeZone,

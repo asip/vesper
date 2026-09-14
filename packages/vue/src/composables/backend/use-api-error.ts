@@ -13,7 +13,7 @@ import type {
 
 import { useBackendErrorInfo } from './error'
 
-import { useI18n } from '~/composables'
+import { useI18nGlobal } from '~/composables'
 
 interface UseApiErrorOptions {
   caller?: UseApiErrorCallerType
@@ -24,7 +24,7 @@ export interface UseApiErrorCallerType {
   clearAccount?: () => void
 }
 
-const { t } = useI18n()
+const { t } = useI18nGlobal()
 
 export const useApiError = function <BER extends object = BackendErrorResource>(
   flash: Ref<Flash>,

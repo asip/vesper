@@ -2,14 +2,14 @@ import { computed, type ComputedRef, type WritableComputedRef } from '@vue/react
 
 import { useBrowserLocale } from './browser/use-browser-locale'
 
-import { useI18n } from './use-i18n'
+import { useI18nGlobal } from './use-i18n-global'
 
 export const useLocale = function (): {
   locale: WritableComputedRef<string>
   shortLocale: ComputedRef<string>
   autodetect: () => void
 } {
-  const { locale, availableLocales, fallbackLocale } = useI18n()
+  const { locale, availableLocales, fallbackLocale } = useI18nGlobal()
 
   const toShortLacale = (locale: string) => locale.split('-')[0]
 
