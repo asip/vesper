@@ -19,6 +19,7 @@ export { useDateUtil } from './util'
 
 export { useConfig } from './use-config'
 export { useDatetime } from './use-datetime'
+export { useI18n } from './use-i18n'
 export { useLocale } from './use-locale'
 export { useNanoRoute } from './use-nano-route'
 export { useTimeZone } from './use-time-zone'
