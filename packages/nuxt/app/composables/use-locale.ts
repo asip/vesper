@@ -13,21 +13,15 @@ export const useLocale = function (): {
 
   const shortLocale = computed(() => toShortLocale(locale.value))
 
+  const browserLocale = useBrowserLocale()
+  const browserShortLocale = toShortLocale(browserLocale)
+
   const autodetect = (): void => {
-    const browserLocale = useBrowserLocale()
-    const browserShortLocale = toShortLocale(browserLocale)
-
-    // console.log(browserLocale)
-    // console.log(locales.value)
-
-    type AvailableLocales = (typeof availableLocales)[number]
-
-    locale.value = (
+    locale.value =
       (availableLocales as string[]).includes(browserLocale ?? '') ||
       (availableLocales as string[]).includes(browserShortLocale ?? '')
         ? browserLocale
         : fallbackLocale.value
-    ) as AvailableLocales
   }
 
   return { locale, shortLocale, autodetect }
