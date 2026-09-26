@@ -1,4 +1,4 @@
-import { computed, type ComputedRef, type WritableComputedRef } from '@vue/reactivity'
+import { computed, type ComputedRef } from '@vue/reactivity'
 
 import { format, tzDate } from '@formkit/tempo'
 
@@ -19,7 +19,6 @@ interface TZOptions {
 
 export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
   timeZone: ComputedRef<TimeZone>
-  serverTZ: WritableComputedRef<string | undefined>
   tzOptions: ComputedRef<TZOptions[]>
   upTZ: (datetime: string | null) => string
   downTZ: (datetime: string | null) => string
@@ -87,5 +86,5 @@ export const useTimeZone = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
         : ''
   }
 
-  return { timeZone, serverTZ, tzOptions, upTZ, downTZ, formatWithTZ }
+  return { timeZone, tzOptions, upTZ, downTZ, formatWithTZ }
 }
