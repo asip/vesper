@@ -6,15 +6,16 @@ export const useLocale = function (): {
   autodetect: () => void
 } {
   const { $i18n } = useNuxtApp()
-  const { locale, availableLocales, fallbackLocale } = $i18n
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const { locale, availableLocales, fallbackLocale } = $i18n as any
 
-  const toShortLacale = (locale: string | null) => locale?.split('-')[0] ?? null
+  const toShortLocale = (locale: string | null) => locale?.split('-')[0] ?? null
 
-  const shortLocale = computed(() => toShortLacale(locale.value))
+  const shortLocale = computed(() => toShortLocale(locale.value))
 
   const autodetect = (): void => {
     const browserLocale = useBrowserLocale()
-    const browserShortLocale = toShortLacale(browserLocale)
+    const browserShortLocale = toShortLocale(browserLocale)
 
     // console.log(browserLocale)
     // console.log(locales.value)
