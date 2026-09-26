@@ -49,11 +49,12 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   setup: (func: () => void) => void
   off: Ref<boolean>
 } {
+  const { $i18n } = useNuxtApp()
+  const { t } = $i18n
+
   const caller = options?.caller
 
   const { backendErrorInfo: info, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
-
-  const { $i18n } = useNuxtApp()
 
   const off = ref<boolean>(false)
 
@@ -103,7 +104,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   }
 
   let unauthorized = () => {
-    if (!off.value) flash.value.alert = $i18n.t('backend.error.login')
+    if (!off.value) flash.value.alert = t('backend.error.login')
     if (caller && 'clearAccount' in caller && caller.clearAccount) caller.clearAccount()
   }
 
@@ -127,7 +128,7 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   let otherError = (
     error: NuxtError<BackendErrorsResource<BER>> | FetchError<BackendErrorsResource<BER>>,
   ) => {
-    flash.value.alert = $i18n.t('backend.error.api', { message: error.message })
+    flash.value.alert = t('backend.error.api', { message: error.message })
   }
 
   const onUnauthorized = (func?: () => void) => {
