@@ -31,26 +31,27 @@
     "@nanostores/router": "^1.1.0",
     "@nanostores/vue": "^1.1.0",
     "@vesperjs/shared": "0.11.0",
-    "nanostores": "^1.5.3",
+    "nanostores": "^1.5.4",
     "ofetch": "^1.5.1",
-    "vue-i18n": "^11.4.10"
+    "vue-i18n": "^11.4.12"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.70.0",
-    "@typescript-eslint/parser": "^8.70.0",
+    "@intlify/core-base": "^11.4.12",
+    "@typescript-eslint/eslint-plugin": "^8.71.0",
+    "@typescript-eslint/parser": "^8.71.0",
     "@vue/eslint-config-typescript": "^14.9.0",
-    "eslint": "^10.10.0",
-    "eslint-plugin-vue": "^10.11.0",
-    "oxfmt": "^0.68.0",
+    "eslint": "^10.11.0",
+    "eslint-plugin-vue": "^10.11.1",
+    "oxfmt": "^0.71.0",
     "tsdown": "^0.23.0",
     "typescript": "^6.0.3 || ^7.0.2",
-    "typescript-eslint": "^8.70.0"
+    "typescript-eslint": "^8.71.0"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.42 || ^3.6.0-rc.8",
-    "@vue/runtime-core": "^3.5.42 || ^3.6.0-rc.8",
-    "@vue/runtime-dom": "^3.5.42 || ^3.6.0-rc.8",
-    "vue": "^3.5.42 || ^3.6.0-rc.8"
+    "@vue/reactivity": "^3.5.43 || ^3.6.0-rc.10",
+    "@vue/runtime-core": "^3.5.43 || ^3.6.0-rc.10",
+    "@vue/runtime-dom": "^3.5.43 || ^3.6.0-rc.10",
+    "vue": "^3.5.43 || ^3.6.0-rc.10"
   }
 }
