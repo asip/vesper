@@ -7,6 +7,8 @@ export {
   useFlash,
 } from './composables'
 
+export { locales } from './i18n'
+
 export type {
   BackendErrorInfo,
   BackendErrorResource,

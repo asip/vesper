@@ -24,7 +24,7 @@ export {
 
 export { useRecordStore } from './stores'
 
-export { i18n } from './i18n'
+export { locales, i18n } from './i18n'
 
 export type {
   BackendErrorInfo,

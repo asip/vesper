@@ -1,3 +1,1 @@
 export { locales } from '@vesperjs/shared'
-
-export { i18n } from './i18n'
