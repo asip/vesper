@@ -23,5 +23,6 @@ export { useI18nGlobal } from './use-i18n-global'
 export { useLocale } from './use-locale'
 export { useNanoRoute } from './use-nano-route'
 export { useTimeZone } from './use-time-zone'
+export { useCookie } from './use-cookie'
 
 export { useMorePage } from './use-more-page'

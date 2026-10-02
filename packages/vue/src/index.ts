@@ -16,6 +16,7 @@ export {
   useLocale,
   useNanoRoute,
   useTimeZone,
+  useCookie,
   useMorePage,
   type MutationApiOptions,
   type QueryApiOptions,
@@ -24,7 +25,7 @@ export {
 
 export { useRecordStore } from './stores'
 
-export { locales, i18n } from './i18n'
+export { i18n, locales } from './i18n'
 
 export type {
   BackendErrorInfo,
@@ -34,4 +35,5 @@ export type {
   ErrorMessages,
   Flash,
   AsyncDataRequestStatus,
+  CookieRef,
 } from './types'

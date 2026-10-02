@@ -31,6 +31,7 @@
     "@nanostores/router": "^2.0.0",
     "@nanostores/vue": "^1.1.0",
     "@vesperjs/shared": "0.11.0",
+    "js-cookie": "^3.0.8",
     "nanostores": "^1.5.4",
     "ofetch": "^1.5.1",
     "vue-i18n": "^11.4.12"
@@ -38,6 +39,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@intlify/core-base": "^11.4.12",
+    "@types/js-cookie": "^3.0.6",
     "@typescript-eslint/eslint-plugin": "^8.71.0",
     "@typescript-eslint/parser": "^8.71.0",
     "@vue/eslint-config-typescript": "^14.9.0",
