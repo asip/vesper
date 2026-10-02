@@ -1,6 +1,6 @@
 import { createI18n } from 'vue-i18n'
 
-import { locales } from '@vesperjs/shared'
+import { locales } from './locales'
 
 const { en, ja } = locales
 

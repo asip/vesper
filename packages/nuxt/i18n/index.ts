@@ -1,1 +1,1 @@
-export { locales } from '@vesperjs/shared'
+export { locales } from './locales'
