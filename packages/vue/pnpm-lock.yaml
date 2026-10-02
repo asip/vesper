@@ -15,8 +15,8 @@ importers:
         specifier: ^1.3.5
         version: 1.3.5(nanostores@1.5.4)
       '@nanostores/router':
-        specifier: ^1.1.0
-        version: 1.1.0(nanostores@1.5.4)
+        specifier: ^2.0.0
+        version: 2.0.0(nanostores@1.5.4)
       '@nanostores/vue':
         specifier: ^1.1.0
         version: 1.1.0(nanostores@1.5.4)(vue@3.5.43(typescript@6.0.3))
@@ -200,9 +200,9 @@ packages:
     peerDependencies:
       nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
 
-  '@nanostores/router@1.1.0':
-    resolution: {integrity: sha512-C0PyfI/4R+d6w53SBFiYzGWowsMZgVeC/7lox59g3KzhcpgvgCheYA0DlBH46z5BdgBZ3qLIlNIttGs9Kl9Wzg==}
-    engines: {node: ^20.0.0 || >=22.0.0}
+  '@nanostores/router@2.0.0':
+    resolution: {integrity: sha512-Ikphqq8D95/EGdVNEeMK0b5ZN0inu7P56mMITBESJoJAwogSGm/GKvA3QPsSv9yRPkS7/rYNfmp05e5NAFXsBw==}
+    engines: {node: ^22.0.0 || ^24.0.0 || >=26.0.0}
     peerDependencies:
       nanostores: ^0.9.0 || ^0.10.0 || ^0.11.0 || ^1.0.0
 
@@ -1382,7 +1382,7 @@ snapshots:
     dependencies:
       nanostores: 1.5.4
 
-  '@nanostores/router@1.1.0(nanostores@1.5.4)':
+  '@nanostores/router@2.0.0(nanostores@1.5.4)':
     dependencies:
       nanostores: 1.5.4
 
