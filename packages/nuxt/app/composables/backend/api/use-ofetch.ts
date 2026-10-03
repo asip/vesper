@@ -7,10 +7,10 @@ export const useOFetch = async function <T = unknown, E = any>(
   url: string,
   options?: FetchOptions<'json'>,
 ): Promise<{
-  data: T | undefined
-  error: FetchError<E> | undefined
-  status: AsyncDataRequestStatus
-  pending: boolean
+  data: Ref<T | undefined>
+  error: Ref<FetchError<E> | undefined>
+  status: Ref<AsyncDataRequestStatus>
+  pending: ComputedRef<boolean>
 }> {
   const { $api } = useNuxtApp()
 
@@ -28,5 +28,5 @@ export const useOFetch = async function <T = unknown, E = any>(
     status.value = 'error'
   }
 
-  return { data: data.value, error: error.value, status: status.value, pending: pending.value }
+  return { data, error, status, pending }
 }

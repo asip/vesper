@@ -87,5 +87,11 @@ export const useQueryApi = async function <T = unknown, E = any>(
 
   const { data, error, status, pending } = await useOFetch<T, E>(url, queryOptions)
 
-  return { token: tokenRef.value, data, error, status, pending }
+  return {
+    token: tokenRef.value,
+    data: data.value,
+    error: error.value,
+    status: status.value,
+    pending: pending.value,
+  }
 }
