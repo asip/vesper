@@ -1,13 +1,24 @@
 /*
 import Bowser from 'bowser'
 
-export const useUserAgent = function (): {
-  userAgent: Bowser.Parser.ParsedResult
-  browserInfo: Bowser.Parser.Parser
-} {
-  const userAgent = Bowser.parse(globalThis.navigator.userAgent)
-  const browserInfo = Bowser.getParser(globalThis.navigator.userAgent)
+export const useUserAgent = function (options?: { parse: boolean }) {
+  const parse = options?.parse ?? true
 
-  return { userAgent, browserInfo }
+  const parser = Bowser.getParser(globalThis.navigator.userAgent)
+
+  let browser = null
+  let engine = null
+  let os = null
+  let platform = null
+
+  if (parse) {
+    const userAgent = parser.getResult()
+    browser = userAgent.browser
+    engine = userAgent.engine
+    os = userAgent.os
+    platform = userAgent.platform
+  }
+
+  return { browser, engine, os, platform, parser }
 }
 */
