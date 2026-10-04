@@ -1,8 +1,18 @@
-import { computed } from '@vue/reactivity'
+import { computed, type ComputedRef, type WritableComputedRef } from '@vue/reactivity'
 
 import { useMorePageStore } from '~/stores'
 
-export const useMorePage = function (options?: { key?: string | null }) {
+export const useMorePage = function (options?: { key?: string | null }): {
+  firstPage: WritableComputedRef<number, number>
+  pages: WritableComputedRef<number, number>
+  currentPage: ComputedRef<number>
+  prev: ComputedRef<boolean>
+  next: ComputedRef<boolean>
+  minPage: ComputedRef<number>
+  maxPage: ComputedRef<number>
+  decrement: () => void
+  increment: () => void
+} {
   const key = options?.key
 
   const { morePage } = useMorePageStore(key)
