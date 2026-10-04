@@ -51,10 +51,9 @@ export const useCookie = function (name: string, options?: CookieAttributes): Co
     set(value: string | null | undefined) {
       if (value) {
         Cookies.set(name, value, options)
-      }
-      /* else {
+      } else {
         Cookies.remove(name, options)
-      } */
+      }
     },
   })
 
