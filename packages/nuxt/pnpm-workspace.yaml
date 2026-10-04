@@ -3,4 +3,4 @@ allowBuilds:
   esbuild: false
   unrs-resolver: false
 minimumReleaseAgeExclude:
-  - '@vesperjs/shared@0.12.0'
+  - '@vesperjs/shared@0.12.1'
