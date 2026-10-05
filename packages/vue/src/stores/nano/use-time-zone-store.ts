@@ -1,19 +1,11 @@
-import { computed, type WritableComputedRef } from '@vue/reactivity'
-import { persistentAtom } from '@nanostores/persistent'
+import { type WritableComputedRef } from '@vue/reactivity'
 
-const $serverTZ = persistentAtom<string | undefined>('timeZone', undefined)
+import { usePersistentStore } from './use-persistent-store'
 
 export const useTimeZoneStore = function (): {
   serverTZ: WritableComputedRef<string | undefined>
 } {
-  const serverTZ = computed<string | undefined>({
-    get() {
-      return $serverTZ.get()
-    },
-    set(value: string) {
-      $serverTZ.set(value)
-    },
-  })
+  const serverTZ = usePersistentStore('timeZone')
 
   return { serverTZ }
 }
