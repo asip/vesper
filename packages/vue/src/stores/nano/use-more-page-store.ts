@@ -7,11 +7,7 @@ import type { MorePage } from '~/types'
 export const useMorePageStore = function (key?: string | null): {
   morePage: WritableComputedRef<MorePage>
 } {
-  const toFirstUpper = (str: string): string => {
-    return str.charAt(0).toUpperCase() + str.slice(1)
-  }
-
-  key = key ? `morePageFor${toFirstUpper(key)}` : 'morePage'
+  key = key ? 'morePage:' + key : 'morePage'
 
   const $morePage = persistentAtom<MorePage>(
     key,

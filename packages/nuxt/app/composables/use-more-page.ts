@@ -23,11 +23,7 @@ export const useMorePage = function (options?: { key?: string | null }): {
 } {
   const key = options?.key
 
-  const toFirstUpper = (str: string): string => {
-    return str.charAt(0).toUpperCase() + str.slice(1)
-  }
-
-  const morePage = useState<MorePage>(key ? `morePageFor${toFirstUpper(key)}` : 'morePage', () => {
+  const morePage = useState<MorePage>(key ? 'morePage:' + key : 'morePage', () => {
     return {
       first: 1,
       pages: 1,
