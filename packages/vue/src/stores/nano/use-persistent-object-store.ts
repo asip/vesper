@@ -3,8 +3,9 @@ import { persistentAtom } from '@nanostores/persistent'
 
 export const usePersistentObjectStore = function <T extends object>(
   name: string,
+  initial?: T,
 ): WritableComputedRef<T | undefined> {
-  const $store = persistentAtom<T | undefined>(name, undefined, {
+  const $store = persistentAtom<T | undefined>(name, initial, {
     encode: JSON.stringify,
     decode: JSON.parse,
   })
