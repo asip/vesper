@@ -1,8 +1,11 @@
 import { computed, type WritableComputedRef } from '@vue/reactivity'
 import { persistentAtom } from '@nanostores/persistent'
 
-export const usePersistentStore = function (name: string): WritableComputedRef<string | undefined> {
-  const $store = persistentAtom<string | undefined>(name, undefined)
+export const usePersistentStore = function (
+  name: string,
+  initial?: string,
+): WritableComputedRef<string | undefined> {
+  const $store = persistentAtom<string | undefined>(name, initial)
 
   const store = computed<string | undefined>({
     get() {
