@@ -2,6 +2,7 @@ export { useBaseUrlStore } from './use-base-url-store'
 export { useTimeZoneStore } from './use-time-zone-store'
 
 export { usePersistentStore } from './use-persistent-store'
+export { usePersistentObjectStore } from './use-persistent-object-store'
 export { useMorePageStore } from './use-more-page-store'
 export { useRecordStore } from './use-record-store'
 export { useAnyRecordStore } from './use-any-record-store'

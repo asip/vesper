@@ -23,7 +23,12 @@ export {
   type UseApiErrorCallerType,
 } from './composables'
 
-export { usePersistentStore, useRecordStore, useAnyRecordStore } from './stores'
+export {
+  usePersistentStore,
+  usePersistentObjectStore,
+  useRecordStore,
+  useAnyRecordStore,
+} from './stores'
 
 export { i18n, locales } from './i18n'
 
