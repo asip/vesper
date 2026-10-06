@@ -9,6 +9,6 @@ export type {
 
 export type { AsyncDataRequestStatus } from './api'
 
-export type { CookieRef } from './browser'
+export type { CookieAttributes, CookieRef } from './browser'
 
 export type { MorePage } from './more-page'

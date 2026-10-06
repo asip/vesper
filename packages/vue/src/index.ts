@@ -40,5 +40,6 @@ export type {
   ErrorMessages,
   Flash,
   AsyncDataRequestStatus,
+  CookieAttributes,
   CookieRef,
 } from './types'
