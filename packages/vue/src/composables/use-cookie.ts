@@ -3,10 +3,9 @@ import Cookies from 'js-cookie'
 
 import type { CookieAttributes, CookieRef } from '~/types'
 
-export const useCookie = function (
-  name: string,
-  options?: CookieAttributes & { watch?: boolean },
-): CookieRef {
+type CookieOptions = CookieAttributes & { watch?: boolean }
+
+export const useCookie = function (name: string, options?: CookieOptions): CookieRef {
   const watchOption = options?.watch ?? true
   if (options?.watch) delete options.watch
 
