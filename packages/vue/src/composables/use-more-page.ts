@@ -16,14 +16,14 @@ export const useMorePage = function (options?: { key?: string | null }): {
 } {
   const key = options?.key
 
-  const { morePage } = useMorePageStore(key)
+  const morePage = useMorePageStore(key)
 
   const firstPage = computed<number>({
     get() {
       return morePage.value.first
     },
     set(value: number) {
-      const morePage_ = { ...morePage.value }
+      const morePage_ = morePage.value
       morePage_.first = value
       morePage_.current = value
 
@@ -42,7 +42,7 @@ export const useMorePage = function (options?: { key?: string | null }): {
       return morePage.value.pages
     },
     set(value: number) {
-      const morePage_ = { ...morePage.value }
+      const morePage_ = morePage.value
       morePage_.pages = value
       minMaxPage(morePage_)
       prevNext(morePage_)
@@ -69,7 +69,7 @@ export const useMorePage = function (options?: { key?: string | null }): {
   }
 
   const decrement = () => {
-    const morePage_ = { ...morePage.value }
+    const morePage_ = morePage.value
     morePage_.current = morePage_.min - 1
     minMaxPage(morePage_)
     prevNext(morePage_)
@@ -77,7 +77,7 @@ export const useMorePage = function (options?: { key?: string | null }): {
   }
 
   const increment = () => {
-    const morePage_ = { ...morePage.value }
+    const morePage_ = morePage.value
     morePage_.current = morePage_.max + 1
     minMaxPage(morePage_)
     prevNext(morePage_)

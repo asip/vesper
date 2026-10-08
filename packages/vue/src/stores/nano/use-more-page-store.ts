@@ -4,9 +4,7 @@ import { useStore } from '@nanostores/vue'
 
 import type { MorePage } from '~/types'
 
-export const useMorePageStore = function (key?: string | null): {
-  morePage: Ref<MorePage>
-} {
+export const useMorePageStore = function (key?: string | null): Ref<MorePage> {
   key = key ? 'morePage:' + key : 'morePage'
 
   const $morePage = persistentAtom<MorePage>(
@@ -41,5 +39,5 @@ export const useMorePageStore = function (key?: string | null): {
     }
   })
 
-  return { morePage }
+  return morePage
 }
