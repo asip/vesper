@@ -26,7 +26,7 @@ export const useMorePageStore = function (key?: string | null): Ref<MorePage> {
 
   const morePageRef = useStore($morePage)
 
-  const morePage = customRef((track, trigger) => {
+  const morePage = customRef<MorePage>((track, trigger) => {
     return {
       get() {
         track()
