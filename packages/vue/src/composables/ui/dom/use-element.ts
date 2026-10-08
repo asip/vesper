@@ -1,4 +1,4 @@
-import { computed, type Ref } from '@vue/reactivity'
+import { customRef, type Ref } from '@vue/reactivity'
 
 // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
 export const useElement = function <EL extends Element>(
@@ -16,34 +16,38 @@ export const useElement = function <EL extends Element>(
       ? toLowerCamel(prop.replace('data-', ''))
       : undefined
 
-    const propertyRef = computed<string, string | null | undefined>({
-      get() {
-        if (dataAttrProp) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          return el && 'dataset' in el && dataAttrProp in (el.dataset as any) // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
-            ? ((el.dataset as any)[dataAttrProp] as string)
-            : ''
-        } else {
-          return el && prop in el
-            ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
-              ((el as any)[prop] as string)
-            : ''
-        }
-      },
-      set(value: string | null | undefined) {
-        if (dataAttrProp) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          if (el && 'dataset' in el && dataAttrProp in (el.dataset as any)) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
-            ;(el.dataset as any)[dataAttrProp] = value ?? ''
+    const propertyRef = customRef<string, string | null | undefined>((track, trigger) => {
+      return {
+        get() {
+          track()
+          if (dataAttrProp) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            return el && 'dataset' in el && dataAttrProp in (el.dataset as any) // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+              ? ((el.dataset as any)[dataAttrProp] as string)
+              : ''
+          } else {
+            return el && prop in el
+              ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+                ((el as any)[prop] as string)
+              : ''
           }
-        } else {
-          if (el && prop in el) {
-            // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
-            ;(el as any)[prop] = value ?? ''
+        },
+        set(value: string | null | undefined) {
+          if (dataAttrProp) {
+            // eslint-disable-next-line @typescript-eslint/no-explicit-any
+            if (el && 'dataset' in el && dataAttrProp in (el.dataset as any)) {
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+              ;(el.dataset as any)[dataAttrProp] = value ?? ''
+            }
+          } else {
+            if (el && prop in el) {
+              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+              ;(el as any)[prop] = value ?? ''
+            }
           }
-        }
-      },
+          trigger()
+        },
+      }
     })
 
     obj[prop] = propertyRef
