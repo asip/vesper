@@ -1,3 +1,3 @@
-import { WritableComputedRef } from '@vue/reactivity'
+import { Ref } from '@vue/reactivity'
 
-export type CookieRef = WritableComputedRef<string | null | undefined>
+export type CookieRef = Ref<string | null | undefined>
