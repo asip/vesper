@@ -1,11 +1,11 @@
-import { computed, watch, type WritableComputedRef } from '@vue/reactivity'
+import { customRef, /* watch, */ type Ref } from '@vue/reactivity'
 import { persistentAtom } from '@nanostores/persistent'
 import { useStore } from '@nanostores/vue'
 
 import type { MorePage } from '~/types'
 
 export const useMorePageStore = function (key?: string | null): {
-  morePage: WritableComputedRef<MorePage>
+  morePage: Ref<MorePage>
 } {
   key = key ? 'morePage:' + key : 'morePage'
 
@@ -28,17 +28,17 @@ export const useMorePageStore = function (key?: string | null): {
 
   const morePageRef = useStore($morePage)
 
-  const morePage = computed({
-    get() {
-      return morePageRef.value
-    },
-    set(value: MorePage) {
-      $morePage.set(value)
-    },
-  })
-
-  watch(morePageRef, () => {
-    $morePage.set(morePageRef.value)
+  const morePage = customRef((track, trigger) => {
+    return {
+      get() {
+        track()
+        return { ...morePageRef.value }
+      },
+      set(value: MorePage) {
+        $morePage.set(value)
+        trigger()
+      },
+    }
   })
 
   return { morePage }
