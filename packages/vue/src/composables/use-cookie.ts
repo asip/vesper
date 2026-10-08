@@ -8,6 +8,7 @@ export const useCookie = function (
   options?: CookieAttributes & { watch?: boolean },
 ): CookieRef {
   const watchOption = options?.watch ?? true
+  if (options?.watch) delete options.watch
 
   const cookie: CookieRef = customRef<string | null | undefined>((track, trigger) => {
     return {
