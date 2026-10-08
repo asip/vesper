@@ -1,9 +1,9 @@
-import { type WritableComputedRef } from '@vue/reactivity'
+import { type Ref } from '@vue/reactivity'
 
 import { usePersistentStore } from './use-persistent-store'
 
 export const useTimeZoneStore = function (): {
-  serverTZ: WritableComputedRef<string | undefined>
+  serverTZ: Ref<string | undefined>
 } {
   const serverTZ = usePersistentStore('timeZone')
 

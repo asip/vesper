@@ -1,19 +1,26 @@
-import { computed, type WritableComputedRef } from '@vue/reactivity'
+import { customRef, type Ref } from '@vue/reactivity'
 import { persistentAtom } from '@nanostores/persistent'
 
 export const usePersistentStore = function (
   name: string,
   initial?: string,
-): WritableComputedRef<string | undefined> {
+  options?: { watch: boolean },
+): Ref<string | undefined> {
+  const watchOptions = options?.watch ?? true
+
   const $store = persistentAtom<string | undefined>(name, initial)
 
-  const store = computed<string | undefined>({
-    get() {
-      return $store.get()
-    },
-    set(value: string | undefined) {
-      $store.set(value)
-    },
+  const store = customRef<string | undefined>((track, trigger) => {
+    return {
+      get() {
+        if (watchOptions) track()
+        return $store.get()
+      },
+      set(value: string | undefined) {
+        if (watchOptions) $store.set(value)
+        trigger()
+      },
+    }
   })
 
   return store
