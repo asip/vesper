@@ -15,10 +15,6 @@ import { useBackendErrorInfo } from './error'
 
 import { useI18nGlobal } from '~/composables'
 
-interface UseApiErrorOptions {
-  caller?: UseApiErrorCallerType
-}
-
 export interface UseApiErrorCallerType {
   externalErrors?: Ref<ErrorMessages<string>>
   clearAccount?: () => void
@@ -26,7 +22,7 @@ export interface UseApiErrorCallerType {
 
 export const useApiError = function <BER extends object = BackendErrorResource>(
   flash: Ref<Flash>,
-  options?: UseApiErrorOptions,
+  caller?: UseApiErrorCallerType,
 ): {
   backendErrorInfo: WritableComputedRef<
     BackendErrorInfo<BackendErrorsResource<BER>>,
@@ -41,8 +37,6 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
   off: Ref<boolean, boolean>
   reload: () => void
 } {
-  const caller = options?.caller
-
   const { t } = useI18nGlobal()
   const { backendErrorInfo: info, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
 

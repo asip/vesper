@@ -12,10 +12,6 @@ import type {
 
 import { useBackendErrorInfo } from './error'
 
-interface UseApiErrorOptions {
-  caller?: UseApiErrorCallerType
-}
-
 export interface UseApiErrorCallerType {
   externalErrors?: Ref<ErrorMessages<string>>
   clearAccount?: () => void
@@ -23,7 +19,7 @@ export interface UseApiErrorCallerType {
 
 export const useApiError = function <BER extends object = BackendErrorResource>(
   flash: Ref<Flash>,
-  options?: UseApiErrorOptions,
+  caller?: UseApiErrorCallerType,
 ): {
   backendErrorInfo: WritableComputedRef<
     BackendErrorInfo<BackendErrorsResource<BER>>,
@@ -51,8 +47,6 @@ export const useApiError = function <BER extends object = BackendErrorResource>(
 } {
   const { $i18n } = useNuxtApp()
   const { t } = $i18n
-
-  const caller = options?.caller
 
   const { backendErrorInfo: info, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
 
