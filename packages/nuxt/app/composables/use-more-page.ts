@@ -10,7 +10,7 @@ interface MorePage {
   max: number
 }
 
-export const useMorePage = function (options?: { key?: string | null }): {
+export const useMorePage = function (key?: string | null): {
   firstPage: WritableComputedRef<number>
   pages: WritableComputedRef<number>
   currentPage: ComputedRef<number>
@@ -21,8 +21,6 @@ export const useMorePage = function (options?: { key?: string | null }): {
   decrement: () => void
   increment: () => void
 } {
-  const key = options?.key
-
   const morePage = useState<MorePage>(key ? 'morePage:' + key : 'morePage', () => {
     return {
       first: 1,

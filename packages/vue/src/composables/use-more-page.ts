@@ -3,7 +3,7 @@ import { computed, type ComputedRef, type WritableComputedRef } from '@vue/react
 import { useMorePageStore } from '~/stores'
 import { MorePage } from '~/types'
 
-export const useMorePage = function (options?: { key?: string | null }): {
+export const useMorePage = function (key?: string | null): {
   firstPage: WritableComputedRef<number, number>
   pages: WritableComputedRef<number, number>
   currentPage: ComputedRef<number>
@@ -14,8 +14,6 @@ export const useMorePage = function (options?: { key?: string | null }): {
   decrement: () => void
   increment: () => void
 } {
-  const key = options?.key
-
   const morePage = useMorePageStore(key)
 
   const firstPage = computed<number>({
