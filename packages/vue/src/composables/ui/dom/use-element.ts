@@ -4,8 +4,8 @@ import { customRef, type Ref } from '@vue/reactivity'
 export const useElement = function <EL extends Element>(
   el: EL | undefined | null,
   { property, properties }: { property?: string; properties?: string[] },
-): Record<string, Ref<string, string | null | undefined>> {
-  const obj: Partial<Record<string, Ref<string, string | null | undefined>>> = {}
+): Record<string, Ref<string | null | undefined>> {
+  const obj: Partial<Record<string, Ref<string | null | undefined>>> = {}
 
   const toLowerCamel = (str: string) => {
     return str.toLowerCase().replace(/(-[a-z])/g, (group) => group.toUpperCase().replace('-', ''))
@@ -16,7 +16,7 @@ export const useElement = function <EL extends Element>(
       ? toLowerCamel(prop.replace('data-', ''))
       : undefined
 
-    const propertyRef = customRef<string, string | null | undefined>((track, trigger) => {
+    const propertyRef = customRef<string | null | undefined>((track, trigger) => {
       return {
         get() {
           track()
@@ -24,12 +24,12 @@ export const useElement = function <EL extends Element>(
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             return el && 'dataset' in el && dataAttrProp in (el.dataset as any) // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
               ? ((el.dataset as any)[dataAttrProp] as string)
-              : ''
+              : undefined
           } else {
             return el && prop in el
               ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
                 ((el as any)[prop] as string)
-              : ''
+              : undefined
           }
         },
         set(value: string | null | undefined) {
@@ -61,5 +61,5 @@ export const useElement = function <EL extends Element>(
     })
   }
 
-  return obj as Record<string, Ref<string, string | null | undefined>>
+  return obj as Record<string, Ref<string | null | undefined>>
 }
