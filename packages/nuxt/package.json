@@ -38,10 +38,10 @@
     "eslint-typegen": "^2.3.1",
     "nuxt": "^4.5.2",
     "ofetch": "^1.5.1",
-    "oxfmt": "^0.72.0",
+    "oxfmt": "^0.73.0",
     "typescript": "^6.0.3 || ^7.0.2"
   },
   "peerDependencies": {
-    "vue": "^3.5.43 || ^3.6.0-rc.11"
+    "vue": "^3.5.44 || ^3.6.0-rc.11"
   }
 }
