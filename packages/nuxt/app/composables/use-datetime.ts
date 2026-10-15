@@ -2,7 +2,7 @@ import { parse, format } from '@formkit/tempo'
 
 import { useLocale } from './use-locale'
 
-export const useDatetime = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
+export const useDatetime = function (fmt = 'YYYY/MM/DD HH:mm'): {
   upDTL: (datetime: string | null) => string | null
   downDTL: (datetime: string | null) => string
   toISO8601: (datetime: string) => string
@@ -12,16 +12,16 @@ export const useDatetime = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
 
   const fmtISO8601 = 'YYYY-MM-DDTHH:mm'
 
-  const parseDT = (datetime: string, format: string): Date => {
-    return parse(datetime, format, locale.value)
+  const parseDT = (datetime: string, fmtDT: string): Date => {
+    return parse(datetime, fmtDT, locale.value)
   }
 
   const toISO8601 = (datetime: string): string => {
-    return format(parseDT(datetime, fmtDT), fmtISO8601, locale.value)
+    return format(parseDT(datetime, fmt), fmtISO8601, locale.value)
   }
 
   const fromISO8601 = (datetime: string): string => {
-    return format(parseDT(datetime, fmtISO8601), fmtDT, locale.value)
+    return format(parseDT(datetime, fmtISO8601), fmt, locale.value)
   }
 
   const upDTL = (datetime: string | null): string | null => {
@@ -32,8 +32,8 @@ export const useDatetime = function (fmtDT = 'YYYY/MM/DD HH:mm'): {
     return datetime ? fromISO8601(datetime) : ''
   }
 
-  const formatDT = (datetime: string | null, fmt: string): string => {
-    return datetime ? format(parseDT(datetime, fmtDT), fmt, locale.value) : ''
+  const formatDT = (datetime: string | null, fmtDT: string): string => {
+    return datetime ? format(parseDT(datetime, fmt), fmtDT, locale.value) : ''
   }
 
   return { upDTL, downDTL, toISO8601, formatDT }
