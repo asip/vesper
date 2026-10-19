@@ -30,6 +30,10 @@ export default defineNuxtConfig({
 })
 ```
 
+## Vesper Rails
+
+<https://github.com/asip/vesper-rails>
+
 ## App that use Vesper
 
 Vesper Vue
