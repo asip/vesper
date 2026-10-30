@@ -1,8 +1,8 @@
-import { WritableComputedRef } from '@vue/reactivity'
+import { Ref } from '@vue/reactivity'
 import { useConfigStore } from '~/stores/use-config-store'
 
 export const useApiConfig = function (): {
-  baseURL: WritableComputedRef<string | undefined>
+  baseURL: Ref<string | undefined>
 } {
   const { baseURL } = useConfigStore()
 

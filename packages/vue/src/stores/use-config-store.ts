@@ -1,10 +1,10 @@
-import type { WritableComputedRef } from '@vue/reactivity'
+import type { Ref } from '@vue/reactivity'
 
 import { useBaseUrlStore, useTimeZoneStore } from './nano'
 
 export const useConfigStore = function (): {
-  baseURL: WritableComputedRef<string | undefined>
-  serverTZ: WritableComputedRef<string | undefined>
+  baseURL: Ref<string | undefined>
+  serverTZ: Ref<string | undefined>
 } {
   const { baseURL } = useBaseUrlStore()
   const { serverTZ } = useTimeZoneStore()
