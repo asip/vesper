@@ -1,15 +1,7 @@
-import { createI18n } from 'vue-i18n'
+import type { I18n } from 'vue-i18n'
 
-import { locales } from './locales'
+export let i18n: I18n | undefined
 
-const { en, ja } = locales
-
-export const i18n = createI18n({
-  legacy: false,
-  locale: 'en', // set locale
-  fallbackLocale: 'en', // set fallback locale
-  messages: {
-    en,
-    ja,
-  },
-})
+export const setI18n = function (value: I18n) {
+  i18n = value
+}

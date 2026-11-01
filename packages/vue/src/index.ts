@@ -30,7 +30,7 @@ export {
   useAnyRecordStore,
 } from './stores'
 
-export { i18n, locales } from './i18n'
+export { i18n, locales, setI18n } from './i18n'
 
 export type {
   BackendErrorInfo,

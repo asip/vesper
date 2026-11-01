@@ -22,8 +22,7 @@ export const useLocale = function (): {
     type AvailableLocales = (typeof availableLocales)[number]
 
     locale.value = (
-      (availableLocales).includes(browserLocale) ||
-      (availableLocales).includes(browserShortLocale)
+      availableLocales.includes(browserLocale) || availableLocales.includes(browserShortLocale)
         ? browserLocale
         : fallbackLocale.value
     ) as AvailableLocales
