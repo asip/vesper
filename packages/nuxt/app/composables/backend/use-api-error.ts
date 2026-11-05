@@ -17,8 +17,11 @@ export interface UseApiErrorCallerType {
   clearAccount?: () => void
 }
 
-export const useApiError = function <BER extends object = BackendErrorResource>(
-  flash: Ref<Flash>,
+export const useApiError = function <
+  BER extends object = BackendErrorResource,
+  F extends Flash = Flash,
+>(
+  flash: Ref<F>,
   caller?: UseApiErrorCallerType,
 ): {
   backendErrorInfo: WritableComputedRef<

@@ -8,8 +8,8 @@ import {
 
 import type { ErrorMessages, Flash } from '~/types'
 
-export const useExternalErrors = function <P extends string>(
-  flash: Ref<Flash>,
+export const useExternalErrors = function <P extends string, F extends Flash = Flash>(
+  flash: Ref<F>,
 ): {
   externalErrors: WritableComputedRef<ErrorMessages<P>>
   clearExternalErrors: () => void
