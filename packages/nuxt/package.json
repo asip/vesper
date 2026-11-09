@@ -29,7 +29,7 @@
     "fmt": "oxfmt"
   },
   "devDependencies": {
-    "@formkit/tempo": "^1.1.0",
+    "@formkit/tempo": "^1.1.1",
     "@nuxt/eslint": "^1.17.0",
     "@nuxtjs/i18n": "^10.6.0",
     "@types/node": "^24.19.2 || ^26.6.6",
@@ -38,7 +38,7 @@
     "eslint-typegen": "^2.3.2",
     "nuxt": "^4.5.2",
     "ofetch": "^1.5.1",
-    "oxfmt": "^0.76.0",
+    "oxfmt": "^0.77.0",
     "typescript": "^6.0.3 || ^7.0.2"
   },
   "peerDependencies": {
