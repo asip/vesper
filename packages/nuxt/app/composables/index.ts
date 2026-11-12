@@ -7,6 +7,8 @@ export {
   useApi,
   useMutationApi,
   useQueryApi,
+  useApiConfig,
+  useHttpHeaders,
   useExternalErrors,
   useApiError,
   useFormAction,

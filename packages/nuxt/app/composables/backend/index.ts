@@ -6,6 +6,8 @@ export {
   useOFetch,
   useMutationApi,
   useQueryApi,
+  useApiConfig,
+  useHttpHeaders,
   type MutationApiOptions,
   type QueryApiOptions,
 } from './api'

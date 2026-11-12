@@ -89,11 +89,15 @@ Vesper Nuxt Layer
 #### useMutationApi
 
 #### useOFetch
-ofetchのラッパー
+ofetch wrapper (ofetchのラッパー)
+
+#### useApiConfig
+
+#### useHttpHeaders
 
 #### createFetch (nuxt only)
 
-#### createRequestFetch (nuxt  only)
+#### createRequestFetch (nuxt only)
 
 ### [backend/error]
 
