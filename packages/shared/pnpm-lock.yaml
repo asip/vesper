@@ -12,7 +12,7 @@ importers:
         specifier: ^1.1.1
         version: 1.1.1
       '@vue/reactivity':
-        specifier: ^3.5.45 || ^3.6.0-rc.14
+        specifier: ^3.5.45 || ^3.6.0-rc.15
         version: 3.5.45
     devDependencies:
       '@eslint/js':
@@ -818,6 +818,7 @@ packages:
   postcss-selector-parser@7.2.0:
     resolution: {integrity: sha512-Khh/tERVBn0I1499dvBSHY0pWJloMJWUxDsOBM0CCDPAcVZ10Jl2L1qy1f19uEX22spa8Mv7DCdEQJc0cGwBhQ==}
     engines: {node: '>=4'}
+    deprecated: Double-escapes CSS Modules class names (#362). Use 7.2.1.
 
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
