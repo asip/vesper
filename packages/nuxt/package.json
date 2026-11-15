@@ -34,7 +34,7 @@
     "@nuxtjs/i18n": "^10.6.0",
     "@types/node": "^24.19.2 || ^26.6.6",
     "@vesperjs/shared": "0.16.0",
-    "eslint": "^10.14.0",
+    "eslint": "^10.15.0",
     "eslint-typegen": "^2.3.2",
     "nuxt": "^4.5.2",
     "ofetch": "^1.5.1",
