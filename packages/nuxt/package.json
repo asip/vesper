@@ -39,7 +39,8 @@
     "nuxt": "^4.5.2",
     "ofetch": "^1.5.1",
     "oxfmt": "^0.78.0",
-    "typescript": "^6.0.3 || ^7.0.2"
+    "typescript": "^6.0.3 || ^7.0.2",
+    "vue-i18n": "^11.4.20"
   },
   "peerDependencies": {
     "vue": "^3.5.45 || ^3.6.0-rc.15"

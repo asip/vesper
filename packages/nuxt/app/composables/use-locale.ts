@@ -1,4 +1,5 @@
 import { useNuxtApp } from 'nuxt/app'
+import type { Composer } from 'vue-i18n'
 
 export const useLocale = function (): {
   locale: WritableComputedRef<string>
@@ -6,8 +7,7 @@ export const useLocale = function (): {
   autodetect: () => void
 } {
   const { $i18n } = useNuxtApp()
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { locale, availableLocales, fallbackLocale } = $i18n as any
+  const { locale, availableLocales, fallbackLocale } = $i18n as Composer
 
   const toShortLocale = (locale: string | null) => locale?.split('-')[0] ?? null
 
@@ -16,12 +16,15 @@ export const useLocale = function (): {
   const browserLocale = useBrowserLocale()
   const browserShortLocale = toShortLocale(browserLocale)
 
+  type AvailableLocales = (typeof availableLocales)[number]
+
   const autodetect = (): void => {
-    locale.value =
+    locale.value = (
       (availableLocales as string[]).includes(browserLocale ?? '') ||
       (availableLocales as string[]).includes(browserShortLocale ?? '')
         ? browserLocale
         : fallbackLocale.value
+    ) as AvailableLocales
   }
 
   return { locale, shortLocale, autodetect }

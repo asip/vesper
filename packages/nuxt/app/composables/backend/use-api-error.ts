@@ -1,5 +1,6 @@
 import type { FetchError } from 'ofetch'
 import type { NuxtError } from 'nuxt/app'
+import type { Composer } from 'vue-i18n'
 
 import type {
   ErrorsResource,
@@ -49,7 +50,7 @@ export const useApiError = function <
   off: Ref<boolean>
 } {
   const { $i18n } = useNuxtApp()
-  const { t } = $i18n
+  const { t } = $i18n as Composer
 
   const { backendErrorInfo: info, clearBackendErrorInfo } = useBackendErrorInfo<BER>()
 
