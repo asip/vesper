@@ -27,19 +27,19 @@
     "fmt:check": "oxfmt --check"
   },
   "dependencies": {
-    "@formkit/tempo": "^1.1.1"
+    "@formkit/tempo": "^1.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.72.2",
-    "@typescript-eslint/parser": "^8.72.2",
+    "@typescript-eslint/eslint-plugin": "^8.73.0",
+    "@typescript-eslint/parser": "^8.73.0",
     "@vue/eslint-config-typescript": "^14.9.0",
     "eslint": "^10.15.0",
     "eslint-plugin-vue": "^10.12.1",
-    "oxfmt": "^0.78.0",
+    "oxfmt": "^0.79.0",
     "tsdown": "^0.23.7",
     "typescript": "^6.0.3 || ^7.0.2",
-    "typescript-eslint": "^8.72.2"
+    "typescript-eslint": "^8.73.0"
   },
   "peerDependencies": {
     "@vue/reactivity": "^3.5.45 || ^3.6.0-rc.15"
