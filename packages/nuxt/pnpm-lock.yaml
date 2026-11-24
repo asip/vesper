@@ -13,8 +13,8 @@ importers:
         version: 3.5.46(typescript@6.0.3)
     devDependencies:
       '@formkit/tempo':
-        specifier: ^1.3.0
-        version: 1.3.0
+        specifier: ^1.5.0
+        version: 1.5.0
       '@nuxt/eslint':
         specifier: ^1.17.0
         version: 1.17.0(@typescript-eslint/utils@8.70.0(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(supports-color@10.2.2)(typescript@6.0.3))(@vue/compiler-sfc@3.5.46)(esbuild@0.28.1)(eslint@10.15.0(jiti@2.7.0)(supports-color@10.2.2))(magic-string@1.2.3)(magicast@0.5.4)(oxc-parser@0.141.0)(rolldown@1.2.6)(rollup@4.62.2)(srvx@0.11.22)(supports-color@10.2.2)(typescript@6.0.3)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.6)(rollup@4.62.2)(vite@8.2.2(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.46.1)(yaml@2.9.0)))(vite@8.2.2(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.46.1)(yaml@2.9.0))
@@ -646,8 +646,8 @@ packages:
     resolution: {integrity: sha512-IkO+/KEUvwbVpiURZg+P7zF74z5Jxe0UgJxVni+RtoHQ6IZieXaO02kmadomap/q+l6bc/jdPGGqTjhuZnuz1Q==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@formkit/tempo@1.3.0':
-    resolution: {integrity: sha512-1Eeo4T3Tvvdq9j8viIRsk1ihr0HVx0IKiiP8s3ZsSHUFP+aZLYF8et18bVLClU5T2KhORPrr9aJkgNC/u10I2g==}
+  '@formkit/tempo@1.5.0':
+    resolution: {integrity: sha512-vgg4jHNs7Lc0H4DXEN/asrHBMbUD7eCUsjpLiB6a9M7yaF5yDJG0MlD9bTX9/oFPlzxU3AMUQ5zpkEJ1oBTUzg==}
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -5412,7 +5412,7 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@formkit/tempo@1.3.0': {}
+  '@formkit/tempo@1.5.0': {}
 
   '@humanfs/core@0.19.2':
     dependencies:
@@ -6872,7 +6872,7 @@ snapshots:
 
   '@vesperjs/shared@0.16.0(@vue/reactivity@3.5.46)':
     dependencies:
-      '@formkit/tempo': 1.3.0
+      '@formkit/tempo': 1.5.0
       '@vue/reactivity': 3.5.46
 
   '@vitejs/devtools-kit@0.4.9(cac@7.0.0)(srvx@0.11.22)(typescript@6.0.3)(vite@8.2.2(@types/node@26.6.6)(esbuild@0.28.1)(jiti@2.7.0)(terser@5.46.1)(yaml@2.9.0))':

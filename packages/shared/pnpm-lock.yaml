@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@formkit/tempo':
-        specifier: ^1.2.0
-        version: 1.2.0
+        specifier: ^1.5.0
+        version: 1.5.0
       '@vue/reactivity':
         specifier: ^3.5.46 || ^3.6.0-rc.16
         version: 3.5.46
@@ -102,8 +102,8 @@ packages:
     resolution: {integrity: sha512-IkO+/KEUvwbVpiURZg+P7zF74z5Jxe0UgJxVni+RtoHQ6IZieXaO02kmadomap/q+l6bc/jdPGGqTjhuZnuz1Q==}
     engines: {node: ^20.19.0 || ^22.13.0 || >=24}
 
-  '@formkit/tempo@1.2.0':
-    resolution: {integrity: sha512-GBJaUmLxwocG2CIj0ihTRUHj5wJSeQ4rWnhXG/AjmQSeTJpAsu73UypFbdBmo87tV1E1y8eVpEimc1kU5v+6jQ==}
+  '@formkit/tempo@1.5.0':
+    resolution: {integrity: sha512-vgg4jHNs7Lc0H4DXEN/asrHBMbUD7eCUsjpLiB6a9M7yaF5yDJG0MlD9bTX9/oFPlzxU3AMUQ5zpkEJ1oBTUzg==}
 
   '@humanfs/core@0.19.2':
     resolution: {integrity: sha512-UhXNm+CFMWcbChXywFwkmhqjs3PRCmcSa/hfBgLIb7oQ5HNb1wS0icWsGtSAUNgefHeI+eBrA8I1fxmbHsGdvA==}
@@ -1082,7 +1082,7 @@ snapshots:
       '@eslint/core': 1.2.1
       levn: 0.4.1
 
-  '@formkit/tempo@1.2.0': {}
+  '@formkit/tempo@1.5.0': {}
 
   '@humanfs/core@0.19.2':
     dependencies:
