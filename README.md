@@ -6,29 +6,11 @@ This might be a collection of composables and types designed to assist with mode
 
 ## Vesper Vue
 
-Vesper Vue is built for Vue.js.
-
-``` bash
-pnpm i @vesperjs/vue
-```
+<https://github.com/asip/vesper/tree/main/packages/vue>
 
 ## Vesper Nuxt Layer
 
-Vesper Nuxt Layer is built for Nuxt.
-
-``` bash
-pnpm i @vesperjs/nuxt
-```
-
-``` nuxt.config.ts
-import { defineNuxtConfig } from 'nuxt/config'
-
-export default defineNuxtConfig({
-  ...
-  extends: ['@vesperjs/nuxt'],
-  ...
-})
-```
+<https://github.com/asip/vesper/tree/main/packages/nuxt>
 
 ## Vesper Rails
 
