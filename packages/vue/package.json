@@ -39,15 +39,15 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@types/js-cookie": "^3.0.6",
-    "@typescript-eslint/eslint-plugin": "^8.73.0",
-    "@typescript-eslint/parser": "^8.73.0",
+    "@typescript-eslint/eslint-plugin": "^8.74.0",
+    "@typescript-eslint/parser": "^8.74.0",
     "@vue/eslint-config-typescript": "^14.9.0",
     "eslint": "^10.15.0",
     "eslint-plugin-vue": "^10.12.1",
-    "oxfmt": "^0.79.0",
+    "oxfmt": "^0.80.0",
     "tsdown": "^0.23.7",
     "typescript": "^6.0.3 || ^7.0.2",
-    "typescript-eslint": "^8.73.0"
+    "typescript-eslint": "^8.74.0"
   },
   "peerDependencies": {
     "@vue/reactivity": "^3.5.46 || ^3.6.0-rc.16",
