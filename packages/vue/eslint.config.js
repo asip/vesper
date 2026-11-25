@@ -3,11 +3,6 @@ import typescriptESLintParser from '@typescript-eslint/parser'
 import typescriptESLint from '@typescript-eslint/eslint-plugin'
 
 export default [
-  {
-    ignores: [
-      './app/assets/builds/**/*', // Ignore built files.
-    ],
-  },
   js.configs.recommended,
   {
     languageOptions: {
