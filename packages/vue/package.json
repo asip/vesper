@@ -34,7 +34,7 @@
     "js-cookie": "^3.0.8",
     "nanostores": "^1.5.5",
     "ofetch": "^1.5.1",
-    "vue-i18n": "^11.4.23"
+    "vue-i18n": "^11.4.24"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
