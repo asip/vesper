@@ -16,7 +16,7 @@ export const useCookie = function <T extends object | string = string>(
     (track, trigger) => {
       return {
         get() {
-          let cookieValue = Cookies.get(name)
+          const cookieValue = Cookies.get(name)
           if (watchOption) track()
           try {
             return cookieValue ? (JSON.parse(cookieValue) as T) : undefined

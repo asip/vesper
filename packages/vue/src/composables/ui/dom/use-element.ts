@@ -1,6 +1,5 @@
 import { customRef, type Ref } from '@vue/reactivity'
 
-// eslint-disable-next-line @typescript-eslint/no-unnecessary-type-parameters
 export const useElement = function <EL extends Element>(
   el: EL | undefined | null,
   { property, properties }: { property?: string; properties?: string[] },
@@ -22,12 +21,12 @@ export const useElement = function <EL extends Element>(
           track()
           if (dataAttrProp) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
-            return el && 'dataset' in el && dataAttrProp in (el.dataset as any) // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+            return el && 'dataset' in el && dataAttrProp in (el.dataset as any) // eslint-disable-next-line @typescript-eslint/no-explicit-any
               ? ((el.dataset as any)[dataAttrProp] as string)
               : undefined
           } else {
             return el && prop in el
-              ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+              ? // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 ((el as any)[prop] as string)
               : undefined
           }
@@ -36,12 +35,12 @@ export const useElement = function <EL extends Element>(
           if (dataAttrProp) {
             // eslint-disable-next-line @typescript-eslint/no-explicit-any
             if (el && 'dataset' in el && dataAttrProp in (el.dataset as any)) {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               ;(el.dataset as any)[dataAttrProp] = value ?? ''
             }
           } else {
             if (el && prop in el) {
-              // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-explicit-any
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
               ;(el as any)[prop] = value ?? ''
             }
           }

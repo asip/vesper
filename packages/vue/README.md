@@ -4,6 +4,6 @@ This is Vesper for Vue.js.
 
 ## Introduction
 
-``` bash
+```bash
 pnpm i @vesperjs/vue
 ```
