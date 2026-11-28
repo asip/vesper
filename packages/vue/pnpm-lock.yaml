@@ -24,13 +24,13 @@ importers:
         specifier: 0.16.0
         version: 0.16.0(@vue/reactivity@3.5.46)
       '@vue/reactivity':
-        specifier: ^3.5.46 || ^3.6.0-rc.16
+        specifier: ^3.5.46 || ^3.6.0-rc.17
         version: 3.5.46
       '@vue/runtime-core':
-        specifier: ^3.5.46 || ^3.6.0-rc.16
+        specifier: ^3.5.46 || ^3.6.0-rc.17
         version: 3.5.46
       '@vue/runtime-dom':
-        specifier: ^3.5.46 || ^3.6.0-rc.16
+        specifier: ^3.5.46 || ^3.6.0-rc.17
         version: 3.5.46
       js-cookie:
         specifier: ^3.0.8
@@ -42,7 +42,7 @@ importers:
         specifier: ^1.5.1
         version: 1.5.1
       vue:
-        specifier: ^3.5.46 || ^3.6.0-rc.16
+        specifier: ^3.5.46 || ^3.6.0-rc.17
         version: 3.5.46(typescript@6.0.3)
       vue-i18n:
         specifier: ^11.4.24

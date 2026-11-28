@@ -46,9 +46,9 @@
     "typescript-eslint": "^8.74.0"
   },
   "peerDependencies": {
-    "@vue/reactivity": "^3.5.46 || ^3.6.0-rc.16",
-    "@vue/runtime-core": "^3.5.46 || ^3.6.0-rc.16",
-    "@vue/runtime-dom": "^3.5.46 || ^3.6.0-rc.16",
-    "vue": "^3.5.46 || ^3.6.0-rc.16"
+    "@vue/reactivity": "^3.5.46 || ^3.6.0-rc.17",
+    "@vue/runtime-core": "^3.5.46 || ^3.6.0-rc.17",
+    "@vue/runtime-dom": "^3.5.46 || ^3.6.0-rc.17",
+    "vue": "^3.5.46 || ^3.6.0-rc.17"
   }
 }

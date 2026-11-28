@@ -12,7 +12,7 @@ importers:
         specifier: ^1.6.0
         version: 1.6.0
       '@vue/reactivity':
-        specifier: ^3.5.46 || ^3.6.0-rc.16
+        specifier: ^3.5.46 || ^3.6.0-rc.17
         version: 3.5.46
     devDependencies:
       '@eslint/js':
